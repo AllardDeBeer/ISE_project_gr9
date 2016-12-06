@@ -20,30 +20,27 @@
             <h1>BPRC</h1>
           </div>
         </div>
-      </div>
+	</div>
 
       <div class="column large-9 right-screen">
         <div class="large-12">
-          <div class="loginmargin">
-			
-				<div class="row">
-					<div class="large-5 large-offset-3 large-offset-1 columns loginmargin"><h1> Donkey Kong</h1> </div>
-				</div>
-				<div class ="row">
-					<div class="large-4 large-offset-3 columns">
-						<form action="handlers/login_handler.php" method="POST">
-							Gebruikersnaam: <input type="text" name="username"><br>
-							Wachtwoord: <input type="password" name="password"><br>
-							<div class="wwvergeten">
-							 <a href="wachtwoord_vergeten.html"> Wachtwoord vergeten?<a> 
-							</div>
-							<div class ="row">
-								<input type="submit" class="button" value="Submit">
-							</div>
-						</form>
-				  </div>
-			  </div>
-	  </div>
+          <div class="container">
+              <div class ="row">
+				<h2 class="textcenter">Wachtwoord vergeten</h2>
+			  	<form action="login.html">			
+					<div class="large-7 large-offset-2">
+						<h4 class="">Wat is het geboorteland van uw vader?</h4>
+						<input type="text" name="Antwoord"><br>
+						Nieuw wachtwoord:<input type="text" name="Wachtwoord"><br>
+						Herhaal nieuw wachtwoord<input type="text" name="WachtwoordHerhaald"><br>
+						<input type="submit" class="button" value="Submit">
+					</div>
+			  </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
