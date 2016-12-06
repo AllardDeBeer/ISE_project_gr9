@@ -90,7 +90,7 @@
       <duv class="column large-9 right-screen">
         <div class="large-12">
           <div class="container">
-            
+            <?php echo "hello world" ?>
           </div>
         </div>
       </duv>
