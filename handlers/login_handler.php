@@ -15,7 +15,7 @@
                $_SESSION['username'] = $result['GEBRUIKERSNAAM'];
                $_SESSION['firstname'] = $result['VOORNAAM'];
                $_SESSION['surname'] = $result['ACHTERNAAM'];
-               header('Location: ../beheer_onderzoek.php');
+               header('Location: ../beheer_onderzoek.html');
           } else {
                header("Refresh:0; ../login.html");
           }
