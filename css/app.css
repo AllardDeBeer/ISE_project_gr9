@@ -56,7 +56,7 @@ body{
 
 .container{
 	border: 2px solid black;
-	margin: 100px;
+	margin: 5% 100px 0px 100px;
 	max-height: 650px;
 	overflow-y: scroll;
 }

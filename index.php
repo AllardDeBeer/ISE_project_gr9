@@ -1,3 +1,7 @@
+<?php
+  include 'includes/database_functions.php';
+?>
+
 <!doctype html>
 <html class="no-js" lang="en" dir="ltr">
   <head>
@@ -9,7 +13,7 @@
     <link rel="stylesheet" href="css/app.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body>
+  <body onhashchange="updateContainer();">
     <div class="expanded row">
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
@@ -22,55 +26,69 @@
         </div>
         <div class="expanded row menu">
         <h2 class="text-center">Menu</h2>
+        <?php 
+          
+        ?>
           <ul class="vertical menu" data-drilldown>
-            <li><a href="#nieuwonderzoek">Nieuw onderzoek</a></li>
+            <li><a href="#nieuw_onderzoek">Nieuw onderzoek</a></li>
             <li>
-              <a href="#openonderzoek">Open onderzoek</a>
+              <a href="#open_onderzoek">Open onderzoek</a>
               <ul class="vertical menu">
-                <li>
-                  <a href="#Item-1A">Gedrag I</a>
-                  <ul class="vertical menu">
-                    <li>
-                      <a href="#Item-1A">Lepel zwart I</a>
-                      <ul class="vertical menu">
-                        <li>
-                          <a href="#Item-1A">Toon resultaten</a>
-                        </li>
-                        <li>
-                          <a href="#Item-1A">Voeg resultaten toe</a>
-                        </li>
-                        <li>
-                          <a href="#Item-1A" style="height: 300px;">Bewerk proef</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#Item-1A">Lepel zwart II</a>
-                    </li>
-                    <li>
-                      <a href="#Item-1A">Lepel wit I</a>
-                    </li>
-                    <li>
-                      <a href="#Item-1A">Lepel wit II</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="#Item-1A">Gedrag II</a>
-                </li>
-                <li>
-                  <a href="#Item-1A">Voeding I</a>
-                </li>
-                <li>
-                  <a href="#Item-1A">Voeding II</a>
-                </li>
-              </ul>
-            </li>
+              <?php
+                db_open();
+
+                $onderzoeken = db_query("SELECT onderzoek_naam, onderzoek_id FROM onderzoek");
+                while($o_row = db_fetchAssoc($onderzoeken)) {
+                 // echo "1:" . $o_row['onderzoek_naam'] . "<br>";
+                    echo  "<li>
+                            <a href=\"#\">" . $o_row['onderzoek_naam'] . "</a>
+                            <ul class=\"vertical menu\">
+                              <li>
+                                <a href=\"#nieuw_proef\">Nieuwe proef</a>
+                              </li>
+                              <li>
+                                <a href=\"#\">Open proef</a>";
+                  $proefids = db_query("SELECT proef_id FROM ProefVoorOnderzoek WHERE onderzoek_id = " . $o_row['onderzoek_id']);
+                  if(db_hasRows($proefids)){
+                      echo "<ul class=\"vertical menu\">";
+                      while($pid_row = db_fetchAssoc($proefids)) {
+                         $proef = db_fetchAssoc(db_query("SELECT proef_naam FROM proef WHERE proef_id = " . $pid_row['proef_id']));
+                         
+                         echo  "<li>
+                                  <a href=\"#\">" . $proef['proef_naam'] . "</a>
+                                  <ul class=\"vertical menu\">
+                                    <li>
+                                      <a href=\"#toon_resultaten\">Toon resultaten</a>
+                                    </li>
+                                    <li>
+                                      <a href=\"#nieuw_resultaten\">Voeg resultaten toe</a>
+                                    </li>
+                                    <li>
+                                      <a href=\"#beheer_proef\" style=\"height: 300px;\">Beheer proef</a>
+                                    </li>
+                                  </ul>
+                                </li>";
+                         
+                      }
+                      echo   "</ul>";
+                    }
+                    echo  "</li>
+                          <li>
+                            <a href=\"#beheer_onderzoek\" style=\"height: 300px;\">Beheer Onderzoek</a>
+                          </li>
+                        </ul>
+                      </li>";
+                }
+
+                db_close();
+              ?>
+              </ul> 
+            </li>  
             <li>
-              <a href="#beheerapen">Beheer apen</a>
+              <a href="#">Beheer apen</a>
               <ul class="vertical menu">
-                <li><a href="#apentoevoegen">Apen toevoegen</a></li>
-                <li><a href="#apenverwijderen">Apen verwijderen</a></li>
+                <li><a href="#toevoegen_apen">Apen toevoegen</a></li>
+                <li><a href="#verwijder_apen">Apen verwijderen</a></li>
               </ul>
             </li>
           </ul>
@@ -90,7 +108,7 @@
       <duv class="column large-9 right-screen">
         <div class="large-12">
           <div class="container">
-            <?php echo "hello world" ?>
+            
           </div>
         </div>
       </duv>
