@@ -1,5 +1,10 @@
 <?php
+  session_start();
   include 'includes/database_functions.php';
+
+  if (!isset($_SESSION['username'])) {
+    header("Refresh:0; ../login.html");
+  }
 ?>
 
 <!doctype html>
@@ -35,7 +40,6 @@
               <a href="#open_onderzoek">Open onderzoek</a>
               <ul class="vertical menu">
               <?php
-                session_start();
                 db_open();
 
                 $onderzoeken = db_query("SELECT onderzoek_naam, onderzoek_id FROM onderzoek");
