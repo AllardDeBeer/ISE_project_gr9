@@ -7,7 +7,7 @@
 		if($_GET['value'] == 'opslaan') {
 			
 			$PROEF_NAAM = $_POST['researchName'];
-			$sql = "INSERT INTO PROEF ([PROEF_NAAM]) VALUES ('$PROEF_NAAM')";
+			$sql = "INSERT INTO PROEF ([PROEF_NAAM]) VALUES ('{$PROEF_NAAM}')";
 			$stmt = db_query($sql);
 			
 		} else if ($_GET['value'] == 'verwijderen') {
