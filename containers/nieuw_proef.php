@@ -43,7 +43,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>Chortisol</td>
+                <td>Cortisol</td>
                 <td>Percentage (%)</td>
                 <td><input type="checkbox" name="select" value="HdV"></td>
               </tr>
