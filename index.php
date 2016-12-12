@@ -1,5 +1,10 @@
 <?php
+  session_start();
   include 'includes/database_functions.php';
+
+  if (!(isset($_SESSION['username']))) {
+    header("Refresh:0; ../login.html");
+  }
 ?>
 
 <!doctype html>
@@ -95,7 +100,7 @@
         </div>
         <div class="expanded row settings align-self-bottom">
           <div class="column large-12 researcher">
-            <h4 class="text-center">Ingrid Phillippens</h4>
+            <h4 class="text-center"><?php echo $_SESSION['firstname'].' '.$_SESSION['surname'] ?></h4>
           </div>
           <div class="column large-12">
             <div class="button-group">
