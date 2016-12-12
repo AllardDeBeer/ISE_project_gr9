@@ -35,6 +35,7 @@
               <a href="#open_onderzoek">Open onderzoek</a>
               <ul class="vertical menu">
               <?php
+                session_start();
                 db_open();
 
                 $onderzoeken = db_query("SELECT onderzoek_naam, onderzoek_id FROM onderzoek");
@@ -95,7 +96,7 @@
         </div>
         <div class="expanded row settings align-self-bottom">
           <div class="column large-12 researcher">
-            <h4 class="text-center">Ingrid Phillippens</h4>
+            <h4 class="text-center"><?php echo $_SESSION['firstname'].' '.$_SESSION['surname'] ?></h4>
           </div>
           <div class="column large-12">
             <div class="button-group">
