@@ -26,9 +26,6 @@
         </div>
         <div class="expanded row menu">
         <h2 class="text-center">Menu</h2>
-        <?php 
-          
-        ?>
           <ul class="vertical menu" data-drilldown>
             <li><a href="#nieuw_onderzoek">Nieuw onderzoek</a></li>
             <li>
@@ -105,13 +102,13 @@
           </div>
         </div>
       </div>
-      <duv class="column large-9 right-screen">
+      <div class="column large-9 right-screen">
         <div class="large-12">
           <div class="container">
             
           </div>
         </div>
-      </duv>
+      </div>
     </div>
 
     <script src="js/vendor/jquery.js"></script>

@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <div class="container">
   <div class="row">
     <div class="column large-12">
@@ -6,52 +9,52 @@
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart">
         <label for="researchName">Naam</label>
-        <input type="text" name="researchName" required>
+        <input type="text" name="researchName">
         <hr>
-        <form action="#" name="newFieldForm" method="POST" enctype="multipart">
-          <label for="newField">Veld toevoegen</label>
-          <table name="newField">
-            <thead>
-              <tr>
-                <th>Naam</th>
-                <th>Datatype</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><input type="text" name="fieldName" required></td>
-                <td><select name="fieldDataType">
-                  <option>Geheel getal</option>
-                  <option>Tekst</option>
-                  <option>Komma getal</option>
-                  <option>Percentage (%)</option>
-                </select></td>
-              </tr>
-            </tbody>
-          </table>
-          <input type="submit" name="submit" value="Voeg toe" class="button">
-        </form>
+
+        <label for="newField">Veld toevoegen</label>
+        <table name="newField">
+          <thead>
+            <tr>
+              <th>Naam</th>
+              <th>Datatype</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="text" name="fieldName"></td>
+              <td><select name="fieldDataType">
+                <option>Geheel getal</option>
+                <option>Tekst</option>
+                <option>Komma getal</option>
+                <option>Percentage (%)</option>
+              </select></td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="submit" name="submit" value="Voeg toe" class="button">
         <hr>
-        <form action="#" name="removeFieldForm" method="POST" enctype="multipart">
-          <table>
-            <thead>
-              <tr>
-                <th>Naam</th>
-                <th>Datatype</th>
-                <th>Selecteer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Cortisol</td>
-                <td>Percentage (%)</td>
-                <td><input type="checkbox" name="select" value="HdV"></td>
-              </tr>
-            </tbody>
-          </table>
-          <input type="submit" name="button" value="Verwijder" class="button right">
-        </form>
-        <input type="submit" name="submit" value="Opslaan" class="button">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Naam</th>
+              <th>Datatype</th>
+              <th>Selecteer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cortisol</td>
+              <td>Percentage (%)</td>
+              <td><input type="checkbox" name="select" value="HdV"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan">
+        <input type="submit" value="Verwijderen" class="button right" formaction="../handlers/proef_handler.php?value=verwijderen">
+
       </form>
     </div>
   </div>
