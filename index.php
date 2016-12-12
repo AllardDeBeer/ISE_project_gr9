@@ -11,9 +11,10 @@
     <title>Donkey Kong Research</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body onhashchange="updateContainer();">
+  <body onhashchange="updateContainer();" onload="updateContainer();">
     <div class="expanded row">
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
@@ -107,6 +108,17 @@
       </div>
       <duv class="column large-9 right-screen">
         <div class="large-12">
+        <?php 
+          if($_GET['m'] == 1){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Onderzoek is succesvol aangemaakt.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }
+          ?>
           <div class="container">
             
           </div>
@@ -117,6 +129,7 @@
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

@@ -3,6 +3,7 @@ $(document).foundation()
 $( document ).ready(function() {
 	console.log( "ready!" );
 	window.bigScreen = false;
+	window.pins = "@";
 });
 
 function updateContainer(){
@@ -24,3 +25,37 @@ function updateContainer(){
 	    console.log(bigScreen);
 	});
 }
+
+function showResult(str) {
+  // if (str.length==0) {
+  //   str.value = "#";
+  // }
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else {  // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+  //if(document.getElementById("searchInput").value.length > 0){
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) { 	
+		document.getElementById("livesearch").innerHTML=this.responseText;
+    }
+ // }
+}
+  xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
+  xmlhttp.send();
+}
+
+function managePin(pin){
+	var target = "["+pin+"]";
+	var n = window.pins.indexOf(target);
+
+	if (n >= 1) {
+	  var temp = window.pins.split(target);
+	  window.pins = temp[0]+temp[1];
+	} else {
+	  window.pins += target;
+	}
+}
+
