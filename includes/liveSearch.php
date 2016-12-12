@@ -37,15 +37,17 @@ db_close();
 
 $response = "";
 $pin_ids = array();
+$i = 1;
 if ($pinned != ""){
   foreach ($pinned as $pin) {
     $response .= "<tr>
                   <td>" . $pin[0] . "</td>
                   <td>" . $pin[1] . "</td>
                   <td>" . $pin[2] . "</td>
-                  <td><input type=\"checkbox\" name=\"select\" value=" . $pin[3] . " onchange=\"managePin(" . $pin[3] . ")\" checked></td>
+                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin(" . $pin[3] . ")\" checked></td>
                 </tr>";
     array_push($pin_ids, $pin[3]);
+    $i = $i+1;
   }
 }
 if ($hint=="") {
@@ -57,8 +59,9 @@ if ($hint=="") {
                       <td>" . $tip[0] . "</td>
                       <td>" . $tip[1] . "</td>
                       <td>" . $tip[2] . "</td>
-                      <td><input type=\"checkbox\" name=\"select\" value=" . $tip[3] . " onchange=\"managePin(" . $tip[3] . ")\"></td>
+                      <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $tip[3] . " onchange=\"managePin(" . $tip[3] . ")\"></td>
                     </tr>";
+      $i = $i+1;
     }
   }
 }

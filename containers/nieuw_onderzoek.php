@@ -9,15 +9,15 @@
     <input type="text" name="researchName" required>
     Start datum: <input type="text" name="researchStart" id="datepickerB">
     Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
-    <input type="submit" name="submit" value="Opslaan" class="button" id="done">
     <script>
       $( "#datepickerB" ).datepicker();
       $( "#datepickerE" ).datepicker();
     </script>
-  </div>
-  <div class="column large-12">
+  <!-- </div> -->
+  <hr>
+  <!-- <div class="column large-12"> -->
     <label for="share">Onderzoekers toevoegen</label>
-    <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value)">
+    <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value)" autocomplete='off'>
     <table>
       <thead>
           <tr>
@@ -31,7 +31,7 @@
          <!-- Live reloaded content -->
       </tbody>
     </table>
-    <input type="submit" name="submit" value="Verwijder" class="button right">
+    <input type="submit" name="submit" value="Opslaan" class="button">
   </form>
 </div>
 </div>
