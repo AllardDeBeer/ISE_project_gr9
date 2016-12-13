@@ -26,10 +26,11 @@ function updateContainer(){
   });
 }
 
-function showResult(str) {
+function showResult(str, showIndex) {
   // if (str.length==0) {
   //   str.value = "#";
   // }
+  console.log(str);
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -42,8 +43,13 @@ function showResult(str) {
     document.getElementById("livesearch").innerHTML=this.responseText;
     }
  // }
-}
-  xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
+} 
+  if (showIndex == 1) {
+    xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
+  }else if(showIndex == 0){
+    xmlhttp.open("GET","includes/addVariables.php?q="+str,true);
+  }
+
   xmlhttp.send();
 }
 
