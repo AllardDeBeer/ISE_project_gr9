@@ -24,6 +24,7 @@ function updateContainer(){
  console.log("Container Reloaded");
  console.log(bigScreen);
 });
+<<<<<<< HEAD
 }
 
 <<<<<<< HEAD
@@ -75,3 +76,20 @@ function getOutput(name) {
  return false;
 }
 >>>>>>> ok
+=======
+}
+
+function getOutput(name) {
+    console.log('hoi');
+ $.ajax({
+  url:'handlers/proef_handler.php?value='+name+,
+  complete: function (response) {
+      console.log(response);
+  },
+  error: function () {
+      console.log("Session variable "+name+" was not added");
+  }
+});
+ return false;
+}
+>>>>>>> bb768c761bf5c4aab90969d1bb605f5fce6be840
