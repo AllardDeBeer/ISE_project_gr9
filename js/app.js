@@ -1,33 +1,31 @@
 $(document).foundation()
 
 $( document ).ready(function() {
-	console.log( "ready!" );
-	window.bigScreen = false;
-	window.pins = "@";
+  console.log( "ready!" );
+  window.bigScreen = false;
+  window.pins = "@";
 });
 
 function updateContainer(){
-	var url = window.location.href;
+  var url = window.location.href;
     url = url.split('#');
     $.get('containers/' + url[1] + '.php', function(data) {
-    	if(url[1] == "toon_resultaten"){
-         $('.right-screen').replaceWith(data);
-         window.bigScreen = true;
-     }else{
-      if(window.bigScreen){
-         $('.right-screen').replaceWith("<div class=\"column large-9 right-screen\"><div class=\"large-12\">" + data + "</div></div>");
-         window.bigScreen = false;
-     }else{
-         $('.container').replaceWith(data);
-     }
- }
- console.log("Container Reloaded");
- console.log(bigScreen);
-});
-<<<<<<< HEAD
+      if(url[1] == "toon_resultaten"){
+      $('.right-screen').replaceWith(data);
+      window.bigScreen = true;
+      }else{
+        if(window.bigScreen){
+          $('.right-screen').replaceWith("<div class=\"column large-9 right-screen\"><div class=\"large-12\">" + data + "</div></div>");
+          window.bigScreen = false;
+        }else{
+          $('.container').replaceWith(data);
+        }
+      }
+      console.log("Container Reloaded");
+      console.log(bigScreen);
+  });
 }
 
-<<<<<<< HEAD
 function showResult(str) {
   // if (str.length==0) {
   //   str.value = "#";
@@ -40,8 +38,8 @@ function showResult(str) {
   }
   //if(document.getElementById("searchInput").value.length > 0){
   xmlhttp.onreadystatechange=function() {
-    if (this.readyState==4 && this.status==200) { 	
-		document.getElementById("livesearch").innerHTML=this.responseText;
+    if (this.readyState==4 && this.status==200) {   
+    document.getElementById("livesearch").innerHTML=this.responseText;
     }
  // }
 }
@@ -50,46 +48,14 @@ function showResult(str) {
 }
 
 function managePin(pin){
-	var target = "["+pin+"]";
-	var n = window.pins.indexOf(target);
+  var target = "["+pin+"]";
+  var n = window.pins.indexOf(target);
 
-	if (n >= 1) {
-	  var temp = window.pins.split(target);
-	  window.pins = temp[0]+temp[1];
-	} else {
-	  window.pins += target;
-	}
-}
-
-=======
-function getOutput(name) {
-    console.log('hoi');
- $.ajax({
-  url:'handlers/proef_handler.php?value='+name+,
-  complete: function (response) {
-      console.log(response);
-  },
-  error: function () {
-      console.log("Session variable "+name+" was not added");
+  if (n >= 1) {
+    var temp = window.pins.split(target);
+    window.pins = temp[0]+temp[1];
+  } else {
+    window.pins += target;
   }
-});
- return false;
-}
->>>>>>> ok
-=======
 }
 
-function getOutput(name) {
-    console.log('hoi');
- $.ajax({
-  url:'handlers/proef_handler.php?value='+name+,
-  complete: function (response) {
-      console.log(response);
-  },
-  error: function () {
-      console.log("Session variable "+name+" was not added");
-  }
-});
- return false;
-}
->>>>>>> bb768c761bf5c4aab90969d1bb605f5fce6be840
