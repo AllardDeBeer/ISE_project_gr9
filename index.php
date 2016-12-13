@@ -47,7 +47,7 @@
                 while($o_row = db_fetchAssoc($onderzoeken)) {
                  // echo "1:" . $o_row['onderzoek_naam'] . "<br>";
                     echo  "<li>
-                            <a href=\"#\">" . $o_row['onderzoek_naam'] . "</a>
+                            <a href=\"#\" onclick=\"setSessionVariable('onderzoek',". $o_row['onderzoek_id'] .")\">" . $o_row['onderzoek_naam'] . "</a>
                             <ul class=\"vertical menu\">
                               <li>
                                 <a href=\"#nieuw_proef\">Nieuwe proef</a>
