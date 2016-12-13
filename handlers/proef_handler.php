@@ -9,6 +9,9 @@
 			$PROEF_NAAM = $_POST['researchName'];
 			$sql = "INSERT INTO PROEF ([PROEF_NAAM]) VALUES ('{$PROEF_NAAM}')";
 			$stmt = db_query($sql);
+
+			echo $_POST['fieldName'];
+			echo $_POST['fieldDataType'];
 			
 		} else if ($_GET['value'] == 'verwijderen') {
 			echo 'Verwijderen!';
