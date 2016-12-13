@@ -90,6 +90,15 @@ body{
 	font-size: 13px;
 }
 
+#datepickerB , #datepickerE {
+	width: 200px;
+	display: inline-block;
+}
+
+#done{
+	display: block;
+}
+
 input[data-toggle] {
   display: none; 
 }
