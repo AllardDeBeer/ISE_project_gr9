@@ -18,8 +18,10 @@ foreach ($_SESSION['vars'] as $var) {
                   <td>" . $vars[1] . "</td>
                   <td><input type=\"checkbox\" name=\"select\" value=\"4\" onchange=\"\"></td>
                 </tr>";	
+
 }
 
 echo $response;
+
 
 ?>

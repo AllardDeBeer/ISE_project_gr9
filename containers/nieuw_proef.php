@@ -10,7 +10,7 @@
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart">
         <label for="researchName">Naam</label>
-        <input type="text" name="researchName">
+        <input type="text" name="researchName" required>
         <hr>
 
         <label for="newField">Veld toevoegen</label>
