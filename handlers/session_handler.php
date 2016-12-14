@@ -7,6 +7,6 @@ $value = $_GET['v'];
 
 $_SESSION[$name] = $value;
 
-print_r($_SESSION);
+echo "success";
 
 ?>

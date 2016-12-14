@@ -72,3 +72,8 @@ function setSessionVariable(name, value) {
   return false;
 }
 
+function addCurrentUsers(ids){
+	window.pins += ids;
+	showResult("");
+}
+
