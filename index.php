@@ -44,7 +44,7 @@
                 while($o_row = db_fetchAssoc($onderzoeken)) {
                  // echo "1:" . $o_row['onderzoek_naam'] . "<br>";
                     echo  "<li>
-                            <a href=\"#\">" . $o_row['onderzoek_naam'] . "</a>
+                            <a href=\"#\" onclick=\"setSessionVariable('onderzoek',". $o_row['onderzoek_id'] .")\">" . $o_row['onderzoek_naam'] . "</a>
                             <ul class=\"vertical menu\">
                               <li>
                                 <a href=\"#nieuw_proef\">Nieuwe proef</a>
@@ -115,6 +115,14 @@
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                     <h5>Gelukt!</h5>
                     <p>Onderzoek is succesvol aangemaakt.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 2){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Onderzoek is succesvol aangepast.</p>
                     <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                       <span aria-hidden=\"true\">&times;</span>
                     </button>

@@ -65,3 +65,21 @@ function managePin(pin){
   }
 }
 
+function setSessionVariable(name, value) {
+   $.ajax({
+      url:'handlers/session_handler.php?n='+name+'&v='+value,
+      complete: function (response) {
+          console.log("Session variable "+name+" was added [ "+response.responseText+" ]");
+      },
+      error: function () {
+          console.log("Session variable "+name+" was not added");
+      }
+  });
+  return false;
+}
+
+function addCurrentUsers(ids){
+	window.pins += ids;
+	showResult("");
+}
+
