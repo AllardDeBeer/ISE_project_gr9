@@ -7,14 +7,22 @@
 
 		if($_GET['value'] == 'opslaan') {
 			
+			/* Insert proef gegegevens in de database */
 			$PROEF_NAAM = $_POST['researchName'];
 			$sql = "INSERT INTO PROEF ([PROEF_NAAM]) VALUES ('{$PROEF_NAAM}')";
-			$stmt = db_query($sql);
+			db_query($sql);
 
+			/* Select proef_id van de proef*/
 			$stmt = db_query("SELECT PROEF_ID FROM PROEF WHERE PROEF_NAAM = '$PROEF_NAAM'");
 			$result = db_fetchAssoc($stmt);
 			$proef_id = $result['PROEF_ID'];
 
+			/* Insert proef bij onderzoek in de database */
+			$onderzoek_id = $_SESSION['onderzoek'];
+			$sql = "INSERT INTO PROEFVOORONDERZOEK ([ONDERZOEK_ID], [PROEF_ID]) VALUES ('{$onderzoek_id}', '{$proef_id}')";
+			db_query($sql);
+
+			/* Insert velden in de database */
 			foreach ($_SESSION['vars'] as $var) {
 				$vars = explode('||', $var);
 
@@ -28,7 +36,7 @@
 				$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
 				db_query($sql);
 			}
-			
+
 			unset($_SESSION['vars']);
 			header('Location: ../index.php?#nieuw_proef');
 
