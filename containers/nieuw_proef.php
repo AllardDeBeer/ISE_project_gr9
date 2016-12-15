@@ -56,7 +56,7 @@
         </table>
 
         <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan">
-        <input type="button" value="Verwijderen" class="button right" onclick="myFunction()">
+        <input type="button" value="Verwijderen" class="button right" onclick="showResult(document.getElementById('selected').checked, 2)">
 
       </form>
     </div>

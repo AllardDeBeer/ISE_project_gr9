@@ -43,14 +43,17 @@ function showResult(str, showIndex) {
     document.getElementById("livesearch").innerHTML=this.responseText;
     }
  // }
-} 
-  if (showIndex == 1) {
-    xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
-  }else if(showIndex == 0){
-    xmlhttp.open("GET","includes/addVariables.php?q="+str,true);
+
+   if (showIndex == 1) {
+      xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
+    }else if(showIndex == 0){
+      xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
+    } else if (showIndex == 2) {
+      xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
+    }
+  xmlhttp.send();
   }
 
-  xmlhttp.send();
 }
 
 function managePin(pin){
