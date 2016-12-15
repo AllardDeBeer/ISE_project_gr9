@@ -90,7 +90,7 @@
             <li>
               <a href="#">Beheer apen</a>
               <ul class="vertical menu">
-                <li><a href="#toevoegen_apen">Apen toevoegen</a></li>
+                <li><a href="#apen_importeren">Apen toevoegen</a></li>
                 <li><a href="#verwijder_apen">Apen verwijderen</a></li>
               </ul>
             </li>
@@ -131,6 +131,14 @@
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                     <h5>Gelukt!</h5>
                     <p>De a(a)p(en) zijn/is succesvol verwijderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 4){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De gegevens zijn succesvol geïmporteerd</p>
                     <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
