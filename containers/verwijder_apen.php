@@ -32,7 +32,7 @@
                       <td>" . $row['aap_id'] . "</td>
                       <td>" . date('d/m/Y', $row["geboortedatum"]->getTimestamp()) . "</td>
                       <td>" . $row['geslacht'] . "</td>
-                      <td>" . $row['gewicht'] . "</td>
+                      <td>0" . $row['gewicht'] . "</td>
                       <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $row['aap_id'] . " onchange=\"managePin(" . $row['aap_id'] . ")\"></td>
                     </tr>";
                 $i = $i + 1;

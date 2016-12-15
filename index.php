@@ -24,7 +24,7 @@
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
           <div class="column large-4">
-            <img src="http://placehold.it/300x200" class="img" alt="BPRC">
+            <img src="assets/bprc-logo.jpg" class="img" alt="BPRC">
           </div>
           <div class="column large-8">
             <h1>BPRC</h1>
