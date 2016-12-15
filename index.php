@@ -16,9 +16,10 @@
     <title>Donkey Kong Research</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body onhashchange="updateContainer();">
+  <body onhashchange="updateContainer();" onload="updateContainer();">
     <div class="expanded row">
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
@@ -31,9 +32,6 @@
         </div>
         <div class="expanded row menu">
         <h2 class="text-center">Menu</h2>
-        <?php 
-          
-        ?>
           <ul class="vertical menu" data-drilldown>
             <li><a href="#nieuw_onderzoek">Nieuw onderzoek</a></li>
             <li>
@@ -46,7 +44,7 @@
                 while($o_row = db_fetchAssoc($onderzoeken)) {
                  // echo "1:" . $o_row['onderzoek_naam'] . "<br>";
                     echo  "<li>
-                            <a href=\"#\">" . $o_row['onderzoek_naam'] . "</a>
+                            <a href=\"#\" onclick=\"setSessionVariable('onderzoek',". $o_row['onderzoek_id'] .")\">" . $o_row['onderzoek_naam'] . "</a>
                             <ul class=\"vertical menu\">
                               <li>
                                 <a href=\"#nieuw_proef\">Nieuwe proef</a>
@@ -60,7 +58,7 @@
                          $proef = db_fetchAssoc(db_query("SELECT proef_naam FROM proef WHERE proef_id = " . $pid_row['proef_id']));
                          
                          echo  "<li>
-                                  <a href=\"#\">" . $proef['proef_naam'] . "</a>
+                                  <a href=\"#\" onclick=\"setSessionVariable('proef',". $pid_row['proef_id'] .")\">" . $proef['proef_naam'] . "</a>
                                   <ul class=\"vertical menu\">
                                     <li>
                                       <a href=\"#toon_resultaten\">Toon resultaten</a>
@@ -110,18 +108,46 @@
           </div>
         </div>
       </div>
-      <duv class="column large-9 right-screen">
+      <div class="column large-9 right-screen">
         <div class="large-12">
+        <?php 
+          if($_GET['m'] == 1){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Onderzoek is succesvol aangemaakt.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 2){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Onderzoek is succesvol aangepast.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 3){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De a(a)p(en) zijn/is succesvol verwijderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }
+          ?>
           <div class="container">
             
           </div>
         </div>
-      </duv>
+      </div>
     </div>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

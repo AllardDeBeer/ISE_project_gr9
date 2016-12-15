@@ -19,7 +19,6 @@
           } else {
                header("Refresh:0; ../login.html");
           }
-          
      }
 
      db_close();
