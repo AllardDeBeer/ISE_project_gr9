@@ -58,7 +58,7 @@
                          $proef = db_fetchAssoc(db_query("SELECT proef_naam FROM proef WHERE proef_id = " . $pid_row['proef_id']));
                          
                          echo  "<li>
-                                  <a href=\"#\">" . $proef['proef_naam'] . "</a>
+                                  <a href=\"#\" onclick=\"setSessionVariable('proef',". $pid_row['proef_id'] .")\">" . $proef['proef_naam'] . "</a>
                                   <ul class=\"vertical menu\">
                                     <li>
                                       <a href=\"#toon_resultaten\">Toon resultaten</a>
