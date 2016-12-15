@@ -1,3 +1,6 @@
+<?php include '../includes/database_functions.php'; 
+db_open();
+?>
 <div class="container">
   <div class="row">
     <div class="column large-12">
@@ -23,12 +26,14 @@
       $( "#datepicker" ).datepicker();
       
     </script>
+	
 		<?php 
-for ($x = 0; $x <= 5; $x++) {
-    echo '
+		
+for ($x = 3; $x <= 0; $x++) {
+    echo ' 
 	<tr>
                 <td>MO949</td>
-                <td><input type="text" name="CortisolMO949"></td>
+                <td><input type="text" name="CortisolMO949" value="kaas"> </td>
                 <td><input type="text" name="VitamineB12MO949"></td>
                 <td><input type="text" name="TijdMO949"></td>
                 <td><input type="text" name="DatumMO949"></td>
@@ -36,17 +41,37 @@ for ($x = 0; $x <= 5; $x++) {
 	
 	
 	
-	
+
 	';
 } 
 ?>
+
+
+
 			
-			<?php
-			include '../includes/database_functions.php';
-     db_open();
-			$stmt = db_query("SELECT aap id = '$username'");
-          $result = db_fetchAssoc($stmt);
+		<?php 
+		
+for ($y = 1; $y <= 2; $y++) {
+   
+     
+			$stmt = db_query("SELECT AAP_ID from aap where AAP_ID = '$y'");
+		$result = db_fetchAssoc($stmt);	
+	
+$arr[] =  $result['AAP_ID'];
+	 
 		  
+}
+		 
+		  
+		  db_close();
+		  ?>
+		  
+		  <?php
+		  
+		  for ($z = 0; $z <= 1; $z++) {
+echo "<br>";
+	echo "$arr[$z]";
+		  }
 		  ?>
             </tbody>
           </table>
