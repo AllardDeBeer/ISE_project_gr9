@@ -32,9 +32,6 @@
         </div>
         <div class="expanded row menu">
         <h2 class="text-center">Menu</h2>
-        <?php 
-          
-        ?>
           <ul class="vertical menu" data-drilldown>
             <li><a href="#nieuw_onderzoek">Nieuw onderzoek</a></li>
             <li>
@@ -111,7 +108,7 @@
           </div>
         </div>
       </div>
-      <duv class="column large-9 right-screen">
+      <div class="column large-9 right-screen">
         <div class="large-12">
         <?php 
           if($_GET['m'] == 1){
@@ -130,13 +127,21 @@
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
                   </div>";
+            }else if($_GET['m'] == 3){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De a(a)p(en) zijn/is succesvol verwijderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
             }
           ?>
           <div class="container">
             
           </div>
         </div>
-      </duv>
+      </div>
     </div>
 
     <script src="js/vendor/jquery.js"></script>
