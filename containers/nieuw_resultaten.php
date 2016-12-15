@@ -17,48 +17,37 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+			proef datum <input type="text" name="proefDatum" id="datepicker">
+  
+    <script>
+      $( "#datepicker" ).datepicker();
+      
+    </script>
+		<?php 
+for ($x = 0; $x <= 5; $x++) {
+    echo '
+	<tr>
                 <td>MO949</td>
                 <td><input type="text" name="CortisolMO949"></td>
                 <td><input type="text" name="VitamineB12MO949"></td>
                 <td><input type="text" name="TijdMO949"></td>
                 <td><input type="text" name="DatumMO949"></td>
               </tr>
-              <tr>
-                <td>MO572</td>
-                <td><input type="text" name="CortisolMO572"></td>
-                <td><input type="text" name="VitamineB12MO572"></td>
-                <td><input type="text" name="TijdMO572"></td>
-                <td><input type="text" name="DatumMO572"></td>
-              </tr>
-              <tr>
-                <td>MO581</td>
-                <td><input type="text" name="CortisolMO581"></td>
-                <td><input type="text" name="VitamineB12MO581"></td>
-                <td><input type="text" name="TijdMO581"></td>
-                <td><input type="text" name="DatumMO581"></td>
-              </tr>
-              <tr>
-                <td>MO206</td>
-                <td><input type="text" name="CortisolMO206"></td>
-                <td><input type="text" name="VitamineB12MO206"></td>
-                <td><input type="text" name="TijdMO206"></td>
-                <td><input type="text" name="DatumMO206"></td>
-              </tr>
-              <tr>
-                <td>MO592</td>
-                <td><input type="text" name="CortisolMO592"></td>
-                <td><input type="text" name="VitamineB12MO592"></td>
-                <td><input type="text" name="TijdMO592"></td>
-                <td><input type="text" name="DatumMO592"></td>
-              </tr>
-              <tr>
-                <td>MO040</td>
-                <td><input type="text" name="CortisolMO040"></td>
-                <td><input type="text" name="VitamineB12MO040"></td>
-                <td><input type="text" name="TijdMO040"></td>
-                <td><input type="text" name="DatumMO040"></td>
-              </tr>
+	
+	
+	
+	
+	';
+} 
+?>
+			
+			<?php
+			include '../includes/database_functions.php';
+     db_open();
+			$stmt = db_query("SELECT aap id = '$username'");
+          $result = db_fetchAssoc($stmt);
+		  
+		  ?>
             </tbody>
           </table>
         </div>
