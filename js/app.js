@@ -48,6 +48,8 @@ function showResult(str, showIndex) {
     xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
   }else if(showIndex == 0){
     xmlhttp.open("GET","includes/addVariables.php?q="+str,true);
+  }else if(showIndex == 2){
+    xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
   }
 
   xmlhttp.send();

@@ -127,6 +127,14 @@
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
                   </div>";
+            }else if($_GET['m'] == 3){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De a(a)p(en) zijn/is succesvol verwijderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
             }
           ?>
           <div class="container">
