@@ -42,8 +42,9 @@ if ($pinned != ""){
   foreach ($pinned as $pin) {
     $response .= "<tr>
                   <td>" . $pin[0] . "</td>
-                  <td></td>
-                  <td></td>
+                  <td>" . date('d/m/Y', $pin[1]->getTimestamp()) . "</td>
+                  <td>" . $pin[2] . "</td>
+                  <td>0" . $pin[3] . "</td>
                   <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[0] . " onchange=\"managePin(" . $pin[0] . ")\" checked></td>
                 </tr>";
     array_push($pin_ids, $pin[0]);
@@ -59,7 +60,7 @@ if ($hint=="") {
                       <td>" . $tip[0] . "</td>
                       <td>" . date('d/m/Y', $tip[1]->getTimestamp()) . "</td>
                       <td>" . $tip[2] . "</td>
-                      <td>" . $tip[3] . "</td>
+                      <td>0" . $tip[3] . "</td>
                       <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $tip[0] . " onchange=\"managePin(" . $tip[0] . ")\"></td>
                     </tr>";
       $i = $i+1;
