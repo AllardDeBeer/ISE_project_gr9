@@ -6,8 +6,12 @@ body{
 	background-color: white;
 	height: 100%;
 	position: absolute;
-	border-right: 1px solid black;
+	/*border-right: 1px solid black;*/
 	padding: 0px;
+    box-shadow: 10px 10px 5px #888888;
+    background-color: aliceblue;
+    z-index: 5;
+}
 }
 
 .logo{ 
@@ -36,10 +40,14 @@ body{
 	margin: auto;
 }
 
+.logo {
+	border-bottom: 3px solid #ddd;
+}
+
 .settings{
 	position: absolute;
 	bottom: 0px;
-	border-top: 1px solid black;
+	border-top: 3px solid #ddd;
 	width: -moz-available;
 }
 
@@ -55,10 +63,13 @@ body{
 }
 
 .container{
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	margin: 5% 100px 0px 100px;
 	max-height: 650px;
 	overflow-y: scroll;
+	box-shadow: 10px 10px 5px #888888;
+    background-color: aliceblue;
+}
 }
 
 .content{

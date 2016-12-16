@@ -24,7 +24,7 @@
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
           <div class="column large-4">
-            <img src="http://placehold.it/300x200" class="img" alt="BPRC">
+            <img src="assets/bprc-logo.jpg" class="img" alt="BPRC">
           </div>
           <div class="column large-8">
             <h1>BPRC</h1>
@@ -90,7 +90,7 @@
             <li>
               <a href="#">Beheer apen</a>
               <ul class="vertical menu">
-                <li><a href="#toevoegen_apen">Apen toevoegen</a></li>
+                <li><a href="#apen_importeren">Apen toevoegen</a></li>
                 <li><a href="#verwijder_apen">Apen verwijderen</a></li>
               </ul>
             </li>
@@ -131,6 +131,14 @@
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                     <h5>Gelukt!</h5>
                     <p>De a(a)p(en) zijn/is succesvol verwijderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 4){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De gegevens zijn succesvol geïmporteerd</p>
                     <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
