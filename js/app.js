@@ -58,10 +58,10 @@ function showResult(str, showIndex) {
 
 function getValues(elementName) {
   var checkboxes = document.getElementsByName(elementName);
-  var vals = "";
+  var vals = "@";
   for (var i=0, n=checkboxes.length;i<n;i++) {
     if (checkboxes[i].checked) {
-      vals += checkboxes[i].value;
+      vals += "[" + checkboxes[i].value + "]";
     }
   }
   return vals;

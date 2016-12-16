@@ -25,8 +25,9 @@ if ($status == 'toevoegen') {
 	}
 } else if ($status == 'verwijderen') {
 	$response = "";
+	$q=rtrim(substr($q, 2), "]");
+	$selects = explode("][", $q);
 
-	$selects = str_split($q);
 	$j = 0;
 	foreach ($selects as $sel) {
 		if ($j > 0) { 
