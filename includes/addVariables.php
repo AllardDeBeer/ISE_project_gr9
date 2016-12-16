@@ -10,10 +10,8 @@ if ($status == 'toevoegen') {
 	}
 
 	array_push($_SESSION['vars'], $q);
-
-
 	$response = "";
-	$response .= print_r($_SESSION['vars'], true);
+	
 	$i = 0;
 	foreach ($_SESSION['vars'] as $var) {
 		$vars = explode('||', $var);
@@ -26,21 +24,20 @@ if ($status == 'toevoegen') {
 	    $i++;
 	}
 } else if ($status == 'verwijderen') {
-	if (!isset($_SESSION['selected'])) {
-		$_SESSION['selected'] = array();
+	$response = "";
+
+	$selects = str_split($q);
+	$j = 0;
+	foreach ($selects as $sel) {
+		if ($j > 0) { 
+			$sel -= $j;
+		}
+
+		array_splice($_SESSION['vars'], $sel, 1);
+		$j++;
 	}
 
-	array_push($_SESSION['selected'], $q);
-	$selects = explode(',', $_SESSION['selected']);
-	$response .= print_r($_SESSION['selected'], true);
-	$response .= print_r($selects, true);
-
-	foreach ($selects as $select) {
-
-		array_splice($_SESSION['vars'], $selects[$select], 1);
-		$response .= print_r($_SESSION['vars'], true);
-	}
-
+	$i = 0;
 	foreach ($_SESSION['vars'] as $var) {
 		$vars = explode('||', $var);
 		$response .= "<tr>
@@ -52,9 +49,6 @@ if ($status == 'toevoegen') {
 	    $i++;
 	}
 }
-	//unset($_SESSION['vars']);
 	unset($_SESSION['selected']);
 	echo $response;
-
-
 ?>
