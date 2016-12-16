@@ -12,7 +12,7 @@
   </head>
   <body>
   <?php
-  $gebruiker = $_GET[user];
+  $gebruiker = $_GET['user'];
   include '/includes/database_functions.php';
   db_open();
   $result = db_query("SELECT vraag

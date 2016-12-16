@@ -8,12 +8,13 @@ $conn = sqlsrv_connect( $serverName, $connectionInfo);
 function checkVeldenIngevuld()
 {
     if(empty($_POST['user']))
-	{
+	{	echo 'kut';
         die("geen gebruikersnaam ingevuld");
 		return false;
     }
 	if(empty($_POST['Password']))
 	{	
+		echo 'kanker';
 		die("vul uw wachtwoord in");
 		return false;
 	}
@@ -39,7 +40,7 @@ Function Wachtwoordvergeten($user,$pass,$passC,$answer,$sql){
 $serverName = "(local)\SQLEXPRESS";
 $connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"sa", "PWD"=>"rammus");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
-$update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = '$user'";
+$update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = 'peter'";
 
 		if(checkVeldenIngevuld() == false){
 			 
@@ -53,7 +54,11 @@ $update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = '$us
 			if(empty($result[0]))
 				echo 'Antwoord op de vraag is incorrect';
 			else if(!empty($result[0])){
-				sqlsrv_query($conn,$update);
+				$test  = sqlsrv_query($conn,$update);
+				$test;
+				if( $test === false ) {
+    die( print_r( sqlsrv_errors(), true));
+}
 			}		
 		}
 			
