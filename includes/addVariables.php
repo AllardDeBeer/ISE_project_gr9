@@ -31,12 +31,12 @@ if ($status == 'toevoegen') {
 	}
 
 	array_push($_SESSION['selected'], $q);
-	
-	foreach ($_SESSION['selected'] as $select) {
-		$selects = explode(',', $select);
-	}
+	$selects = explode(',', $_SESSION['selected']);
+	$response .= print_r($_SESSION['selected'], true);
+	$response .= print_r($selects, true);
 
 	foreach ($selects as $select) {
+
 		array_splice($_SESSION['vars'], $selects[$select], 1);
 		$response .= print_r($_SESSION['vars'], true);
 	}
