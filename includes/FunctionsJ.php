@@ -8,27 +8,22 @@ $conn = sqlsrv_connect( $serverName, $connectionInfo);
 function checkVeldenIngevuld()
 {
     if(empty($_POST['user']))
-	{	echo 'kut';
-        die("geen gebruikersnaam ingevuld");
+	{	die("geen gebruikersnaam ingevuld");
 		return false;
     }
 	if(empty($_POST['Password']))
 	{	
-		echo 'kanker';
 		die("vul uw wachtwoord in");
 		return false;
 	}
-	if($_POST['Password'] != $_POST['PasswordC'])
-	{
+	if($_POST['Password'] != $_POST['PasswordC'])	{
 			echo 'pass:';
 			echo $_POST['Password'] ;
 			echo 'confirm:';
 			echo $_POST['PasswordC'] ;
 		die("Wachtwoorden komen niet overeen");
-
 			return false;
-	
-	}
+			}
 	else {
 		echo'velden ingevuld';
 		return true;
@@ -40,7 +35,7 @@ Function Wachtwoordvergeten($user,$pass,$passC,$answer,$sql){
 $serverName = "(local)\SQLEXPRESS";
 $connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"sa", "PWD"=>"rammus");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
-$update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = 'peter'";
+$update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = '$user'";
 
 		if(checkVeldenIngevuld() == false){
 			 
@@ -54,12 +49,8 @@ $update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = 'pet
 			if(empty($result[0]))
 				echo 'Antwoord op de vraag is incorrect';
 			else if(!empty($result[0])){
-				$test  = sqlsrv_query($conn,$update);
-				$test;
-				if( $test === false ) {
-    die( print_r( sqlsrv_errors(), true));
-}
-			}		
+				sqlsrv_query($conn,$update);
+				}		
 		}
 			
 			
