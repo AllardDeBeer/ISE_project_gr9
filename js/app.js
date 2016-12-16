@@ -42,6 +42,7 @@ function showResult(str, showIndex) {
     if (this.readyState==4 && this.status==200) {   
     document.getElementById("livesearch").innerHTML=this.responseText;
     }
+
  // }
 } 
   if (showIndex == 1) {
@@ -50,9 +51,23 @@ function showResult(str, showIndex) {
     xmlhttp.open("GET","includes/addVariables.php?q="+str,true);
   }else if(showIndex == 2){
     xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
+  }else if (showIndex == 3) {
+      xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
   }
-
   xmlhttp.send();
+  
+
+}
+
+function getValues(elementName) {
+  var checkboxes = document.getElementsByName(elementName);
+  var vals = "";
+  for (var i=0, n=checkboxes.length;i<n;i++) {
+    if (checkboxes[i].checked) {
+      vals += checkboxes[i].value;
+    }
+  }
+  return vals;
 }
 
 function managePin(pin){
