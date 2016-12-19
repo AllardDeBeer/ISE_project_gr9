@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  include "../includes/database_functions.php"
+session_start();
+include "../includes/database_functions.php"
 ?>
 <div class="container">
   <div class="row">
@@ -12,7 +12,6 @@
         <label for="researchName">Naam</label>
         <input type="text" name="researchName" required>
         <hr>
-
         <label for="newField">Veld toevoegen</label>
         <table name="newField">
           <thead>
@@ -26,14 +25,14 @@
               <td><input type="text" name="fieldName" id="fieldName"></td>
               <td><select name="fieldDataType" id="fieldDataType">
                 <?php 
-                  db_open();
-                  $stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES");
-                  
-                  while($result = db_fetchAssoc($stmt)) {
-                    echo "<option>".$result['DATATYPE_NAAM']."</option>";
-                  }
+                db_open();
+                $stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES");
+                
+                while($result = db_fetchAssoc($stmt)) {
+                  echo "<option>".$result['DATATYPE_NAAM']."</option>";
+                }
 
-                  db_close();
+                db_close();
                 ?>
               </select></td>
             </tr>
