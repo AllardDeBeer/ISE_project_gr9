@@ -99,8 +99,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						echo' </h4>
 						
 						<input type="text" name="Answer"><br>
-						Nieuw wachtwoord:<input type="text" name="Password"><br>
-						Herhaal nieuw wachtwoord<input type="text" name="PasswordC"><br>
+						Nieuw wachtwoord:<input type="password" name="Password"><br>
+						Herhaal nieuw wachtwoord<input type="password" name="PasswordC"><br>
 						<input type ="hidden" name="user" Value="'; echo htmlspecialchars($gebruiker); echo '">
 						<input type="submit" class="button" value="Submit">
 					</div>
