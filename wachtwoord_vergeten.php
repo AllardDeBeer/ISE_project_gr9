@@ -21,7 +21,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 
 	$vraag = db_fetchNumeric($result);
 		if ($vraag == false){
-		echo "<script>alert('Geen geregistreerde gebruiker');location='../wachtwoord_vergeten_pre.html'</script>";
+
+		header('Location:../wachtwoord_vergeten.php?user='.$user.'&m=5');
 	}
 	echo'
     <div class="expanded row">
@@ -93,7 +94,18 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						</div>";
 							  }
 						  }
-
+						
+						if(isset($_GET['m'])){
+							  if($_GET['m'] == 5){
+							echo "<div class=\"alert callout\" data-closable>
+						  <h5>Oeps er ging iets mis</h5>
+						  <p>Geen gebruiker met deze naam</p>
+						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+							<span aria-hidden=\"true\">&times;</span>
+						  </button>
+						</div>";
+							  }
+						  }
 						 
 						print($vraag[0]);
 						echo' </h4>

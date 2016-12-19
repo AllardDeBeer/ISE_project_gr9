@@ -58,4 +58,39 @@ $update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = '$us
 			
 }
 
+
+function nieuwWachtwoord(){
+$serverName = "(local)\SQLEXPRESS";
+$connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"sa", "PWD"=>"rammus");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
+$pass = $_POST['password'];
+$user = $_SESSION['username'];
+$update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = '$user'";
+
+	if(	!empty($_POST['currentPass'] & !empty($_POST['Password'] & !empty($_POST['PasswordC']))
+		echo 'vul alle velden in' 
+		
+	}
+	else if(strlen($pass) <5)  {
+		echo 'pass te kort';
+	}
+	else{
+		$stmt = sqlsrv_query($conn,$sql);
+		if( $stmt === false)
+		{
+			die( print_r( sqlsrv_errors(), true) );
+		}
+	$result = sqlsrv_fetch_array ($stmt, SQLSRV_FETCH_NUMERIC);
+	if(empty($result[0]))
+	{
+					;
+	}
+	else if(!empty($result[0]))
+	{
+	sqlsrv_query($conn,$update);
+	header('Location:../login.html');
+	}		
+	}
+}
 ?>
+
