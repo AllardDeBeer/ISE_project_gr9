@@ -4,109 +4,71 @@
       <div class="expanded row border_bottom">
         <h3 class="text-center">Resultaten</h3>
       </div>
-      <div class="expanded row border_bottom">
-        <div class="column large-12">
-          <span>1. Aantal variable</span>
+      <form action="" name="showResultsForm" method="POST" enctype="multipart/form-data">
+        <div class="expanded row border_bottom">
+          <div class="column large-12">
+            <span>1. Aantal Velden</span>
+          </div>
+          <input type="number" name="numVars" value="0" onchange="addInputs(this.value);" class="varnum">
         </div>
-        <input type="number" name="numVars" class="varnum">
-      </div>
-      <div class="expanded row border_bottom">
-        <div class="column large-12">
-          <span>2. Presentatie</span>
+        <div class="expanded row border_bottom">
+          <div class="column large-12">
+            <span>2. Presentatie</span>
+          </div>
+          <ul class="button-group toggle" data-toggle="buttons-radio">
+            <li>
+              <input type="radio" id="r1" name="r-group" data-toggle="button">
+              <label class="button" for="r1"><i class="material-icons">timeline</i></label>
+            </li>
+            <li>
+              <input type="radio" id="r2" name="r-group" data-toggle="button">
+              <label class="button" for="r2"><i class="material-icons">assessment</i></label>
+            </li>
+            <li>
+              <input type="radio" id="r3" name="r-group" data-toggle="button">
+              <label class="button" for="r3"><i class="material-icons">pie_chart</i></label>
+            </li>
+            <li>
+              <input type="radio" id="r4" name="r-group" data-toggle="button">
+              <label class="button" for="r4"><i class="material-icons">grid_on</i></label>
+            </li>
+          </ul>
         </div>
-        <ul class="button-group toggle" data-toggle="buttons-radio">
-          <li>
-            <input type="radio" id="r1" name="r-group" data-toggle="button">
-            <label class="button" for="r1"><i class="material-icons">timeline</i></label>
-          </li>
-          <li>
-            <input type="radio" id="r2" name="r-group" data-toggle="button">
-            <label class="button" for="r2"><i class="material-icons">assessment</i></label>
-          </li>
-          <li>
-            <input type="radio" id="r3" name="r-group" data-toggle="button">
-            <label class="button" for="r3"><i class="material-icons">pie_chart</i></label>
-          </li>
-          <li>
-            <input type="radio" id="r4" name="r-group" data-toggle="button">
-            <label class="button" for="r4"><i class="material-icons">grid_on</i></label>
-          </li>
-        </ul>
-      </div>
-      <div class="expanded row border_bottom">
-        <div class="column large-12">
-          <span>3. kies Variable</span>
+        <div class="expanded row border_bottom" id="varOptions">
+          <div class="column large-12">
+            <span>3. kies Velden</span>
+          </div>
+          <div class="column large-12">
+            <p>Kies Eerst het aantal variabele.</p>
+          </div>
         </div>
-        <div class="column large-12">
-          <select name="choice1">
-            <option value="Cortisol">Cortisol</option>
-            <option value="vitamineB12">Vitamine B12</option>
-            <option value="tijd">Tijd</option>
-            <option value="datum">Datum</option>
-          </select>
+        <div class="expanded row border_bottom">
+          <div class="column large-12">
+            <span>4. Start</span>
+          </div>
+          <div class="column large-12">
+            <input type="submit" value="Teken" class="button" onclick="prepareResults()">
+          </div>
         </div>
-        <div class="column large-12">
-          <select name="choice2">
-            <option value="Cortisol">Cortisol</option>
-            <option value="vitamineB12">Vitamine B12</option>
-            <option value="tijd">Tijd</option>
-            <option value="datum">Datum</option>
-          </select>
+        <div class="expanded row currentMonkey align-self-bottom">
+          <div class="column large-12 researcher">
+            <h4 class="text-center">Huidige aap</h4>
+          </div>
+          <div class="column large-12">
+            <p class="text-center">< MO593 ></p>
+          </div>
         </div>
-      </div>
-
-
-      <div class="expanded row currentMonkey align-self-bottom">
-        <div class="column large-12 researcher">
-          <h4 class="text-center">Huidige aap</h4>
-        </div>
-        <div class="column large-12">
-          <p class="text-center">< MO593 ></p>
-        </div>
-      </div>
+      </form>
     </div>
     <div class="column large-8">
       <div class="expanded row">
-        <div class="table-scroll">
-          <table>
-            <thead>
-              <tr>
-                <th>Cortisol</th>
-                <th>Tijd</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>43</td>
-                <td>1</td>
-              </tr>
-              <tr>
-                <td>56</td>
-                <td>2</td>
-              </tr>
-              <tr>
-                <td>67</td>
-                <td>4</td>
-              </tr>
-              <tr>
-                <td>57</td>
-                <td>5</td>
-              </tr>
-              <tr>
-                <td>45</td>
-                <td>7</td>
-              </tr>
-              <tr>
-                <td>443</td>
-                <td>10</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="table-scroll" id="liveTable">
+          
         </div>
       </div>
 
-      <div class="expanded row">
-        <canvas></canvas>
+      <div class="expanded row" id="liveGraphContainer">
+        <canvas id="liveGraph"></canvas>
       </div>
     </div>
   </div>
