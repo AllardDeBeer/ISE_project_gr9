@@ -80,6 +80,8 @@ function managePin(pin){
 }
 
 function setSessionVariable(name, value) {
+  console.log("name:"+name);
+  console.log("value:"+value);
    $.ajax({
       url:'handlers/session_handler.php?n='+name+'&v='+value,
       complete: function (response) {
