@@ -10,7 +10,7 @@
     <div class="column large-12">
       <form action="handlers/mokey_handler.php" name="deleteMoneyForm" method="POST" enctype="multipart">
         <label for="share">Zoeken</label>
-        <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value, 2, 'livesearch')" autocomplete='off'>
+        <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value, 2)" autocomplete='off'>
         <table>
           <thead>
             <tr>

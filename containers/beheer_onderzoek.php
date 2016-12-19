@@ -44,7 +44,7 @@
   <hr>
   <!-- <div class="column large-12"> -->
     <label for="share">Onderzoekers toevoegen</label>
-    <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value, 1, 'livesearch')" autocomplete='off'>
+    <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value)" autocomplete='off'>
     <table>
       <thead>
           <tr>
