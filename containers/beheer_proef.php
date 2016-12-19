@@ -1,3 +1,7 @@
+<?php 
+session_start();
+include "../includes/database_functions.php";
+?>
 <div class="container">
   <div class="row">
     <div class="column large-12">
@@ -6,7 +10,15 @@
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart">
         <label for="researchName">Wijzig naam</label>
-        <input type="text" name="researchName" required>
+        <?php 
+
+        $proef_id = $_SESSION['proef'];
+        db_open();
+        $stmt = db_query("SELECT PROEF_NAAM FROM PROEF WHERE PROEF_ID = '$proef_id'");
+        $result = db_fetchAssoc($stmt);
+        $proef_naam = $result['PROEF_NAAM'];
+        ?>
+        <input type="text" name="researchName" value="<?php echo $proef_naam?>" required>
         <hr>
         <form action="#" name="newFieldForm" method="POST" enctype="multipart">
           <label for="newField">Wijzig velden</label>
