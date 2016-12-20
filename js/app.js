@@ -51,8 +51,9 @@ function showResult(str, showIndex) {
     xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
   } else if (showIndex == 3) {
     xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
+  }	else if (showIndex == 4) {
+    xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
   }
-
   xmlhttp.send();
 }
 
