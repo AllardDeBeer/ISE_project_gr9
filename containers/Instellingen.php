@@ -1,17 +1,17 @@
 <div class="container">
 	<div class="row">
-		<div class="column large-12">
-			<h3>Gebruikersnaam wijzigen</h3>
-				Gebruikersnaam:<input type="text" name="Gebruikersnaam"><br>
+		<div class="column medium-12">		
+			<form action="handlers/InstellingenGebruikerHandler.php" method="POST">
+				<h3>Gebruikersnaam wijzigen</h3>
+				Huidige Gebruikersnaam:<input type="text" name="Gebruikersnaam"><br>
+				Nieuwe Gebruikersnaam:<input type="text" name="NieuweGebruikersnaam"><br>
 				<input type="submit" class="button" value="Submit">
 			</form>
-			
 			<hr>
-			
 			<h3>Wachtwoord wijzigen</h3>
-			<form action="handlers/nieuwWachtwoordHandler.php" method="post"">
+			<form action="handlers/InstellingenWWHandler.php" method="POST">
 				Oud wachtwoord
-				<input type="password" name="currentPass"><br>
+				<input type="password" name="CurrentPass"><br>
 				Nieuw wachtwoord:<input type="password" name="Password"><br>
 				Herhaal nieuw wachtwoord<input type="password" name="PasswordC"><br>
 				<input type="submit" class="button" value="Submit">
