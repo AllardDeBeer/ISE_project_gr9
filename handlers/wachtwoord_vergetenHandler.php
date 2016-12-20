@@ -20,12 +20,11 @@
 	$antwoord = htmlspecialchars($_POST["Answer"]);
 	$db;
 	$serverName = "(local)\SQLEXPRESS";
-	$connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"sa", "PWD"=>"rammus");
+	$connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"dkServer", "PWD"=>"aapjes");
 	$conn = sqlsrv_connect( $serverName, $connectionInfo);
-	$blabla ="SELECT gebruikersnaam,antwoord FROM gebruiker WHERE gebruikersnaam = '$gebruiker' AND antwoord = '$antwoord' ";
-	$SQLquery = sqlsrv_query($conn,$blabla);
-	WachtwoordVergeten($gebruiker,$wachtwoord,$wachtwoordC,$antwoord,$blabla);
-
+	$stmt ="SELECT gebruikersnaam,antwoord FROM gebruiker WHERE gebruikersnaam = '$gebruiker' AND antwoord = '$antwoord' ";
+	$SQLquery = sqlsrv_query($conn,$stmt);
+	WachtwoordVergeten($gebruiker,$wachtwoord,$wachtwoordC,$antwoord,$stmt);
     ?>
   </body>
 </html>
