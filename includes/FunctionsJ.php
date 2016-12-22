@@ -1,9 +1,6 @@
 <?php
 include '../includes/database_functions.php';
 db_open();
-$serverName = "(local)\SQLEXPRESS";
-$connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"dkServer", "PWD"=>"aapjes");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
 function checkVeldenIngevuld($user)
 {
