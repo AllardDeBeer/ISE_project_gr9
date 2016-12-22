@@ -26,7 +26,8 @@ $currentResearch = 1;
             </thead>";
 
 
-	
+	$counter=0;
+	$aapCounter=0;
 $currentTest = $currentResearch;
 	$stmt = db_query("select aap_id from aap A where exists(
 select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'
@@ -36,21 +37,22 @@ and AIO.aap_id = A.AAP_ID
 	{
 	$response.= '<tr>
                <td>'.$row[0].'</td>';
-                
+                $aapCounter++;
                $stmt2 = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");	
-			$stmt3 = db_query("SELECT waarde FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
+			$stmt3 = db_query("SELECT waarde, veld.VELD_ID FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
 			while( $column = db_fetchNumeric($stmt2) )
 					{
 					$result = db_fetchNumeric($stmt3);					  
 					$response.='<td><input type="text" name="'.$column[0].'" value="'.$result[0].'"> </td>';
+					$counter++;
 					}
 				$response.='</tr>';
 	} 
 
 
 
-
-
+$response.= $counter;
+$response.= $aapCounter;
 
 
 

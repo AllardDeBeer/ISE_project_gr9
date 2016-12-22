@@ -111,6 +111,7 @@
       <div class="column large-9 right-screen">
         <div class="large-12">
         <?php 
+		if (isset($get['m')){
           if($_GET['m'] == 1){
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                     <h5>Gelukt!</h5>
@@ -144,6 +145,7 @@
                     </button>
                   </div>";
             }
+		}
           ?>
           <div class="container">
             

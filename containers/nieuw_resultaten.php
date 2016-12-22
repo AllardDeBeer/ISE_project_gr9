@@ -24,7 +24,7 @@ db_open();
 	 <input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 4)">
 
 
-	<form action="#" name="addResultsForm" method="POST" enctype="multipart">
+	<form action="includes/test.php" name="addResultsForm" method="POST" enctype="multipart">
 		<div class="table-scroll">
 			<table>
 				<thead>

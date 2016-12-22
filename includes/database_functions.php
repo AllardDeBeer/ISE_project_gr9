@@ -3,7 +3,7 @@
 $db;
 
      function db_open() {
-          $server_name = "(local)\SQLEXPRESS";
+          $server_name = "(local)\SQLENTERPRISE";
           $connection_info = array( "Database"=>"DonkeyKong",  "UID"=>"dkServer", "PWD"=>"aapjes");
           $GLOBALS['$db'] = sqlsrv_connect($server_name, $connection_info);
           
