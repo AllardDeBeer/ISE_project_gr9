@@ -144,9 +144,78 @@
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
                   </div>";
+
             }
 		}
+
+			}else if($_GET['m'] == 5){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Vul aub alle relevante velden in.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";	
+            }else if($_GET['m'] == 6){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>De twee wachtwoorden komen niet overeen</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+					</div>";}
+			else if($_GET['m'] == 7){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Het gekozen wachtwoord is te kort. Maak deze langer dan 4 tekens aub.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 8){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5Niet gelukt</h5>
+                    <p>Het oude wachtwoord is niet correct</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 9){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Uw wachtwoord is veranderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 10){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Deze gebruikersnaam is incorrect</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 11){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt</h5>
+                    <p>Uw gebruikersnaam is succesvol veranderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 12){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Uw gekozen gebruikersnaam is te kort. Maak deze groter dan 2 tekens aub/p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+
           ?>
+		  
+		  
           <div class="container">
             
           </div>
@@ -154,10 +223,13 @@
       </div>
     </div>
 
+
+	
+	
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
