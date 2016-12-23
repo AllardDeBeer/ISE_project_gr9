@@ -98,11 +98,12 @@
         </div>
         <div class="expanded row settings align-self-bottom">
           <div class="column large-12 researcher">
-            <h4 class="text-center"><?php echo $_SESSION['firstname'].' '.$_SESSION['surname'] ?></h4>
+            <h4 class="text-center"><?php echo 'Welkom, '.$_SESSION['firstname']. ' '.$_SESSION['insertion'].' '.$_SESSION['surname'] ?></h4>
+            <p class="text-center"><?php echo 'Uw laatste login was op: '.$_SESSION['last_login'] ?></p>
           </div>
           <div class="column large-12">
             <div class="button-group">
-              <a class="hollow expanded button"><i class="material-icons">settings</i>Instellingen</a>
+              <a class="hollow expanded button" href="#instellingen" ><i class="material-icons">settings</i>Instellingen</a>
               <a class="hollow expanded button"><i class="material-icons">exit_to_app</i>Log uit</a>
             </div>
           </div>
@@ -111,6 +112,7 @@
       <div class="column large-9 right-screen">
         <div class="large-12">
         <?php 
+		if (isset($get['m'])){
           if($_GET['m'] == 1){
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                     <h5>Gelukt!</h5>
@@ -143,8 +145,78 @@
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
                   </div>";
+
             }
+		
+
+			else if($_GET['m'] == 5){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Vul aub alle relevante velden in.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";	
+            }else if($_GET['m'] == 6){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>De twee wachtwoorden komen niet overeen</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+					</div>";}
+			else if($_GET['m'] == 7){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Het gekozen wachtwoord is te kort. Maak deze langer dan 4 tekens aub.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 8){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5Niet gelukt</h5>
+                    <p>Het oude wachtwoord is niet correct</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 9){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Uw wachtwoord is veranderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 10){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Deze gebruikersnaam is incorrect</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 11){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt</h5>
+                    <p>Uw gebruikersnaam is succesvol veranderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 12){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Uw gekozen gebruikersnaam is te kort. Maak deze groter dan 2 tekens aub/p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+}
           ?>
+		  
+		  
           <div class="container">
             
           </div>
@@ -152,6 +224,9 @@
       </div>
     </div>
 
+
+	
+	
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>

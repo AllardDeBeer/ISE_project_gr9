@@ -30,7 +30,6 @@ function showResult(str, showIndex, id) {
   // if (str.length==0) {
   //   str.value = "#";
   // }
-  console.log("q: " + str);
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -42,26 +41,42 @@ function showResult(str, showIndex, id) {
     if (this.readyState==4 && this.status==200) {   
     document.getElementById(id).innerHTML=this.responseText;
     }
- // }
-} 
+  }
+
   if (showIndex == 1) {
     xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
-  }else if(showIndex == 0){
-    xmlhttp.open("GET","includes/addVariables.php?q="+str,true);
-  }else if(showIndex == 2){
+  } else if(showIndex == 0){
+    xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
+  } else if(showIndex == 2){
     xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
   }else if(showIndex == 3){
     xmlhttp.open("GET","includes/addInputs.php?q="+str,true);
   }else if(showIndex == 4){
     xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
+  } else if (showIndex == 5) {
+    xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
+  }	else if (showIndex == 6) {
+    xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
+  }else if (showIndex == 7) {
+    xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
   }
-
   xmlhttp.send();
 }
+
 
 function addInputs(value){
   var output = value + "|" + 
   showResult(value, 3, 'varOptions');
+}
+function getValues(elementName) {
+  var checkboxes = document.getElementsByName(elementName);
+  var vals = "@";
+  for (var i=0, n=checkboxes.length;i<n;i++) {
+    if (checkboxes[i].checked) {
+      vals += "[" + checkboxes[i].value + "]";
+    }
+  }
+  return vals;
 }
 
 function managePin(pin){
@@ -77,6 +92,8 @@ function managePin(pin){
 }
 
 function setSessionVariable(name, value) {
+  console.log("name:"+name);
+  console.log("value:"+value);
    $.ajax({
       url:'handlers/session_handler.php?n='+name+'&v='+value,
       complete: function (response) {

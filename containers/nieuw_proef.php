@@ -10,7 +10,7 @@
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart">
         <label for="researchName">Naam</label>
-        <input type="text" name="researchName">
+        <input type="text" name="researchName" required>
         <hr>
 
         <label for="newField">Veld toevoegen</label>
@@ -56,7 +56,7 @@
         </table>
 
         <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan">
-        <input type="button" value="Verwijderen" class="button right" onclick="myFunction()">
+        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 3)">
 
       </form>
     </div>
