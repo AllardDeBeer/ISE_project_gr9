@@ -18,14 +18,7 @@
 	$wachtwoord= htmlspecialchars($_POST["Password"]);
 	$wachtwoordC = htmlspecialchars($_POST["PasswordC"]);
 	$antwoord = htmlspecialchars($_POST["Answer"]);
-	$db;
-	$serverName = "(local)\SQLEXPRESS";
-	$connectionInfo = array( "Database"=>"DonkeyKong",  "UID"=>"sa", "PWD"=>"rammus");
-	$conn = sqlsrv_connect( $serverName, $connectionInfo);
-	$blabla ="SELECT gebruikersnaam,antwoord FROM gebruiker WHERE gebruikersnaam = '$gebruiker' AND antwoord = '$antwoord' ";
-	$SQLquery = sqlsrv_query($conn,$blabla);
-	WachtwoordVergeten($gebruiker,$wachtwoord,$wachtwoordC,$antwoord,$blabla);
-
+	WachtwoordVergeten($gebruiker,$wachtwoord,$wachtwoordC,$antwoord);
     ?>
   </body>
 </html>

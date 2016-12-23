@@ -7,7 +7,7 @@
      if(isset($_POST['username'])) {
           $username = $_POST['username'];
           $password = $_POST['password'];
-
+	      $password = sha1($password);
           $stmt = db_query("SELECT VOORNAAM, ACHTERNAAM, GEBRUIKERSNAAM, WACHTWOORD FROM GEBRUIKER WHERE GEBRUIKERSNAAM = '$username'");
           $result = db_fetchAssoc($stmt);
 
