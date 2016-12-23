@@ -4,7 +4,7 @@
       <div class="expanded row border_bottom">
         <h3 class="text-center">Resultaten</h3>
       </div>
-      <form action="" name="showResultsForm" method="POST" enctype="multipart/form-data">
+      <form action="" name="showResultsForm" id="showResultsForm" method="POST" enctype="multipart/form-data">
         <div class="expanded row border_bottom">
           <div class="column large-12">
             <span>1. Aantal Velden</span>
@@ -17,19 +17,19 @@
           </div>
           <ul class="button-group toggle" data-toggle="buttons-radio">
             <li>
-              <input type="radio" id="r1" name="r-group" data-toggle="button">
+              <input type="radio" id="r1" value="line" name="r-group" data-toggle="button">
               <label class="button" for="r1"><i class="material-icons">timeline</i></label>
             </li>
             <li>
-              <input type="radio" id="r2" name="r-group" data-toggle="button">
+              <input type="radio" id="r2" value="bar" name="r-group" data-toggle="button">
               <label class="button" for="r2"><i class="material-icons">assessment</i></label>
             </li>
             <li>
-              <input type="radio" id="r3" name="r-group" data-toggle="button">
+              <input type="radio" id="r3" value="pie" name="r-group" data-toggle="button">
               <label class="button" for="r3"><i class="material-icons">pie_chart</i></label>
             </li>
             <li>
-              <input type="radio" id="r4" name="r-group" data-toggle="button">
+              <input type="radio" id="r4" value="none" name="r-group" data-toggle="button">
               <label class="button" for="r4"><i class="material-icons">grid_on</i></label>
             </li>
           </ul>
@@ -47,7 +47,7 @@
             <span>4. Start</span>
           </div>
           <div class="column large-12">
-            <input type="submit" value="Teken" class="button" onclick="prepareResults()">
+            <input type="button" value="Teken" class="button" onclick="preparePage()">
           </div>
         </div>
         <div class="expanded row currentMonkey align-self-bottom">

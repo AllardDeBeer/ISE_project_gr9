@@ -89,14 +89,37 @@ function setSessionVariable(name, value) {
   return false;
 }
 
+function prepareGraph() {
+  var amountCols = $("#varOptions > div").length - 1;
+  console.log(amountCols);
+  var output = "";
+   $.ajax({
+      url:'handlers/session_retriever.php?a=' + amountCols,
+      complete: function (response) {
+         // output = "[]";
+          console.log("[ "+response.responseText+" ]");
+          var type = $('input[name=r-group]:checked', '#showResultsForm').val()
+          var currentX = $('input[name=testGroup]:checked', '#showResultsForm').val();
+          drawGraph(type, currentX, response.responseText);
+      },
+      error: function () {
+          console.log("Session variable could not be retrieved");
+      }
+  });
+}
+
+function preparePage(){
+  prepareResults();
+  prepareGraph();
+}
+
 function addCurrentUsers(ids){
 	window.pins += ids;
 	showResult("");
 }
 
 function prepareResults(){
-  var amountVars =  $("#varOptions select").length;
- // var output = "<" + $("#r1").value + "><" + $("#r2").value + "><" + $("#r3").value + "><" + $("#r4").value + ">||";
+ var amountVars =  $("#varOptions select").length;
  var output = "";
   for (var i = 1; i <= amountVars; i++) {
     output += "[" + $("#choice"+i).val() + "]";
@@ -105,39 +128,42 @@ function prepareResults(){
   showResult(output, 4, 'liveTable');
 }
 
-function drawGraph(type){
+function drawGraph(type, currentX, input){
+  // getSessionVariable('table_data', 1);
+  input = input.split("|");
+  labels = input[currentX].split(",");
+
+  var datasets =  [];
+
+  for (var i = 0; i < input.length; i++) {
+    if(i != currentX){
+      var label = $("#choice" + (i+1) + " option:selected").text();
+      var color = getRandomColor();
+      backgroundColor = [];
+      data = input[i].split(",");
+      for (var j = 0; j <= data.length; j++) {
+        backgroundColor.push(color);
+      };
+      datasets.push({
+                  label,
+                  data,
+                  backgroundColor,
+                  borderColor: [
+                      color
+                  ],
+                  borderWidth: 1,
+                  fill: false
+                });
+    }
+  };
+
   $("#liveGraph").replaceWith("<canvas id=\"liveGraph\"></canvas>");
   var ctx = $("#liveGraph");
   var myChart = new Chart(ctx, {
       type: type,
       data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-          datasets: [
-          {
-              label: type,
-              data: [2, 9, 3, 5, 2, 3],
-              backgroundColor: [
-                  'rgba(255, 99, 132, 0.2)'
-              ],
-              borderColor: [
-                  'rgba(255,99,132,1)'
-              ],
-              borderWidth: 1,
-              fill: false
-          },
-          // {
-          //     label: '2e lijn',
-          //     data: [5, 1, 8, 8, 2, 1],
-          //     backgroundColor: [
-          //         'rgba(134, 45, 255, 0.2)'
-          //     ],
-          //     borderColor: [
-          //         'rgba(255,99,132,1)'
-          //     ],
-          //     borderWidth: 1,
-          //     fill: false
-          // }
-          ],
+          labels,
+          datasets
       },
       options: {
           scales: {
@@ -149,5 +175,14 @@ function drawGraph(type){
           }
       }
   });
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
 

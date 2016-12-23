@@ -18,7 +18,15 @@ if($q <= 0){
 		while($row = db_fetchAssoc($stmt)){
 			$response .= "<option value=\"" . $row['veld_id'] . "\">" . $row['veld_naam'] . "</option>";
 		}
-		$response .= "</select></div>";
+		$response .= "</select>";
+		$response .= "<div class=\"switch\">
+						  <input class=\"switch-input\" value=" . $i . " id=\"xSwitch" . $i . "\" type=\"radio\" checked=\"\" name=\"testGroup\">
+						  <label class=\"switch-paddle\" for=\"xSwitch" . $i . "\">
+						    <span class=\"show-for-sr\">Axis</span>
+						    <span class=\"switch-active\" aria-hidden=\"true\">X</span>
+    						<span class=\"switch-inactive\" aria-hidden=\"true\">Y</span>
+						  </label>
+						</div></div>";
 	}
 	db_close();
 }
