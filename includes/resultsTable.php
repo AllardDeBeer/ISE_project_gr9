@@ -13,7 +13,7 @@ $i = 0;
 
 db_open();
 foreach ($ids as $id) {
-	$stmt = db_query("SELECT waarde FROM Waarde WHERE veld_id =" . $id);
+	$stmt = db_query("SELECT waarde FROM Waarde WHERE veld_id =" . $id . " AND aap_id ='" . $_SESSION['aap'] . "'");
 	$veld = db_fetchAssoc(db_query("SELECT veld_naam FROM Veld WHERE veld_id =" . $id))['veld_naam'];
 	$table_head .= "<th>" . $veld . "</th>";
 	array_push($table_data, array());

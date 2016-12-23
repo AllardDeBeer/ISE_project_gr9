@@ -1,3 +1,10 @@
+<?php
+
+include "../includes/database_functions.php";
+session_start();
+
+?>
+
 <div class="column large-9 right-screen">
   <div class="expanded row content">
     <div class="column large-4 sub-menu">
@@ -55,7 +62,19 @@
             <h4 class="text-center">Huidige aap</h4>
           </div>
           <div class="column large-12">
-            <p class="text-center">< MO593 ></p>
+            <select name="monkeySelect" id="monkeySelect" onchange="setSessionVariable('aap', this.value)">
+            <option disabled selected value> -- Kies een aap -- </option>
+              <?php
+                db_open();
+
+                $stmt = db_query("SELECT aap_id FROM AapInOnderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
+                while($row = db_fetchAssoc($stmt)){
+                  echo "<option value=\"" . $row['aap_id'] . "\">" . $row['aap_id'] . "</option>";
+                }
+
+                db_close();
+              ?>
+            </select>
           </div>
         </div>
       </form>
