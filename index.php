@@ -102,7 +102,7 @@
           </div>
           <div class="column large-12">
             <div class="button-group">
-              <a class="hollow expanded button"><i class="material-icons">settings</i>Instellingen</a>
+              <a class="hollow expanded button" href="#instellingen" ><i class="material-icons">settings</i>Instellingen</a>
               <a class="hollow expanded button"><i class="material-icons">exit_to_app</i>Log uit</a>
             </div>
           </div>

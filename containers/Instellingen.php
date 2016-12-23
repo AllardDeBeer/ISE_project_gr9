@@ -14,7 +14,7 @@
 				<input type="password" name="CurrentPass"><br>
 				Nieuw wachtwoord:<input type="password" name="Password"><br>
 				Herhaal nieuw wachtwoord<input type="password" name="PasswordC"><br>
-				<input type="submit" class="button" value="Submit">
+				<input type="submit" class="button" value="Submit" style="margin-bottom:10%;">
 			</form>
 		</div>
 	</div>
