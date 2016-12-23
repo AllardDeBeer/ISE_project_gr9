@@ -30,7 +30,7 @@ function showResult(str, showIndex, id) {
   // if (str.length==0) {
   //   str.value = "#";
   // }
-  console.log(str);
+  console.log("q: " + str);
   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
@@ -124,7 +124,6 @@ function prepareResults(){
   for (var i = 1; i <= amountVars; i++) {
     output += "[" + $("#choice"+i).val() + "]";
   }
-  console.log(amountVars);
   showResult(output, 4, 'liveTable');
 }
 

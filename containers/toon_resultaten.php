@@ -24,20 +24,28 @@ session_start();
           </div>
           <ul class="button-group toggle" data-toggle="buttons-radio">
             <li>
-              <input type="radio" id="r1" value="line" name="r-group" data-toggle="button">
+              <input type="radio" id="r1" value="line" name="r-group" data-toggle="button" checked="">
               <label class="button" for="r1"><i class="material-icons">timeline</i></label>
             </li>
             <li>
-              <input type="radio" id="r2" value="bar" name="r-group" data-toggle="button">
+              <input type="radio" id="r2" value="bar" name="r-group" data-toggle="button" required>
               <label class="button" for="r2"><i class="material-icons">assessment</i></label>
             </li>
             <li>
-              <input type="radio" id="r3" value="pie" name="r-group" data-toggle="button">
+              <input type="radio" id="r3" value="pie" name="r-group" data-toggle="button" required>
               <label class="button" for="r3"><i class="material-icons">pie_chart</i></label>
             </li>
             <li>
-              <input type="radio" id="r4" value="none" name="r-group" data-toggle="button">
-              <label class="button" for="r4"><i class="material-icons">grid_on</i></label>
+              <input type="radio" id="r4" value="radar" name="r-group" data-toggle="button" required>
+              <label class="button" for="r4"><i class="material-icons">photo_size_select_small</i></label>
+            </li>
+            <li>
+              <input type="radio" id="r5" value="polarArea" name="r-group" data-toggle="button" required>
+              <label class="button" for="r5"><i class="material-icons">track_changes</i></label>
+            </li>
+            <li>
+              <input type="radio" id="r6" value="bubble" name="r-group" data-toggle="button" required>
+              <label class="button" for="r6"><i class="material-icons">bubble_chart</i></label>
             </li>
           </ul>
         </div>
@@ -62,7 +70,7 @@ session_start();
             <h4 class="text-center">Huidige aap</h4>
           </div>
           <div class="column large-12">
-            <select name="monkeySelect" id="monkeySelect" onchange="setSessionVariable('aap', this.value)">
+            <select name="monkeySelect" id="monkeySelect" onchange="setSessionVariable('aap', this.value); prepareResults()" required>
             <option disabled selected value> -- Kies een aap -- </option>
               <?php
                 db_open();
