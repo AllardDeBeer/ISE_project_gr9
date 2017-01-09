@@ -99,7 +99,14 @@
         <div class="expanded row settings align-self-bottom">
           <div class="column large-12 researcher">
             <h4 class="text-center"><?php echo 'Welkom, '.$_SESSION['firstname']. ' '.$_SESSION['insertion'].' '.$_SESSION['surname'] ?></h4>
-            <p class="text-center"><?php echo 'Uw laatste login was op: '.$_SESSION['last_login'] ?></p>
+            <p class="text-center">
+            <?php if ($_SESSION['last_login'] != 'first_login') {
+                    echo 'Uw laatste login was op: '.$_SESSION['last_login'];
+                  } else {
+                    echo 'Dit is uw eerste login!';
+                  }
+            ?>
+            </p>
           </div>
           <div class="column large-12">
             <div class="button-group">
