@@ -1,23 +1,22 @@
 <?php 
 session_start();
 include '/database_functions.php';
-//$q=$_GET["q"];
-$q="2016-12-19‽8‽2‽0‽1‽2‽3‽4‽5‽6‽7";
+$q=$_GET["q"];
+//$q="peter‽2017-01-08‽8‽2‽0‽1‽2‽3‽4‽5‽6‽7";
 db_open();
 $array= array();
 $array= explode( '‽', $q );
 $insertValues = array();
-//$insertIds = array();
-$date=$array[0];
-$insertAmount=$array[1];
-$monkeyAmount=$array[2];
-for ($x = 3; $x < count($array); $x++) {
-   $insertValues[$x-3] = $array[$x];
+$username = $array[0]
+$date=$array[1];
+$insertAmount=$array[2];
+$monkeyAmount=$array[3];
+for ($x = 4; $x < count($array); $x++) {
+   $insertValues[$x-4] = $array[$x];
 }  
-//for ($x = 3+count($insertValues); $x < count($array); $x++) {
-//   $insertIds[$x-(3+count($insertValues))] = $array[$x];
-//}  
-
+  
+// currentResearch = $_session['onderzoek'];
+// currentResearch = $_session['proef'];
 $currentResearch = 1; //moet uit session gehaald worden
 $currentTest = $currentResearch;
 
