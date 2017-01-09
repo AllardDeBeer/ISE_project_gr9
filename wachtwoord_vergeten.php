@@ -21,8 +21,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 
 	$vraag = db_fetchNumeric($result);
 		if ($vraag == false){
-
-		header('Location:../wachtwoord_vergeten.php?user='.$user.'&m=5');
+		header('Location:../wachtwoord_vergeten_pre.php?user='.$gebruiker.'&m=5');
 	}
 	echo'
     <div class="expanded row">

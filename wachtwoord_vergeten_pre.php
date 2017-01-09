@@ -21,13 +21,25 @@
           </div>
         </div>
 	</div>
-
       <div class="column large-9 right-screen">
         <div class="large-12">
-          <div class="container">
+		<?php
+			if(isset($_GET['m'])){
+			  if($_GET['m'] == 5){
+				echo "<div class=\"alert callout\" data-closable>
+				<h5>Oeps er ging iets mis</h5>
+				<p>Geen gebruiker met deze naam</p>
+				<button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+				<span aria-hidden=\"true\">&times;</span>
+				</button>
+				</div>";
+				 }
+			 }
+			?>			  
+		   <div class="container">
               <div class ="row">
 				<h2 class="textcenter">Wachtwoord vergeten</h2>
-			  	<form action="Wachtwoord_vergeten.php?username=""user">			
+				<form action="Wachtwoord_vergeten.php?username=""user" method="GET">			
 					<div class="large-7 large-offset-2">
 						Gebruikersnaam:
 						<input type="text" name="user"><br>						
@@ -38,10 +50,5 @@
         </div>
       </div>
     </div>
-
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/what-input.js"></script>
-    <script src="js/vendor/foundation.js"></script>
-    <script src="js/app.js"></script>
   </body>
 </html>
