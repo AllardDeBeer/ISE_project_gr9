@@ -5,7 +5,8 @@ $date=$_GET["q"];
 $response = "";
 db_open();
 
-$currentResearch = 1;
+$currentResearch = $_session['onderzoek'];
+$currentTest = $_session['proef'];
 
 		$response.="<th>aap</th>";
 				
@@ -21,7 +22,7 @@ $currentResearch = 1;
 $array = array();
 	$counter=0;
 	$aapCounter=0;
-$currentTest = $currentResearch;
+
 	$stmt = db_query("select aap_id from aap A where exists(
 select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'
 and AIO.aap_id = A.AAP_ID

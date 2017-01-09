@@ -15,17 +15,13 @@ for ($x = 4; $x < count($array); $x++) {
    $insertValues[$x-4] = $array[$x];
 }  
   
-// currentResearch = $_session['onderzoek'];
-// currentResearch = $_session['proef'];
-$currentResearch = 1; //moet uit session gehaald worden
-$currentTest = $currentResearch;
+$currentResearch = $_session['onderzoek'];
+$currentTest = $_session['proef'];
+//$currentResearch = 1; //moet uit session gehaald worden
+//$currentTest = $currentResearch;
 
 				
-				$stmt = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");		
-			  while( $column = db_fetchNumeric($stmt) ) {
-				//	veldnamen selecteren $column[0]
-					
-				}
+			
 $stmt = db_query("select aap_id from aap A where exists(select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'and AIO.aap_id = A.AAP_ID)");		
 
 		
@@ -48,7 +44,7 @@ $stmt = db_query("select aap_id from aap A where exists(select * from AAPINONDER
 	 	while( $veldId = db_fetchNumeric($stmt2) )
 					{			
 			
-					db_query("INSERT INTO waarde VALUES (".$veldId[0].",". $aapId[0].",".$insertValues[$counter].",'".$date."');");
+					db_query("INSERT INTO waarde VALUES (".$veldId[0].",". $aapId[0].",".$username.",".$insertValues[$counter].",'".$date."');");
 					$counter++;		
 					} 
 	}
