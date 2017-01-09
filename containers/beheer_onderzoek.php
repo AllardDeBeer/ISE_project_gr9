@@ -1,7 +1,6 @@
 <?php 
   include '../includes/database_functions.php';
   session_start();
-
   db_open();
     $stmt_id = db_query("SELECT gebruiker_id FROM GebruikerInOnderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
     $currentUsers = "";
@@ -56,6 +55,33 @@
         </thead>
         <tbody id="livesearch">
          <!-- Live reloaded content -->
+         <?php
+         $i = 1;
+          db_open();
+          $stmt = db_query("SELECT G.voornaam, G.tussenvoegsel, G.achternaam, G.gebruiker_id, G.gebruikersnaam FROM gebruiker G JOIN GebruikerInOnderzoek GIB ON G.gebruiker_id = GIB.gebruiker_id WHERE GIB.onderzoek_id = " . $_SESSION['onderzoek']);
+          while($person = db_fetchAssoc($stmt)){
+            if($person['gebruikersnaam'] == $_SESSION['username']){
+              echo "<tr>
+                    <td>" . $person['voornaam'] . "</td>
+                    <td>" . $person['tussenvoegsel'] . "</td>
+                    <td>" . $person['achternaam'] . "</td>
+                    <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $person['gebruiker_id'] . " onchange=\"managePin(" . $person['gebruiker_id'] . ")\" checked disabled=\"\"></td>
+                  </tr>";
+                }else{
+                  echo "<tr>
+                    <td>" . $person['voornaam'] . "</td>
+                    <td>" . $person['tussenvoegsel'] . "</td>
+                    <td>" . $person['achternaam'] . "</td>
+                    <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $person['gebruiker_id'] . " onchange=\"managePin(" . $person['gebruiker_id'] . ")\" checked></td>
+                  </tr>";
+                }
+            
+
+            $i = $i + 1;
+          }
+          db_close();
+
+         ?>
       </tbody>
     </table>
     <input type="submit" name="submit" value="Opslaan" class="button">

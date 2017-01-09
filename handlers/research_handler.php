@@ -30,7 +30,7 @@ if(isset($_POST)){
 		}
 
 		db_open();
-		db_query("INSERT INTO onderzoek(onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum) VALUES ('" . $_POST['researchName'] . "','" . $_POST['researchStart'] . "','" . $_POST['reasearchEnd'] . "')");
+		//db_query("INSERT INTO onderzoek(onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum) VALUES ('" . $_POST['researchName'] . "','" . $_POST['researchStart'] . "','" . $_POST['reasearchEnd'] . "')");
 		db_query("UPDATE onderzoek SET onderzoek_naam='".$_POST['researchName']."',
 											onderzoek_startdatum='".$_POST['researchStart']."',
 											onderzoek_einddatum='".$_POST['reasearchEnd']."'
