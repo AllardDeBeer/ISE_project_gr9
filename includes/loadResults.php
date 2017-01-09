@@ -16,12 +16,11 @@ $currentTest = $_session['proef'];
 					
 				}
 				
-				$response.="</tr>
-            </thead>";
+$response.="</tr></thead>";
 
 $array = array();
-	$counter=0;
-	$aapCounter=0;
+$counter=0;
+$aapCounter=0;
 
 	$stmt = db_query("select aap_id from aap A where exists(
 select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'
@@ -44,8 +43,6 @@ and AIO.aap_id = A.AAP_ID
 					}
 				$response.='</tr>';
 	} 
-
-
 
 
 $value="";

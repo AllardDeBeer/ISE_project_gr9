@@ -48,7 +48,7 @@ $stmt = db_query("select aap_id from aap A where exists(select * from AAPINONDER
 					$counter++;		
 					} 
 	}
-	
+	db_close();
 	$response="succes";
 	echo "$response";
 ?>
