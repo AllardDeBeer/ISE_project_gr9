@@ -12,7 +12,7 @@
   <body>
   <?php
   
-  $gebruiker = $_GET[user];
+  $gebruiker = $_GET['user'];
   include '/includes/database_functions.php';
   db_open();
   $result = db_query("SELECT vraag
@@ -41,7 +41,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
           <div class="container">
               <div class ="row">
 				<h2 class="textcenter">Wachtwoord vergeten</h2>
-			  	<form action="handlers/wachtwoord_vergetenHandler.php" method="post"">
+			  	<form action="handlers/wachtwoord_vergeten_handler.php" method="post"">
 				<div class="row">
 
 					<div class="large-7 large-offset-2">

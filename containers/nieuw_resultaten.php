@@ -20,11 +20,10 @@ db_open();
     </script>
 	
 
-	
-	 <input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 4)">
+	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 4">
 
 
-	<form action="includes/test.php" name="addResultsForm" method="POST" enctype="multipart">
+	<form  name="addResultsForm" onsubmit="doClick();" method="POST">
 		<div class="table-scroll">
 			<table>
 				<thead>

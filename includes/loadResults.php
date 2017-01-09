@@ -51,10 +51,22 @@ and AIO.aap_id = A.AAP_ID
 
 
 
-$response.= $counter;
-$response.= $aapCounter;
+
+$value="";
+$value.= '‽';
+$value.= $date;
+$value.= '‽';
+$value.= $counter;
+$value.= '‽';
+$value.= $aapCounter;
+for ($x = 0; $x < count($array); $x++) {
+	$value.= '‽';
+    $value.= $array[$x];
+	
+}  
 
 
-
+ $response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
+$response.=	'<input type="button" value="opslaan" class="button right" onclick="showResult(document.getElementById("insertArray").value , 5">'
 echo "$response";
 ?>
