@@ -4,31 +4,24 @@ include '/database_functions.php';
 $date=$_GET["q"];
 $response = "";
 db_open();
-//$_SESSION['selectedDate'] = $q ;
-//$date= $_SESSION['selectedDate'];
 
-//
-$currentResearch = 1;
-				//$date = @date('Y-m-d');
-				//$date = @date('2016-12-19');
-//
+$currentResearch = $_session['onderzoek'];
+$currentTest = $_session['proef'];
 
-    //
 		$response.="<th>aap</th>";
 				
 				$stmt = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");		
-			  while( $column = db_fetchNumeric($stmt) ) {
+				while( $column = db_fetchNumeric($stmt) ) {
 					$response.="<th>$column[0]</th>";
 					
 				}
 				
-				$response.="</tr>
-            </thead>";
+$response.="</tr></thead>";
 
+$array = array();
+$counter=0;
+$aapCounter=0;
 
-	$counter=0;
-	$aapCounter=0;
-$currentTest = $currentResearch;
 	$stmt = db_query("select aap_id from aap A where exists(
 select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'
 and AIO.aap_id = A.AAP_ID
@@ -39,17 +32,17 @@ and AIO.aap_id = A.AAP_ID
                <td>'.$row[0].'</td>';
                 $aapCounter++;
                $stmt2 = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");	
-			$stmt3 = db_query("SELECT waarde, veld.VELD_ID FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
+			$stmt3 = db_query("SELECT waarde FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
 			while( $column = db_fetchNumeric($stmt2) )
 					{
 					$result = db_fetchNumeric($stmt3);					  
 					$response.='<td><input type="text" name="'.$column[0].'" value="'.$result[0].'"> </td>';
 					$counter++;
+					$array[] = $result[0];
+
 					}
 				$response.='</tr>';
 	} 
-
-
 
 
 $value="";
@@ -66,7 +59,22 @@ for ($x = 0; $x < count($array); $x++) {
 }  
 
 
- $response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
-$response.=	'<input type="button" value="opslaan" class="button right" onclick="showResult(document.getElementById("insertArray").value , 5">'
+
+$response.='<select name="username" id="username" >';
+$stmt4 = db_query("select gebruikersnaam from gebruiker
+where gebruiker_id in(
+select GEBRUIKER_ID from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
+order by gebruikersnaam");		
+	while( $username =db_fetchNumeric($stmt4)  ) 
+	{
+		$response.='<option value="' . $username[0] . '">' . $username[0] . '</option>';
+		
+	}
+			
+$response.= '</select>';
+
+
+$response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
+$response.=	'<input type="button" value="opslaan" class="button right" onclick="window.alert(document.getElementById("username").value+document.getElementById("insertArray").value , 7)">';
 echo "$response";
 ?>

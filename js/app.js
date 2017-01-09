@@ -31,18 +31,19 @@ function showResult(str, showIndex, id) {
   //   str.value = "#";
   // }
   if (window.XMLHttpRequest) {
+	
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  //if(document.getElementById("searchInput").value.length > 0){
+  //if(document.getElementById("searchInput").value.length > 0)
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {   
     document.getElementById(id).innerHTML=this.responseText;
     }
   }
-
+if (showIndex >=0){
   if (showIndex == 1) {
     xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
   } else if(showIndex == 0){
@@ -59,8 +60,11 @@ function showResult(str, showIndex, id) {
     xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
   }else if (showIndex == 7) {
     xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
+	
   }
-  xmlhttp.send();
+ xmlhttp.send();
+  }
+   
 }
 
 
