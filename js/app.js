@@ -26,39 +26,52 @@ function updateContainer(){
   });
 }
 
-function showResult(str, showIndex) {
+function showResult(str, showIndex, id) {
   // if (str.length==0) {
   //   str.value = "#";
   // }
   if (window.XMLHttpRequest) {
+	
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  //if(document.getElementById("searchInput").value.length > 0){
+  //if(document.getElementById("searchInput").value.length > 0)
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {   
-    document.getElementById("livesearch").innerHTML=this.responseText;
+    document.getElementById(id).innerHTML=this.responseText;
     }
   }
-
+if (showIndex >=0){
   if (showIndex == 1) {
     xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
   } else if(showIndex == 0){
     xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
   } else if(showIndex == 2){
     xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
-  } else if (showIndex == 3) {
+  }else if(showIndex == 3){
+    xmlhttp.open("GET","includes/addInputs.php?q="+str,true);
+  }else if(showIndex == 4){
+    xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
+  } else if (showIndex == 5) {
     xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
-  }	else if (showIndex == 4) {
+  }	else if (showIndex == 6) {
     xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
-  }else if (showIndex == 5) {
+  }else if (showIndex == 7) {
     xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
+	
   }
-  xmlhttp.send();
+ xmlhttp.send();
+  }
+   
 }
 
+
+function addInputs(value){
+  var output = value + "|" + 
+  showResult(value, 3, 'varOptions');
+}
 function getValues(elementName) {
   var checkboxes = document.getElementsByName(elementName);
   var vals = "@";
@@ -97,7 +110,99 @@ function setSessionVariable(name, value) {
   return false;
 }
 
+function prepareGraph() {
+  var amountCols = $("#varOptions > div").length - 1;
+  console.log(amountCols);
+  var output = "";
+   $.ajax({
+      url:'handlers/session_retriever.php?a=' + amountCols,
+      complete: function (response) {
+         // output = "[]";
+          console.log("[ "+response.responseText+" ]");
+          var type = $('input[name=r-group]:checked', '#showResultsForm').val()
+          var currentX = $('input[name=testGroup]:checked', '#showResultsForm').val();
+          drawGraph(type, currentX, response.responseText);
+      },
+      error: function () {
+          console.log("Session variable could not be retrieved");
+      }
+  });
+}
+
+function preparePage(){
+  prepareResults();
+  prepareGraph();
+}
+
 function addCurrentUsers(ids){
 	window.pins += ids;
 	showResult("");
 }
+
+function prepareResults(){
+ var amountVars =  $("#varOptions select").length;
+ var output = "";
+  for (var i = 1; i <= amountVars; i++) {
+    output += "[" + $("#choice"+i).val() + "]";
+  }
+  showResult(output, 4, 'liveTable');
+}
+
+function drawGraph(type, currentX, input){
+  // getSessionVariable('table_data', 1);
+  input = input.split("|");
+  labels = input[currentX].split(",");
+
+  var datasets =  [];
+
+  for (var i = 0; i < input.length; i++) {
+    if(i != currentX){
+      var label = $("#choice" + (i+1) + " option:selected").text();
+      var color = getRandomColor();
+      backgroundColor = [];
+      data = input[i].split(",");
+      for (var j = 0; j <= data.length; j++) {
+        backgroundColor.push(color);
+      };
+      datasets.push({
+                  label,
+                  data,
+                  backgroundColor,
+                  borderColor: [
+                      color
+                  ],
+                  borderWidth: 1,
+                  fill: false
+                });
+    }
+  };
+
+  $("#liveGraph").replaceWith("<canvas id=\"liveGraph\"></canvas>");
+  var ctx = $("#liveGraph");
+  var myChart = new Chart(ctx, {
+      type: type,
+      data: {
+          labels,
+          datasets
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+}
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
