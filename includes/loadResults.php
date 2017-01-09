@@ -75,6 +75,6 @@ $response.= '</select>';
 
 
 $response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
-$response.=	'<input type="button" value="opslaan" class="button right" onclick="window.alert(document.getElementById("username").value+document.getElementById("insertArray").value , 5)">';
+$response.=	'<input type="button" value="opslaan" class="button right" onclick="window.alert(document.getElementById("username").value+document.getElementById("insertArray").value , 7)">';
 echo "$response";
 ?>

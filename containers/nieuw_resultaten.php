@@ -14,7 +14,7 @@ db_open();
 	
 			
 
-	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 4">
+	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6">
 
 
 	
@@ -37,9 +37,6 @@ db_open();
 </div>
 
 <script>
-//<![CDATA[       code]]>
-
-
 
       $( "#datepicker" ).datepicker();
       
