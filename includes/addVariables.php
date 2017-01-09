@@ -6,7 +6,7 @@ $q = $_GET['q'];
 $status = $_GET['status'];
 $response = "";
 
-/*if ($status == 'toevoegen') {
+if ($status == 'toevoegen') {
 	if (!isset($_SESSION['vars'])){
 		$_SESSION['vars'] = array();
 	}
@@ -48,21 +48,10 @@ $response = "";
 	    $i++;
 	}
 }	else if ($status == 'proefbeheertoevoegen') {
-	// Voeg de bestaande velden toe aan de response string
-	db_open();
-	$proef_id = $_SESSION['proef'];
-    $stmt = db_query("SELECT VELD_NAAM, DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_ID = D.DATATYPE_ID WHERE V.PROEF_ID = $proef_id");
-    
-
-	while ($result = db_fetchAssoc($stmt)) { 
-      array_push($_SESSION['proefbeheer_vars'], implode("||", $result));
-    
-    }
-    db_close();
-
+	// Voeg de toegevoegde velden toe aan de array
 	array_push($_SESSION['proefbeheer_vars'], $q);
-	
-	// Voeg de toegevoegde velden aan de response string 
+
+	// Voeg alle velden uit de array toe aan de response string
 	$i = 0;
 	foreach ($_SESSION['proefbeheer_vars'] as $var) {
 		$vars = explode('||', $var);
@@ -89,7 +78,6 @@ $response = "";
 	}
 
 	$i = 0;
-	var_dump($_SESSION['proefbeheer_vars']);
 	foreach ($_SESSION['proefbeheer_vars'] as $var) {
 		$vars = explode('||', $var);
 		$response .= "<tr>
@@ -98,10 +86,8 @@ $response = "";
 	                  <td><input type=\"checkbox\" name=\"select\" value=\"$i\" onchange=\"\"></td>
 	                </tr>";	
 	    $i++;
-	}
-}*/
-
+	} 
+}
 	unset($_SESSION['selected']);
-	$response .= "echo echo echo";
 	echo $response;
 ?>

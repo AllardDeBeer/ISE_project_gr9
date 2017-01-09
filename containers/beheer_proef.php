@@ -59,7 +59,6 @@ include "../includes/database_functions.php";
             </thead>
             <tbody id="livesearch">
             <?php
-              echo 'hier dan';
               db_open();
               $stmt = db_query("SELECT VELD_NAAM, DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_ID = D.DATATYPE_ID WHERE V.PROEF_ID = $proef_id");
               $_SESSION['proefbeheer_vars'] = array();
@@ -69,7 +68,6 @@ include "../includes/database_functions.php";
 
               $i = 0;
               foreach ($_SESSION['proefbeheer_vars'] as $var) {
-
                 $vars = explode('||', $var);
                 echo "<tr>
                       <td>" . $vars[0] . "</td>
@@ -79,12 +77,11 @@ include "../includes/database_functions.php";
                 $i++;
               }
               db_close();
-              
             ?>
               
           </tbody>
         </table>
-        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?">
+        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef">
         <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 5)">
       </form>
     </div>
