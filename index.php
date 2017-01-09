@@ -98,11 +98,19 @@
         </div>
         <div class="expanded row settings align-self-bottom">
           <div class="column large-12 researcher">
-            <h4 class="text-center"><?php echo $_SESSION['firstname'].' '.$_SESSION['surname'] ?></h4>
+            <h4 class="text-center"><?php echo 'Welkom, '.$_SESSION['firstname']. ' '.$_SESSION['insertion'].' '.$_SESSION['surname'] ?></h4>
+            <p class="text-center">
+            <?php if ($_SESSION['last_login'] != 'first_login') {
+                    echo 'Uw laatste login was op: '.$_SESSION['last_login'];
+                  } else {
+                    echo 'Dit is uw eerste login!';
+                  }
+            ?>
+            </p>
           </div>
           <div class="column large-12">
             <div class="button-group">
-              <a class="hollow expanded button"><i class="material-icons">settings</i>Instellingen</a>
+              <a class="hollow expanded button" href="#instellingen" ><i class="material-icons">settings</i>Instellingen</a>
               <a class="hollow expanded button"><i class="material-icons">exit_to_app</i>Log uit</a>
             </div>
           </div>
@@ -229,7 +237,8 @@
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
