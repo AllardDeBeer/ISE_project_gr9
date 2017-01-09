@@ -27,13 +27,6 @@ db_open();
             <!-- Live reloaded content -->
           </tbody>
 	
-	
-	<?php
-	
-		  db_close();
-	
-		  ?>
-            
 			
           </table>
         </div>
