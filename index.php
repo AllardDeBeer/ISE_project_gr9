@@ -1,5 +1,10 @@
 <?php
+  session_start();
   include 'includes/database_functions.php';
+
+  if (!(isset($_SESSION['username']))) {
+    header("Refresh:0; ../login.html");
+  }
 ?>
 
 <!doctype html>
@@ -11,15 +16,14 @@
     <title>Donkey Kong Research</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
   </head>
   <body onhashchange="updateContainer();" onload="updateContainer();">
     <div class="expanded row">
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
           <div class="column large-4">
-            <img src="http://placehold.it/300x200" class="img" alt="BPRC">
+            <img src="assets/bprc-logo.jpg" class="img" alt="BPRC">
           </div>
           <div class="column large-8">
             <h1>BPRC</h1>
@@ -27,9 +31,6 @@
         </div>
         <div class="expanded row menu">
         <h2 class="text-center">Menu</h2>
-        <?php 
-          
-        ?>
           <ul class="vertical menu" data-drilldown>
             <li><a href="#nieuw_onderzoek">Nieuw onderzoek</a></li>
             <li>
@@ -38,11 +39,16 @@
               <?php
                 db_open();
 
-                $onderzoeken = db_query("SELECT onderzoek_naam, onderzoek_id FROM onderzoek");
+                $onderzoeken = db_query(" SELECT O.onderzoek_naam, O.onderzoek_id 
+                                          FROM onderzoek O JOIN GebruikerInOnderzoek GIB 
+                                                  ON O.onderzoek_id = GIB.onderzoek_id
+                                                JOIN Gebruiker G
+                                                  ON GIB.gebruiker_id = G.gebruiker_id
+                                          WHERE G.gebruikersnaam = '" . $_SESSION['username'] . "'");
                 while($o_row = db_fetchAssoc($onderzoeken)) {
                  // echo "1:" . $o_row['onderzoek_naam'] . "<br>";
                     echo  "<li>
-                            <a href=\"#\">" . $o_row['onderzoek_naam'] . "</a>
+                            <a href=\"#\" onclick=\"setSessionVariable('onderzoek',". $o_row['onderzoek_id'] .")\">" . $o_row['onderzoek_naam'] . "</a>
                             <ul class=\"vertical menu\">
                               <li>
                                 <a href=\"#nieuw_proef\">Nieuwe proef</a>
@@ -56,7 +62,7 @@
                          $proef = db_fetchAssoc(db_query("SELECT proef_naam FROM proef WHERE proef_id = " . $pid_row['proef_id']));
                          
                          echo  "<li>
-                                  <a href=\"#\">" . $proef['proef_naam'] . "</a>
+                                  <a href=\"#\" onclick=\"setSessionVariable('proef',". $pid_row['proef_id'] .")\">" . $proef['proef_naam'] . "</a>
                                   <ul class=\"vertical menu\">
                                     <li>
                                       <a href=\"#toon_resultaten\">Toon resultaten</a>
@@ -88,7 +94,7 @@
             <li>
               <a href="#">Beheer apen</a>
               <ul class="vertical menu">
-                <li><a href="#toevoegen_apen">Apen toevoegen</a></li>
+                <li><a href="#apen_importeren">Apen toevoegen</a></li>
                 <li><a href="#verwijder_apen">Apen verwijderen</a></li>
               </ul>
             </li>
@@ -96,19 +102,28 @@
         </div>
         <div class="expanded row settings align-self-bottom">
           <div class="column large-12 researcher">
-            <h4 class="text-center">Ingrid Phillippens</h4>
+            <h4 class="text-center"><?php echo 'Welkom, '.$_SESSION['firstname']. ' '.$_SESSION['insertion'].' '.$_SESSION['surname'] ?></h4>
+            <p class="text-center">
+            <?php if ($_SESSION['last_login'] != 'first_login') {
+                    echo 'Uw laatste login was op: '.$_SESSION['last_login'];
+                  } else {
+                    echo 'Dit is uw eerste login!';
+                  }
+            ?>
+            </p>
           </div>
           <div class="column large-12">
             <div class="button-group">
-              <a class="hollow expanded button"><i class="material-icons">settings</i>Instellingen</a>
-              <a class="hollow expanded button"><i class="material-icons">exit_to_app</i>Log uit</a>
+              <a class="hollow expanded button" href="#instellingen" ><i class="material-icons">settings</i>Instellingen</a>
+              <a class="hollow expanded button" href="../sessionkiller.php"><i class="material-icons">exit_to_app</i>Log uit</a>
             </div>
           </div>
         </div>
       </div>
-      <duv class="column large-9 right-screen">
+      <div class="column large-9 right-screen">
         <div class="large-12">
         <?php 
+		if (isset($get['m'])){
           if($_GET['m'] == 1){
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                     <h5>Gelukt!</h5>
@@ -117,19 +132,117 @@
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
                   </div>";
+            }else if($_GET['m'] == 2){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Onderzoek is succesvol aangepast.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 3){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De a(a)p(en) zijn/is succesvol verwijderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            }else if($_GET['m'] == 4){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De gegevens zijn succesvol geïmporteerd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+
             }
+		
+
+			else if($_GET['m'] == 5){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Vul aub alle relevante velden in.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";	
+            }else if($_GET['m'] == 6){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>De twee wachtwoorden komen niet overeen</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+					</div>";}
+			else if($_GET['m'] == 7){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Het gekozen wachtwoord is te kort. Maak deze langer dan 4 tekens aub.</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 8){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5Niet gelukt</h5>
+                    <p>Het oude wachtwoord is niet correct</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 9){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>Uw wachtwoord is veranderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 10){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Deze gebruikersnaam is incorrect</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 11){
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt</h5>
+                    <p>Uw gebruikersnaam is succesvol veranderd</p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+			else if($_GET['m'] == 12){
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                    <h5>Niet gelukt</h5>
+                    <p>Uw gekozen gebruikersnaam is te kort. Maak deze groter dan 2 tekens aub/p>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+				</div>";}
+}
           ?>
+		  
+		  
           <div class="container">
             
           </div>
         </div>
-      </duv>
+      </div>
     </div>
 
+
+	
+	
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/vendor/chart.js"></script>
+    <script src="js/vendor/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

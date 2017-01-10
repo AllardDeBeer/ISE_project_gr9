@@ -1,3 +1,43 @@
+
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/css/material-design-icons/iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(/css/material-design-icons/iconfont/MaterialIcons-Regular.woff2) format('woff2'),
+       url(/css/material-design-icons/iconfont/MaterialIcons-Regular.woff) format('woff'),
+       url(/css/material-design-icons/iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/*--------------------------------------------------------------*/
 body{
 	overflow: hidden;
 }
@@ -6,8 +46,12 @@ body{
 	background-color: white;
 	height: 100%;
 	position: absolute;
-	border-right: 1px solid black;
+	/*border-right: 1px solid black;*/
 	padding: 0px;
+    box-shadow: 10px 10px 5px #888888;
+    background-color: aliceblue;
+    z-index: 5;
+}
 }
 
 .logo{ 
@@ -36,10 +80,14 @@ body{
 	margin: auto;
 }
 
+.logo {
+	border-bottom: 3px solid #ddd;
+}
+
 .settings{
 	position: absolute;
 	bottom: 0px;
-	border-top: 1px solid black;
+	border-top: 3px solid #ddd;
 	width: -moz-available;
 }
 
@@ -55,10 +103,17 @@ body{
 }
 
 .container{
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 	margin: 5% 100px 0px 100px;
 	max-height: 650px;
 	overflow-y: scroll;
+	box-shadow: 10px 10px 5px #888888;
+    background-color: aliceblue;
+}
+
+.vertical.menu:last-child{
+	height: 200px;
+	background-color: aliceblue;
 }
 
 .content{
@@ -122,6 +177,9 @@ input[data-toggle]:checked + label:active {
     margin: 0 2.5rem;
     width: 75px;
 }
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------------
 

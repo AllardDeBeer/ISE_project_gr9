@@ -1,13 +1,14 @@
 <?php
 include 'database_functions.php';
+session_start();
 $q=$_GET["q"];
 $p=rtrim(substr($_GET['p'], 2), "]");;
 $hint="";
 $pinned="";
 db_open();
-$stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam, gebruiker_id FROM gebruiker");
+$stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam, gebruiker_id, gebruikersnaam FROM gebruiker");
 while($row = db_fetchAssoc($stmt)) {
-  $y = array($row['voornaam'], $row['tussenvoegsel'], $row['achternaam'], $row['gebruiker_id']);
+  $y = array($row['voornaam'], $row['tussenvoegsel'], $row['achternaam'], $row['gebruiker_id'], $row['gebruikersnaam']);
   $z = $y[0]." ".$y[1]." ".$y[2]." ".$y[3];
   if (strlen($q)>0) {
     if(stristr($z, $q)){
@@ -40,12 +41,22 @@ $pin_ids = array();
 $i = 1;
 if ($pinned != ""){
   foreach ($pinned as $pin) {
-    $response .= "<tr>
+    if($_SESSION['username'] == $pin[4]){
+      $response .= "<tr>
+                  <td>" . $pin[0] . "</td>
+                  <td>" . $pin[1] . "</td>
+                  <td>" . $pin[2] . "</td>
+                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin(" . $pin[3] . ")\" checked disabled=\"\"></td>
+                </tr>";
+    }else{
+      $response .= "<tr>
                   <td>" . $pin[0] . "</td>
                   <td>" . $pin[1] . "</td>
                   <td>" . $pin[2] . "</td>
                   <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin(" . $pin[3] . ")\" checked></td>
                 </tr>";
+    }
+    
     array_push($pin_ids, $pin[3]);
     $i = $i+1;
   }
