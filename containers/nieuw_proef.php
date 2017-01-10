@@ -55,7 +55,7 @@ include "../includes/database_functions.php"
         </table>
 
         <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan">
-        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 3, 'livesearch')">
+        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 5, 'livesearch')">
 
       </form>
     </div>
