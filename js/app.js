@@ -2,6 +2,9 @@ $(document).foundation()
 
 $( document ).ready(function() {
   console.log( "ready!" );
+  var menuHeight = window.innerHeight - $(".settings").height() - $(".logo").height();
+  $("#menu").height(menuHeight-5);
+  $("li").css('max-height', menuHeight);
   window.bigScreen = false;
   window.pins = "@";
 });
