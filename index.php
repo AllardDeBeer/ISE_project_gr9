@@ -8,7 +8,7 @@
 ?>
 
 <!doctype html>
-<html class="no-js" lang="en" dir="ltr">
+<html class="no-js" lang="nl" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -29,9 +29,9 @@
             <h1>BPRC</h1>
           </div>
         </div>
-        <div class="expanded row menu">
-        <h2 class="text-center">Menu</h2>
-          <ul class="vertical menu" data-drilldown>
+        <div class="expanded row menu" id="menu">
+        <h2 class="text-center" id="menu-title">Menu</h2>
+          <ul class="vertical menu"  data-drilldown>
             <li><a href="#nieuw_onderzoek">Nieuw onderzoek</a></li>
             <li>
               <a href="#open_onderzoek">Open onderzoek</a>
@@ -122,9 +122,9 @@
       </div>
       <div class="column large-9 right-screen">
         <div class="large-12">
-        <?php
-        if (isset($_GET['m'])) {
-          if ($_GET['m'] == 1) {
+        <?php 
+		if (isset($_GET['m'])){
+          if($_GET['m'] == 1){
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                             <h5>Gelukt!</h5>
                             <p>Onderzoek is succesvol aangemaakt.</p>
