@@ -4,21 +4,23 @@ include "../includes/database_functions.php";
 session_start();
 
 ?>
-
+<script>
+  setVarOptionsMaxHeight();
+</script>
 <div class="column large-9 right-screen">
   <div class="expanded row content">
     <div class="column large-4 sub-menu">
-      <div class="expanded row border_bottom">
+      <div class="expanded row border_bottom" id="subMenuTitle">
         <h3 class="text-center">Resultaten</h3>
       </div>
       <form action="" name="showResultsForm" id="showResultsForm" method="POST" enctype="multipart/form-data">
-        <div class="expanded row border_bottom">
+        <div class="expanded row border_bottom" id="subMenuAmount">
           <div class="column large-12">
             <span>1. Aantal Velden</span>
           </div>
           <input type="number" name="numVars" value="0" onchange="addInputs(this.value);" class="varnum">
         </div>
-        <div class="expanded row border_bottom">
+        <div class="expanded row border_bottom" id="subMenuPresentation">
           <div class="column large-12">
             <span>2. Presentatie</span>
           </div>
@@ -57,7 +59,7 @@ session_start();
             <p>Kies Eerst het aantal variabele.</p>
           </div>
         </div>
-        <div class="expanded row border_bottom">
+        <div class="expanded row border_bottom" id="subMenuSubmit">
           <div class="column large-12">
             <span>4. Start</span>
           </div>
@@ -65,7 +67,7 @@ session_start();
             <input type="button" value="Teken" class="button" onclick="preparePage()">
           </div>
         </div>
-        <div class="expanded row currentMonkey align-self-bottom">
+        <div class="expanded row currentMonkey align-self-bottom" id="subMenuMonkey">
           <div class="column large-12 researcher">
             <h4 class="text-center">Huidige aap</h4>
           </div>

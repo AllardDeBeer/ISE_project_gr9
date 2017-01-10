@@ -151,6 +151,10 @@ body{
 	font-size: 13px;
 }
 
+#varOptions{
+	overflow-y: scroll;
+}
+
 #datepickerB , #datepickerE {
 	width: 200px;
 	display: inline-block;
@@ -183,11 +187,6 @@ input[data-toggle]:checked + label:active {
     margin: 0 2.5rem;
     width: 75px;
 }
-
-
-
-
----------------------------------------------------------------------------------------------------------------------------
 
 .loginmargin{
 	margin-top: 100px;

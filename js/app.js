@@ -2,9 +2,11 @@ $(document).foundation()
 
 $( document ).ready(function() {
   console.log( "ready!" );
+
   var menuHeight = window.innerHeight - $(".settings").height() - $(".logo").height();
   $("#menu").height(menuHeight-5);
   $("li").css('max-height', menuHeight);
+
   window.bigScreen = false;
   window.pins = "@";
 });
@@ -212,3 +214,7 @@ function getRandomColor() {
     return color;
 }
 
+function setVarOptionsMaxHeight(){
+  var maxHeight = window.innerHeight - $("#subMenuTitle").height() - $("#subMenuAmount").height() - $("#subMenuPresentation").height() - $("#subMenuSubmit").height() - $("#subMenuMonkey").height();
+  $("#varOptions").css('max-height', maxHeight);
+}
