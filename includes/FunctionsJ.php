@@ -55,7 +55,7 @@ Function Wachtwoordvergeten($user,$pass,$passC,$answer)
 			$update = "UPDATE gebruiker SET wachtwoord = '$pass' WHERE gebruikersnaam = '$user'";
 			db_query($update);
 			db_close();
-			header('Location:../login.html');
+			header('Location:../login.php');
 			
 		}		
 	}			

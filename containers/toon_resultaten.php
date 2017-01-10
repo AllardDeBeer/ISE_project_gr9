@@ -18,7 +18,7 @@ session_start();
           <div class="column large-12">
             <span>1. Aantal Velden</span>
           </div>
-          <input type="number" name="numVars" value="0" onchange="addInputs(this.value);" class="varnum">
+          <input type="number" name="numVars" value="0" min="0" onchange="addInputs(this.value);" class="varnum">
         </div>
         <div class="expanded row border_bottom" id="subMenuPresentation">
           <div class="column large-12">

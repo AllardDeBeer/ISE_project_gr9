@@ -102,8 +102,8 @@
 				$datatype_id = sqlsrv_get_field($stmt, 0);
 				$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
 				db_query($sql);
-				header('Location: ../index.php?m=15#beheer_proef');
 			}
+			header('Location: ../index.php?m=15#beheer_proef');
 		}
 	} else {
 		echo 'GET not set!'; 

@@ -25,7 +25,7 @@
                $stmt = db_query("UPDATE GEBRUIKER SET DATUMLAATSTELOGIN = GETDATE() WHERE GEBRUIKERSNAAM = '".$result['GEBRUIKERSNAAM']."'");
                header('Location: ../index.php');
           } else {
-               header("Refresh:0; ../login.html");
+               header("Refresh:0; ../login.php?m=1");
           }
      }
 
