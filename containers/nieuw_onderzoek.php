@@ -1,3 +1,7 @@
+<?php 
+  include '../includes/database_functions.php'; 
+  session_start();
+?>
 <div class="container">
 <div class="row">
 <div class="column large-12">
@@ -29,6 +33,19 @@
         </thead>
         <tbody id="livesearch">
          <!-- Live reloaded content -->
+         <?php
+         db_open();
+            $stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam, gebruiker_id FROM gebruiker WHERE gebruikersnaam = '" . $_SESSION['username'] . "'");
+            $pin = db_fetchAssoc($stmt);
+            echo "<tr>
+                  <td>" . $pin['voornaam'] . "</td>
+                  <td>" . $pin['tussenvoegsel'] . "</td>
+                  <td>" . $pin['achternaam'] . "</td>
+                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin['gebruiker_id'] . " onchange=\"managePin(" . $pin['gebruiker_id'] . ")\" checked disabled=\"\"></td>
+                </tr>";
+            echo "<script>managePin(" . $pin['gebruiker_id'] . ");</script>";
+         db_close();
+         ?>
       </tbody>
     </table>
     <input type="submit" name="submit" value="Opslaan" class="button">
