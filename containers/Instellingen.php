@@ -3,8 +3,8 @@
 		<div class="column medium-12">		
 			<form action="handlers/Instellingen_gebruiker_handler.php" method="POST">
 				<h3>Gebruikersnaam wijzigen</h3>
-				Huidige Gebruikersnaam:<input type="text" name="Gebruikersnaam"><br>
-				Nieuwe Gebruikersnaam:<input type="text" name="NieuweGebruikersnaam"><br>
+				Huidige gebruikersnaam:<input type="text" name="Gebruikersnaam"><br>
+				Nieuwe gebruikersnaam:<input type="text" name="NieuweGebruikersnaam"><br>
 				<input type="submit" class="button" value="Submit">
 			</form>
 			<hr>
