@@ -30,6 +30,8 @@ function showResult(str, showIndex, id) {
   // if (str.length==0) {
   //   str.value = "#";
   // }
+  console.log(str);
+  console.log(showIndex);
   if (window.XMLHttpRequest) {
 	
     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -60,7 +62,10 @@ if (showIndex >=0){
     xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
   }else if (showIndex == 7) {
     xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
-	
+  } else if (showIndex == 8) {
+    xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
+  } else if (showIndex == 9) {
+    xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
   }
  xmlhttp.send();
   }
@@ -96,8 +101,6 @@ function managePin(pin){
 }
 
 function setSessionVariable(name, value) {
-  console.log("name:"+name);
-  console.log("value:"+value);
    $.ajax({
       url:'handlers/session_handler.php?n='+name+'&v='+value,
       complete: function (response) {
