@@ -71,6 +71,13 @@
 			echo 'Bestaande Velden: ';
 			var_dump($bestaandeVelden);
 			echo '</br>';
+
+			echo 'Nieuwe toe te voegen velden:';
+			$arrayNewFields = array_diff($_SESSION['proefbeheer_vars'], $bestaandeVelden);
+			$_SESSION['arrayNewFields'] = $arrayNewFields;
+			var_dump($arrayNewFields);
+			echo '</br>';
+
 			echo 'Verwijderde Velden: ';
 			$arrayDiff = array_diff($bestaandeVelden, $_SESSION['proefbeheer_vars']);
 			$_SESSION['arrayDiff'] = $arrayDiff;
@@ -80,29 +87,35 @@
 				echo 'ArrayDiff is empty';
 				// Sla op
 			} else {
-				//header('Location: ../index.php?m=6#beheer_proef');
+				header('Location: ../index.php?m=6#beheer_proef');
 			}
 		} else if ($_GET['value'] == 'opslaanBeheerProefDefinitief') {
 			// Verwijder kolommen in WAARDE tabel
+			// Verwijder kolommen in de VELD tabel
 			foreach($_SESSION['arrayDiff'] as $var) {
 				$vars = explode('||', $var);
-				$sql = "BEGIN TRAN DELETE FROM WAARDE WHERE VELD_ID IN (SELECT VELD_ID
-														 FROM VELD 
-														 WHERE PROEF_ID = $proef_id AND VELD_NAAM = '$vars[0]') ROLLBACK TRAN";
-				var_dump($sql);
-				$stmt = db_query($sql);
-			}
-
-			// Delete kolommen in de VELD tabel
-			foreach($_SESSION['arrayDiff'] as $var) {
-				$vars = explode('||', $var);
-				$sql = "BEGIN TRAN DELETE FROM VELD WHERE PROEF_ID = $proef_id AND VELD_NAAM = '$vars[0]' ROLLBACK TRAN";
+				$sql = "DELETE FROM WAARDE WHERE VELD_ID IN (SELECT VELD_ID
+														     FROM VELD 
+														     WHERE PROEF_ID = $proef_id AND VELD_NAAM = '$vars[0]')
+						DELETE FROM VELD WHERE PROEF_ID = $proef_id AND VELD_NAAM = '$vars[0]'
+						";
 				var_dump($sql);
 				$stmt = db_query($sql);
 			}
 
 			// Voeg kolommen toe die nieuw zijn 
-			// TODO 
+			foreach($_SESSION['arrayNewFields'] as $var) {
+				$vars = explode('||', $var);
+				$veld_naam = $vars[0];
+				$datatypenaam = $vars[1];
+				$stmt = db_query("SELECT DATATYPE_ID FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
+				sqlsrv_fetch($stmt);
+				$datatype_id = sqlsrv_get_field($stmt, 0);
+				$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
+				var_dump($sql);
+				db_query($sql);
+				header('Location: ../index.php?m=7#beheer_proef');
+			}
 		}
 	} else {
 		echo 'GET not set!'; 

@@ -153,16 +153,24 @@
                   </div>";
             } else if ($_GET['m'] == 6){
               $waarden = '';
-            foreach ($_SESSION['arrayDiff'] as $var) {
-              $vars = explode ('||', $var);
-              $waarden .=  "'".$vars[0]."'";
-              $waarden .= ', ';
-            }
+              foreach ($_SESSION['arrayDiff'] as $var) {
+                $vars = explode ('||', $var);
+                $waarden .=  "'".$vars[0]."'";
+                $waarden .= ', ';
+              }
             echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
                     <h5>Pas op!</h5>
                     <p>De kolom(men): ".$waarden." bevat(ten) nog waarden! Weet u zeker dat u deze waarden wilt verwijderen?</p>
                     <a href='../handlers/proef_handler.php?value=opslaanBeheerProefDefinitief'>Ja</a>
                     <a href='index.php#beheer_proef'>Nee</a>
+                    <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                      <span aria-hidden=\"true\">&times;</span>
+                    </button>
+                  </div>";
+            } else if ($_GET['m'] == 7) {
+              echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                    <h5>Gelukt!</h5>
+                    <p>De veld(en) is/zijn succesvol aangepast!</p>
                     <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                       <span aria-hidden=\"true\">&times;</span>
                     </button>
