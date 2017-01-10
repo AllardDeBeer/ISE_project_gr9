@@ -84,8 +84,17 @@
 			var_dump($_SESSION['arrayDiff']);
 
 			if (empty($arrayDiff)) {
-				echo 'ArrayDiff is empty';
-				// Sla op
+				foreach($_SESSION['arrayNewFields'] as $var) {
+					$vars = explode('||', $var);
+					$veld_naam = $vars[0];
+					$datatypenaam = $vars[1];
+					$stmt = db_query("SELECT DATATYPE_ID FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
+					sqlsrv_fetch($stmt);
+					$datatype_id = sqlsrv_get_field($stmt, 0);
+					$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
+					db_query($sql);
+					header('Location: ../index.php?m=7#beheer_proef');
+				}
 			} else {
 				header('Location: ../index.php?m=6#beheer_proef');
 			}
@@ -99,7 +108,6 @@
 														     WHERE PROEF_ID = $proef_id AND VELD_NAAM = '$vars[0]')
 						DELETE FROM VELD WHERE PROEF_ID = $proef_id AND VELD_NAAM = '$vars[0]'
 						";
-				var_dump($sql);
 				$stmt = db_query($sql);
 			}
 
@@ -112,7 +120,6 @@
 				sqlsrv_fetch($stmt);
 				$datatype_id = sqlsrv_get_field($stmt, 0);
 				$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
-				var_dump($sql);
 				db_query($sql);
 				header('Location: ../index.php?m=7#beheer_proef');
 			}
