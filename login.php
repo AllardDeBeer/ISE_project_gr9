@@ -25,7 +25,20 @@
       <div class="column large-9 right-screen">
         <div class="large-12">
           <div class="loginmargin">
-			
+          <?php 
+			    if (isset($_GET['m'])) {
+            if ($_GET['m'] == 1) {
+              echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                              <h5>Mislukt!</h5>
+                              <p>Uw gebruikersnaam of wachtwoord is fout. Als u uw wachtwoord niet meer weet kunt u op wachtwoord vergeten klikken.
+                                 Als u uw gebruikersnaam niet meer weet moet u naar de systeemadmin gaan.</p>
+                              <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                                <span aria-hidden=\"true\">&times;</span>
+                              </button>
+                            </div>";
+            }
+          }
+          ?>
 					  <div class="row">
 							<div class="large-5 large-offset-3 large-offset-1 columns loginmargin"><h1> Donkey Kong</h1> </div>
 					  </div>
