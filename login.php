@@ -28,10 +28,18 @@
           <?php 
 			    if (isset($_GET['m'])) {
             if ($_GET['m'] == 1) {
-              echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+              echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
                               <h5>Mislukt!</h5>
                               <p>Uw gebruikersnaam of wachtwoord is fout. Als u uw wachtwoord niet meer weet kunt u op wachtwoord vergeten klikken.
                                  Als u uw gebruikersnaam niet meer weet moet u naar de systeemadmin gaan.</p>
+                              <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                                <span aria-hidden=\"true\">&times;</span>
+                              </button>
+                            </div>";
+            } else if ($_GET['m'] == 1) {
+              echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                              <h5>Succes!</h5>
+                              <p>U bent succesvol uitgelogd!</p>
                               <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                                 <span aria-hidden=\"true\">&times;</span>
                               </button>
