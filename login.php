@@ -36,7 +36,7 @@
                                 <span aria-hidden=\"true\">&times;</span>
                               </button>
                             </div>";
-            } else if ($_GET['m'] == 1) {
+            } else if ($_GET['m'] == 2) {
               echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                               <h5>Succes!</h5>
                               <p>U bent succesvol uitgelogd!</p>
