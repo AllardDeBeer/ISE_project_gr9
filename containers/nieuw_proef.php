@@ -1,6 +1,6 @@
 <?php
-  session_start();
-  include "../includes/database_functions.php"
+session_start();
+include "../includes/database_functions.php"
 ?>
 <div class="container">
   <div class="row">
@@ -12,7 +12,6 @@
         <label for="researchName">Naam</label>
         <input type="text" name="researchName" required>
         <hr>
-
         <label for="newField">Veld toevoegen</label>
         <table name="newField">
           <thead>
@@ -26,20 +25,20 @@
               <td><input type="text" name="fieldName" id="fieldName"></td>
               <td><select name="fieldDataType" id="fieldDataType">
                 <?php 
-                  db_open();
-                  $stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES");
-                  
-                  while($result = db_fetchAssoc($stmt)) {
-                    echo "<option>".$result['DATATYPE_NAAM']."</option>";
-                  }
+                db_open();
+                $stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES");
+                
+                while($result = db_fetchAssoc($stmt)) {
+                  echo "<option>".$result['DATATYPE_NAAM']."</option>";
+                }
 
-                  db_close();
+                db_close();
                 ?>
               </select></td>
             </tr>
           </tbody>
         </table>
-        <input type="button" value="Voeg toe" class="button" onclick="showResult(document.getElementById('fieldName').value+'||'+document.getElementById('fieldDataType').value , 0)">
+        <input type="button" value="Voeg toe" class="button" onclick="showResult(document.getElementById('fieldName').value+'||'+document.getElementById('fieldDataType').value , 0, 'livesearch')">
         <hr>
 
         <table>
@@ -56,7 +55,7 @@
         </table>
 
         <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan">
-        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 3)">
+        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 3, 'livesearch')">
 
       </form>
     </div>

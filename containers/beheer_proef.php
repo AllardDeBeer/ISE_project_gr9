@@ -11,7 +11,6 @@ include "../includes/database_functions.php";
       <form action="#" name="newResearch" method="POST" enctype="multipart">
         <label for="researchName">Wijzig naam</label>
         <?php 
-
         $proef_id = $_SESSION['proef'];
         db_open();
         $stmt = db_query("SELECT PROEF_NAAM FROM PROEF WHERE PROEF_ID = '$proef_id'");
@@ -31,20 +30,25 @@ include "../includes/database_functions.php";
             </thead>
             <tbody>
               <tr>
-                <td><input type="text" name="fieldName" required></td>
-                <td><select name="fieldDataType">
-                  <option>Geheel getal</option>
-                  <option>Tekst</option>
-                  <option>Komma getal</option>
-                  <option>Percentage (%)</option>
+                <td><input type="text" name="fieldName" id="fieldName"></td>
+                <td><select name="fieldDataType" id="fieldDataType">
+                  <?php 
+                  db_open();
+                  $stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES");
+                  
+                  while($result = db_fetchAssoc($stmt)) {
+                    echo "<option>".$result['DATATYPE_NAAM']."</option>";
+                  }
+
+                  db_close();
+                  ?>
                 </select></td>
               </tr>
             </tbody>
           </table>
-          <input type="submit" name="submit" value="Voeg toe" class="button">
-        </form>
-        <hr>
-        <form action="#" name="removeFieldForm" method="POST" enctype="multipart">
+          <input type="button" value="Voeg toe" class="button" onclick="showResult(document.getElementById('fieldName').value+'||'+document.getElementById('fieldDataType').value , 8, 'livesearch')">
+          <hr>
+
           <table>
             <thead>
               <tr>
@@ -53,17 +57,32 @@ include "../includes/database_functions.php";
                 <th>Selecteer</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Cortisol</td>
-                <td>Percentage (%)</td>
-                <td><input type="checkbox" name="select" value="HdV"></td>
-              </tr>
-            </tbody>
-          </table>
-          <input type="submit" name="button" value="Verwijder" class="button right">
-        </form>
-        <input type="submit" name="submit" value="Opslaan" class="button">
+            <tbody id="livesearch">
+            <?php
+              db_open();
+              $stmt = db_query("SELECT VELD_NAAM, DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_ID = D.DATATYPE_ID WHERE V.PROEF_ID = $proef_id");
+              $_SESSION['proefbeheer_vars'] = array();
+              while ($result = db_fetchAssoc($stmt)) { 
+                array_push($_SESSION['proefbeheer_vars'], implode("||", $result));
+              }
+
+              $i = 0;
+              foreach ($_SESSION['proefbeheer_vars'] as $var) {
+                $vars = explode('||', $var);
+                echo "<tr>
+                      <td>" . $vars[0] . "</td>
+                      <td>" . $vars[1] . "</td>
+                      <td><input type=\"checkbox\" name=\"select\" value=\"$i\" onchange=\"\"></td>
+                      </tr>"; 
+                $i++;
+              }
+              db_close();
+            ?>
+              
+          </tbody>
+        </table>
+        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef">
+        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 9, 'livesearch')">
       </form>
     </div>
   </div>
