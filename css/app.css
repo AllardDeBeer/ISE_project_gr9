@@ -70,6 +70,10 @@ body{
 	box-shadow: 10px 10px 5px #888888;
     background-color: aliceblue;
 }
+
+.vertical.menu:last-child{
+	height: 200px;
+	background-color: aliceblue;
 }
 
 .content{
