@@ -46,7 +46,7 @@ include "../includes/database_functions.php";
               </tr>
             </tbody>
           </table>
-          <input type="button" value="Voeg toe" class="button" onclick="showResult(document.getElementById('fieldName').value+'||'+document.getElementById('fieldDataType').value , 8)">
+          <input type="button" value="Voeg toe" class="button" onclick="showResult(document.getElementById('fieldName').value+'||'+document.getElementById('fieldDataType').value , 8, 'livesearch')">
           <hr>
 
           <table>
@@ -82,7 +82,7 @@ include "../includes/database_functions.php";
           </tbody>
         </table>
         <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef">
-        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 9)">
+        <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 9, 'livesearch')">
       </form>
     </div>
   </div>
