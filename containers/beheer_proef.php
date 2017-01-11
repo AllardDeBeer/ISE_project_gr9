@@ -81,7 +81,8 @@ include "../includes/database_functions.php";
               
           </tbody>
         </table>
-        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef">
+        <!-- <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef"> -->
+        <input type="button" value="Opslaan" class="button" onclick="manageTest('opslaanBeheerProef')">
         <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 9, 'livesearch')">
       </form>
     </div>

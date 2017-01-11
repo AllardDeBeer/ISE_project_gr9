@@ -77,6 +77,71 @@ if (showIndex >=0){
    
 }
 
+function newTest(researchName, value){
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { 
+   // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {   
+      // Check if proef isValid
+      if (this.responseText == '13') {
+        // Check if not already on page
+        if (window.location.href == "http://localhost/index.php?m=13#nieuw_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=13#nieuw_proef");
+        }
+      } else if (this.responseText == '14') {
+        // Check if not already on page
+        if (window.location.href == "http://localhost/index.php?m=16#nieuw_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=16#nieuw_proef");
+        }
+      }
+    }
+  }
+  xmlhttp.open("GET", "handlers/proef_handler.php?value="+value+"&researchName="+researchName, true);
+  xmlhttp.send();
+}
+
+function manageTest(value) {
+  console.log(value);
+  if (window.XMLHttpRequest) {
+    // code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+  } else { 
+   // code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) { 
+      if (this.responseText == '14') {
+        if (window.location.href == "http://localhost/index.php?m=14#beheer_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=14#beheer_proef")
+        }
+      } else if (this.responseText == '15') {
+        if (window.location.href == "http://localhost/index.php?m=15#beheer_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=15#beheer_proef")
+        }
+      } 
+    }
+  }
+
+  xmlhttp.open("GET", "handlers/proef_handler.php?value="+value, true)
+  xmlhttp.send()
+}
+
 
 function addInputs(value){
   var output = value + "|" + 
