@@ -3,7 +3,7 @@
   include 'includes/database_functions.php';
 
   if (!(isset($_SESSION['username']))) {
-    header("Refresh:0; ../login.html");
+    header("Refresh:0; ../login.php");
   }
 ?>
 
