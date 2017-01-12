@@ -35,15 +35,15 @@
          <!-- Live reloaded content -->
          <?php
          db_open();
-            $stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam, gebruiker_id FROM gebruiker WHERE gebruikersnaam = '" . $_SESSION['username'] . "'");
+            $stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam FROM gebruiker WHERE gebruikersnaam = '" . $_SESSION['username'] . "'");
             $pin = db_fetchAssoc($stmt);
             echo "<tr>
                   <td>" . $pin['voornaam'] . "</td>
                   <td>" . $pin['tussenvoegsel'] . "</td>
                   <td>" . $pin['achternaam'] . "</td>
-                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin['gebruiker_id'] . " onchange=\"managePin(" . $pin['gebruiker_id'] . ")\" checked disabled=\"\"></td>
+                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked disabled=\"\"></td>
                 </tr>";
-            echo "<script>managePin(" . $pin['gebruiker_id'] . ");</script>";
+            echo "<script>managePin('" . $_SESSION['username'] . "');</script>";
          db_close();
          ?>
       </tbody>

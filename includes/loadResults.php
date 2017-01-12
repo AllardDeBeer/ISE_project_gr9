@@ -62,8 +62,8 @@ for ($x = 0; $x < count($array); $x++) {
 
 $response.='<select name="username" id="username" >';
 $stmt4 = db_query("select gebruikersnaam from gebruiker
-where gebruiker_id in(
-select GEBRUIKER_ID from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
+where gebruikersnaam in(
+select gebruikersnaam from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
 order by gebruikersnaam");		
 	while( $username =db_fetchNumeric($stmt4)  ) 
 	{
