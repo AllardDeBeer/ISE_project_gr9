@@ -6,9 +6,9 @@ $p=rtrim(substr($_GET['p'], 2), "]");;
 $hint="";
 $pinned="";
 db_open();
-$stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam, gebruiker_id, gebruikersnaam FROM gebruiker");
+$stmt = db_query("SELECT voornaam, tussenvoegsel, achternaam, gebruikersnaam FROM gebruiker");
 while($row = db_fetchAssoc($stmt)) {
-  $y = array($row['voornaam'], $row['tussenvoegsel'], $row['achternaam'], $row['gebruiker_id'], $row['gebruikersnaam']);
+  $y = array($row['voornaam'], $row['tussenvoegsel'], $row['achternaam'], $row['gebruikersnaam']);
   $z = $y[0]." ".$y[1]." ".$y[2]." ".$y[3];
   if (strlen($q)>0) {
     if(stristr($z, $q)){
@@ -41,7 +41,7 @@ $pin_ids = array();
 $i = 1;
 if ($pinned != ""){
   foreach ($pinned as $pin) {
-    if($_SESSION['username'] == $pin[4]){
+    if($_SESSION['username'] == $pin[3]){
       $response .= "<tr>
                   <td>" . $pin[0] . "</td>
                   <td>" . $pin[1] . "</td>

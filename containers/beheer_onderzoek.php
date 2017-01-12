@@ -2,10 +2,10 @@
   include '../includes/database_functions.php';
   session_start();
   db_open();
-    $stmt_id = db_query("SELECT gebruiker_id FROM GebruikerInOnderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
+    $stmt_id = db_query("SELECT gebruikersnaam FROM GebruikerInOnderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
     $currentUsers = "";
     while($row = db_fetchAssoc($stmt_id)){
-        $currentUsers .= "[".$row['gebruiker_id']."]";
+        $currentUsers .= "[".$row['gebruikersnaam']."]";
     }
   db_close();
 ?>
@@ -58,21 +58,21 @@
          <?php
          $i = 1;
           db_open();
-          $stmt = db_query("SELECT G.voornaam, G.tussenvoegsel, G.achternaam, G.gebruiker_id, G.gebruikersnaam FROM gebruiker G JOIN GebruikerInOnderzoek GIB ON G.gebruiker_id = GIB.gebruiker_id WHERE GIB.onderzoek_id = " . $_SESSION['onderzoek']);
+          $stmt = db_query("SELECT G.voornaam, G.tussenvoegsel, G.achternaam, G.gebruikersnaam FROM gebruiker G JOIN GebruikerInOnderzoek GIB ON G.gebruikersnaam = GIB.gebruikersnaam WHERE GIB.onderzoek_id = " . $_SESSION['onderzoek']);
           while($person = db_fetchAssoc($stmt)){
             if($person['gebruikersnaam'] == $_SESSION['username']){
               echo "<tr>
                     <td>" . $person['voornaam'] . "</td>
                     <td>" . $person['tussenvoegsel'] . "</td>
                     <td>" . $person['achternaam'] . "</td>
-                    <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $person['gebruiker_id'] . " onchange=\"managePin(" . $person['gebruiker_id'] . ")\" checked disabled=\"\"></td>
+                    <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $person['gebruikersnaam'] . " onchange=\"managePin('" . $person['gebruikersnaam'] . "')\" checked disabled=\"\"></td>
                   </tr>";
                 }else{
                   echo "<tr>
                     <td>" . $person['voornaam'] . "</td>
                     <td>" . $person['tussenvoegsel'] . "</td>
                     <td>" . $person['achternaam'] . "</td>
-                    <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $person['gebruiker_id'] . " onchange=\"managePin(" . $person['gebruiker_id'] . ")\" checked></td>
+                    <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $person['gebruikersnaam'] . " onchange=\"managePin('" . $person['gebruikersnaam'] . "')\" checked></td>
                   </tr>";
                 }
             
