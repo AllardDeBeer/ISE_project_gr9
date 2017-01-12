@@ -1,18 +1,14 @@
 <?php
+session_start();
 include 'database_functions.php';
 $q=$_GET["q"];
-$p=rtrim(substr($_GET['p'], 2), "]");;
+$p=rtrim(substr($_GET['p'], 2), "]");
 $hint="";
 $pinned="";
 db_open();
 
-
-
 $stmt = db_query("SELECT aap_id, geboortedatum, diersoort, geslacht, gewicht, datumgewichtmeting FROM aap
-where aap_id not in(select aap_id)
-
-
-");
+where aap_id not in(select aap_id from aapinonderzoek where onderzoek_id =".$_session['onderzoek'] .")");
 while($row = db_fetchAssoc($stmt)) {
   $y = array($row['aap_id'], $row['geboortedatum'], $row['diersoort'], $row['geslacht'], $row['gewicht'], $row['datumgewichtmeting']);
   $z = $y[0]." ".$y[1]->format('Y-m-d')." ".$y[2]." ".$y[3]." ".$y[4]." ".$y[5]->format('Y-m-d');
@@ -49,7 +45,7 @@ if ($pinned != ""){
   foreach ($pinned as $pin) {
     $response .= "<tr>
                   <td>" . $pin[0] . "</td>
-                  <td>" . $pin[1] . "</td>
+                  <td>" . $pin[1]->format('Y-m-d') . "</td>
 				  <td>" . $pin[2] . "</td>
                   <td>" . $pin[3]  . "</td>
 				  <td>" . $pin[4]  . "</td>
