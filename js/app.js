@@ -26,8 +26,14 @@ function updateContainer(){
           $('.container').replaceWith(data);
         }
       }
-      console.log("Container Reloaded");
-      console.log(bigScreen);
+  });
+}
+
+function updateCallout(msg){
+  var url = window.location.href;
+    url = url.split('#');
+    $.get('includes/callout.php?m=' + msg, function(data) {
+        $('#callout').replaceWith(data);
   });
 }
 

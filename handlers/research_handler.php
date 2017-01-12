@@ -19,9 +19,7 @@ if(isset($_POST)){
 		}
 		db_close();
 
-		echo "<script>updateCallout(1);</script>";
-
-		header('Location: ../#nieuw_onderzoek');
+		header('Location: ../?m=1#nieuw_onderzoek');
 	}else if($_GET['a'] == 'a'){
 		echo $_POST['researchName'];
 		$people = array();
