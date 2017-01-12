@@ -60,7 +60,7 @@ include "../includes/database_functions.php";
             <tbody id="livesearch">
             <?php
               db_open();
-              $stmt = db_query("SELECT VELD_NAAM, DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_ID = D.DATATYPE_ID WHERE V.PROEF_ID = $proef_id");
+              $stmt = db_query("SELECT V.VELD_NAAM, D.DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_NAAM = D.DATATYPE_NAAM WHERE V.PROEF_ID = $proef_id");
               $_SESSION['proefbeheer_vars'] = array();
               while ($result = db_fetchAssoc($stmt)) { 
                 array_push($_SESSION['proefbeheer_vars'], implode("||", $result));

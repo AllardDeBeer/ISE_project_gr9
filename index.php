@@ -40,11 +40,9 @@
                 db_open();
 
                 $onderzoeken = db_query(" SELECT O.onderzoek_naam, O.onderzoek_id 
-                                          FROM onderzoek O JOIN GebruikerInOnderzoek GIB 
-                                                  ON O.onderzoek_id = GIB.onderzoek_id
-                                                JOIN Gebruiker G
-                                                  ON GIB.gebruiker_id = G.gebruiker_id
-                                          WHERE G.gebruikersnaam = '" . $_SESSION['username'] . "'");
+                                          FROM onderzoek O JOIN GebruikerInOnderzoek GIO 
+                                                  ON O.onderzoek_id = GIO.onderzoek_id
+                                          WHERE GIO.gebruikersnaam = '" . $_SESSION['username'] . "'");
                 while($o_row = db_fetchAssoc($onderzoeken)) {
                  // echo "1:" . $o_row['onderzoek_naam'] . "<br>";
                     echo  "<li>
