@@ -5,8 +5,8 @@ $date=$_GET["q"];
 $response = "";
 db_open();
 
-$currentResearch = $_session['onderzoek'];
-$currentTest = $_session['proef'];
+$currentResearch = 1 ;//$_session['onderzoek'];
+$currentTest = 1 ;//$_session['proef'];
 
 		$response.="<th>aap</th>";
 				
@@ -75,6 +75,6 @@ $response.= '</select>';
 
 
 $response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
-$response.=	'<input type="button" value="opslaan" class="button right" onclick="window.alert(document.getElementById("username").value+document.getElementById("insertArray").value , 7)">';
+$response.=	'<input type="button" value="opslaan" class="button right" onclick="showresults(document.getElementById(\'username\').value+document.getElementById("insertArray").value , 7,resultsTable)">';
 echo "$response";
 ?>
