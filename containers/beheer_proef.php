@@ -17,7 +17,7 @@ include "../includes/database_functions.php";
         $result = db_fetchAssoc($stmt);
         $proef_naam = $result['PROEF_NAAM'];
         ?>
-        <input type="text" name="researchName" value="<?php echo $proef_naam?>" required>
+        <input type="text" name="researchName" value="<?php echo $proef_naam?>" id="researchName" required>
         <hr>
         <form action="#" name="newFieldForm" method="POST" enctype="multipart">
           <label for="newField">Wijzig velden</label>

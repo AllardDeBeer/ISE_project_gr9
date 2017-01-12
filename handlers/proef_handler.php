@@ -15,7 +15,7 @@
 			while ($row = db_fetchAssoc($result)) {
 				if ($row['PROEF_NAAM'] == $_GET['researchName']) {
 					$isValid = False;
-					$response .= "13";
+					$response .= "notValid";
 					unset($_SESSION['vars']);
 				} 
 			}
@@ -50,12 +50,13 @@
 					$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
 					db_query($sql);
 				}
-				$response = '16';
+				$response = 'isValid';
 				unset($_SESSION['vars']);
 			}
 
 		} else if ($_GET['value'] == 'opslaanBeheerProef') {
 			db_open();
+
 			$bestaandeVelden = array();
 			$sql = "SELECT VELD_NAAM, DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_ID =  D.DATATYPE_ID WHERE PROEF_ID = $proef_id";
 			$stmt = db_query($sql);
@@ -67,7 +68,6 @@
 			$_SESSION['arrayNewFields'] = $arrayNewFields;
 			$arrayDiff = array_diff($bestaandeVelden, $_SESSION['proefbeheer_vars']);
 			$_SESSION['arrayDiff'] = $arrayDiff;
-
 			if (empty($arrayDiff)) {
 				foreach($_SESSION['arrayNewFields'] as $var) {
 					$vars = explode('||', $var);
@@ -78,11 +78,13 @@
 					$datatype_id = sqlsrv_get_field($stmt, 0);
 					$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
 					db_query($sql);
-					$response .= '15';
+					
+					$response .= 'gelukt';
 					//header('Location: ../index.php?m=15#beheer_proef');
 				}
 			} else {
-				$response .= '14';
+				
+				$response .= 'waarden';
 				//header('Location: ../index.php?m=14#beheer_proef');
 			}
 		} else if ($_GET['value'] == 'opslaanBeheerProefDefinitief') {
@@ -109,7 +111,7 @@
 				$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
 				db_query($sql);
 			}
-			$response .= '15';
+			$response .= 'gelukt';
 			//header('Location: ../index.php?m=15#beheer_proef');
 		}
 	} else {
