@@ -69,6 +69,10 @@
 			$arrayDiff = array_diff($bestaandeVelden, $_SESSION['proefbeheer_vars']);
 			$_SESSION['arrayDiff'] = $arrayDiff;
 			if (empty($arrayDiff)) {
+				$researchName = $_GET['researchName'];
+				$sql = "UPDATE PROEF SET PROEF_NAAM = '$researchName' WHERE PROEF_ID = $proef_id";
+				db_query($sql);
+
 				foreach($_SESSION['arrayNewFields'] as $var) {
 					$vars = explode('||', $var);
 					$veld_naam = $vars[0];
@@ -79,9 +83,9 @@
 					$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
 					db_query($sql);
 					
-					$response .= 'gelukt';
 					//header('Location: ../index.php?m=15#beheer_proef');
 				}
+				$response .= 'gelukt';
 			} else {
 				
 				$response .= 'waarden';
@@ -100,6 +104,10 @@
 				$stmt = db_query($sql);
 			}
 
+			$researchName = $_GET['researchName'];
+			$sql = "UPDATE PROEF SET PROEF_NAAM = $researchName WHERE PROEF_ID = $proef_id";
+
+			db_query($sql);
 			// Voeg kolommen toe die nieuw zijn 
 			foreach($_SESSION['arrayNewFields'] as $var) {
 				$vars = explode('||', $var);

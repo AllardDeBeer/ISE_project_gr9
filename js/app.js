@@ -102,7 +102,7 @@ function newTest(researchName, value){
   xmlhttp.send();
 }
 
-function manageTest(value) {
+function manageTest(value, researchName) {
   xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) { 
@@ -123,7 +123,7 @@ function manageTest(value) {
     }
   }
 
-  xmlhttp.open("GET", "handlers/proef_handler.php?value="+value, true)
+  xmlhttp.open("GET", "handlers/proef_handler.php?value="+value+"&researchName="+researchName, true)
   xmlhttp.send()
 }
 
