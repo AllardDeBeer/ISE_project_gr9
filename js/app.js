@@ -31,61 +31,52 @@ function updateContainer(){
   });
 }
 
-function showResult(str, showIndex, id) {
-  // if (str.length==0) {
-  //   str.value = "#";
-  // }
-  console.log(str);
-  console.log(showIndex);
-  if (window.XMLHttpRequest) {
-	
+function initXMLHTTP() {
+if (window.XMLHttpRequest) {
+  
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  //if(document.getElementById("searchInput").value.length > 0)
+  return xmlhttp;
+}
+
+function showResult(str, showIndex, id) {
+  xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {   
     document.getElementById(id).innerHTML=this.responseText;
     }
   }
-if (showIndex >=0){
-  if (showIndex == 1) {
-    xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
-  } else if(showIndex == 0){
-    xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
-  } else if(showIndex == 2){
-    xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
-  }else if(showIndex == 3){
-    xmlhttp.open("GET","includes/addInputs.php?q="+str,true);
-  }else if(showIndex == 4){
-    xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
-  } else if (showIndex == 5) {
-    xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
-  }	else if (showIndex == 6) {
-    xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
-  }else if (showIndex == 7) {
-    xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
-  } else if (showIndex == 8) {
-    xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
-  } else if (showIndex == 9) {
-    xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
-  }
- xmlhttp.send();
-  }
-   
+  if (showIndex >=0){
+    if (showIndex == 1) {
+      xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
+    } else if(showIndex == 0){
+      xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
+    } else if(showIndex == 2){
+      xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
+    }else if(showIndex == 3){
+      xmlhttp.open("GET","includes/addInputs.php?q="+str,true);
+    }else if(showIndex == 4){
+      xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
+    } else if (showIndex == 5) {
+      xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
+    }	else if (showIndex == 6) {
+      xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
+    }else if (showIndex == 7) {
+      xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
+    } else if (showIndex == 8) {
+      xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
+    } else if (showIndex == 9) {
+      xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
+    }
+    xmlhttp.send();
+  } 
 }
 
 function newTest(researchName, value){
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else { 
-   // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {   
       // Check if proef isValid
@@ -111,15 +102,7 @@ function newTest(researchName, value){
 }
 
 function manageTest(value) {
-  console.log(value);
-  if (window.XMLHttpRequest) {
-    // code for IE7+, Firefox, Chrome, Opera, Safari
-    xmlhttp=new XMLHttpRequest();
-  } else { 
-   // code for IE6, IE5
-    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-
+  xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) { 
       if (this.responseText == '14') {
