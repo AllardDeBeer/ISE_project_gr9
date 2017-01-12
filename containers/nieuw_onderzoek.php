@@ -41,7 +41,8 @@
                   <td>" . $pin['voornaam'] . "</td>
                   <td>" . $pin['tussenvoegsel'] . "</td>
                   <td>" . $pin['achternaam'] . "</td>
-                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked disabled=\"\"></td>
+                  <td><input type=\"checkbox\" name=\"select1\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked disabled>
+                  <input type=\"hidden\" name=\"select1\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked></td>
                 </tr>";
             echo "<script>managePin('" . $_SESSION['username'] . "');</script>";
          db_close();
