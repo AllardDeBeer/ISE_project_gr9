@@ -50,7 +50,23 @@ include "../includes/database_functions.php"
             </tr>
           </thead>
           <tbody id="livesearch">
-            <!-- Live reloaded content -->
+          <?php 
+            if (isset($_SESSION['vars'])){
+              if (!empty($_SESSION['vars'])) {
+                $i = 0;
+                foreach ($_SESSION['vars'] as $var) {
+                  $vars = explode('||', $var);
+                  echo "<tr>
+                                <td>" . $vars[0] . "</td>
+                                <td>" . $vars[1] . "</td>
+                                <td><input type=\"checkbox\" name=\"select\" value=\"$i\" onchange=\"\"></td>
+                              </tr>"; 
+
+                $i++;
+                } 
+              }
+            }
+          ?>
           </tbody>
         </table>
 
