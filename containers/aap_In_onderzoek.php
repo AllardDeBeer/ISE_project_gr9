@@ -1,6 +1,6 @@
 <?php 
-include '../includes/database_functions.php'; 
 session_start();
+include '../includes/database_functions.php'; 
 db_open();
 
 ?>

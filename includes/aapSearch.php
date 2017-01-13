@@ -5,7 +5,7 @@ $q=$_GET["q"];
 $p=rtrim(substr($_GET['p'], 2), "]");
 $hint="";
 $pinned="";
-$currentResearch=$_session['onderzoek']
+$currentResearch=$_SESSION["onderzoek"]
 db_open();
 
 $stmt = db_query("SELECT aap_id, geboortedatum, diersoort, geslacht, gewicht, datumgewichtmeting FROM aap
