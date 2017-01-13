@@ -41,8 +41,8 @@
 					$vars = explode('||', $var);
 
 					$veld_naam = $vars[0];
-
 					$datatypenaam = $vars[1];
+					
 					$stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
 					sqlsrv_fetch($stmt);
 					$DATATYPE_NAAM = sqlsrv_get_field($stmt, 0);
