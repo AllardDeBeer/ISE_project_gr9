@@ -12,7 +12,7 @@ if(isset($_POST)){
 		}
 
 		db_open();
-		db_query("INSERT INTO onderzoek(onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum) VALUES ('" . $_POST['researchName'] . "','" . $_POST['researchStart'] . "','" . $_POST['reasearchEnd'] . "')");
+		db_query("INSERT INTO onderzoek(onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum, projectnummer) VALUES ('" . $_POST['researchName'] . "','" . $_POST['researchStart'] . "','" . $_POST['reasearchEnd'] . "'," . $_POST['project'] . ")");
 		$id = db_fetchAssoc(db_query("SELECT onderzoek_id FROM onderzoek WHERE onderzoek_naam ='" . $_POST['researchName'] . "'"));
 		foreach ($people as $person) {
 			db_query("INSERT INTO GebruikerInOnderzoek(gebruikersnaam, onderzoek_id) VALUES ('" . $person . "'," . $id['onderzoek_id'] . ")");
@@ -33,7 +33,8 @@ if(isset($_POST)){
 		//db_query("INSERT INTO onderzoek(onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum) VALUES ('" . $_POST['researchName'] . "','" . $_POST['researchStart'] . "','" . $_POST['reasearchEnd'] . "')");
 		db_query("UPDATE onderzoek SET onderzoek_naam='".$_POST['researchName']."',
 											onderzoek_startdatum='".$_POST['researchStart']."',
-											onderzoek_einddatum='".$_POST['reasearchEnd']."'
+											onderzoek_einddatum='".$_POST['reasearchEnd']."',
+											projectnummer=" . $_POST['project'] . "
 										WHERE onderzoek_id =". $_GET['id']);
 		$id = db_fetchAssoc(db_query("SELECT onderzoek_id FROM onderzoek WHERE onderzoek_naam ='" . $_POST['researchName'] . "'"));
 		db_query("DELETE FROM GebruikerInOnderzoek WHERE onderzoek_id=". $id['onderzoek_id']);

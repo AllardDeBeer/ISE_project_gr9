@@ -11,8 +11,17 @@
   <form action="handlers/research_handler.php?a=n" name="newResearch" method="POST" enctype="multipart">
     <label for="researchName">Naam</label>
     <input type="text" name="researchName" required>
-    Start datum: <input type="text" name="researchStart" id="datepickerB">
-    Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
+    <div class="expanded row">
+      <div class="column large-4">
+          Start datum: <input type="text" name="researchStart" id="datepickerB">
+      </div>
+      <div class="column large-4">
+          Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
+      </div>
+      <div class="column large-4">
+          Project: <input type="text" name="project">
+      </div>
+    </div>
     <script>
       $( "#datepickerB" ).datepicker();
       $( "#datepickerE" ).datepicker();
