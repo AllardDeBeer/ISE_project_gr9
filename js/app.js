@@ -42,7 +42,7 @@ function showResult(str, showIndex, id) {
   //   str.value = "#";
   // }
   console.log(str);
-  console.log(showIndex);
+  //console.log(showIndex);
   if (window.XMLHttpRequest) {
 	
     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -78,6 +78,11 @@ if (showIndex >=0){
   } else if (showIndex == 9) {
     xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
   } else if (showIndex == 10) {
+    xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
+  }else if (showIndex == 11) {
+    xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
+	throwPins();
+  }else if (showIndex == 12) {
     xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
   }
  xmlhttp.send();
@@ -149,7 +154,9 @@ function preparePage(){
   prepareResults();
   prepareGraph();
 }
-
+function throwPins(){
+	window.pins = "";
+	}
 function addCurrentUsers(ids){
 	window.pins += ids;
 	showResult("");
