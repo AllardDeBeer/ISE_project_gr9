@@ -5,8 +5,8 @@ $date=$_GET["q"];
 $response = "";
 db_open();
 
-$currentResearch = $_session['onderzoek'];
-$currentTest = $_session['proef'];
+$currentResearch = 1 ;//$_session['onderzoek'];
+$currentTest = 1 ;//$_session['proef'];
 
 		$response.="<th>aap</th>";
 				
@@ -62,8 +62,8 @@ for ($x = 0; $x < count($array); $x++) {
 
 $response.='<select name="username" id="username" >';
 $stmt4 = db_query("select gebruikersnaam from gebruiker
-where gebruikersnaam in(
-select gebruikersnaam from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
+where gebruiker_id in(
+select GEBRUIKER_ID from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
 order by gebruikersnaam");		
 	while( $username =db_fetchNumeric($stmt4)  ) 
 	{
@@ -75,6 +75,6 @@ $response.= '</select>';
 
 
 $response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
-$response.=	'<input type="button" value="opslaan" class="button right" onclick="window.alert(document.getElementById("username").value+document.getElementById("insertArray").value , 7)">';
+$response.=	'<input type="button" value="opslaan" class="button right" onclick="showresults(document.getElementById(\'username\').value+document.getElementById("insertArray").value , 7,resultsTable)">';
 echo "$response";
 ?>
