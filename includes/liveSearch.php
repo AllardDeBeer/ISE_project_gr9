@@ -46,14 +46,14 @@ if ($pinned != ""){
                   <td>" . $pin[0] . "</td>
                   <td>" . $pin[1] . "</td>
                   <td>" . $pin[2] . "</td>
-                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin(" . $pin[3] . ")\" checked disabled=\"\"></td>
+                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin('" . $pin[3] . "')\" checked disabled=\"\"></td>
                 </tr>";
     }else{
       $response .= "<tr>
                   <td>" . $pin[0] . "</td>
                   <td>" . $pin[1] . "</td>
                   <td>" . $pin[2] . "</td>
-                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin(" . $pin[3] . ")\" checked></td>
+                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $pin[3] . " onchange=\"managePin('" . $pin[3] . "')\" checked></td>
                 </tr>";
     }
     
@@ -70,7 +70,7 @@ if ($hint=="") {
                       <td>" . $tip[0] . "</td>
                       <td>" . $tip[1] . "</td>
                       <td>" . $tip[2] . "</td>
-                      <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $tip[3] . " onchange=\"managePin(" . $tip[3] . ")\"></td>
+                      <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $tip[3] . " onchange=\"managePin('" . $tip[3] . "')\"></td>
                     </tr>";
       $i = $i+1;
     }

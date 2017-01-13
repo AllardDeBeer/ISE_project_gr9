@@ -11,8 +11,17 @@
   <form action="handlers/research_handler.php?a=n" name="newResearch" method="POST" enctype="multipart">
     <label for="researchName">Naam</label>
     <input type="text" name="researchName" required>
-    Start datum: <input type="text" name="researchStart" id="datepickerB">
-    Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
+    <div class="expanded row">
+      <div class="column large-4">
+          Start datum: <input type="text" name="researchStart" id="datepickerB">
+      </div>
+      <div class="column large-4">
+          Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
+      </div>
+      <div class="column large-4">
+          Project: <input type="text" name="project">
+      </div>
+    </div>
     <script>
       $( "#datepickerB" ).datepicker();
       $( "#datepickerE" ).datepicker();
@@ -41,7 +50,8 @@
                   <td>" . $pin['voornaam'] . "</td>
                   <td>" . $pin['tussenvoegsel'] . "</td>
                   <td>" . $pin['achternaam'] . "</td>
-                  <td><input type=\"checkbox\" name=\"select" . $i . "\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked disabled=\"\"></td>
+                  <td><input type=\"checkbox\" name=\"select1\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked disabled>
+                  <input type=\"hidden\" name=\"select1\" value=" . $_SESSION['username'] . " onchange=\"managePin('" . $_SESSION['username'] . "')\" checked></td>
                 </tr>";
             echo "<script>managePin('" . $_SESSION['username'] . "');</script>";
          db_close();

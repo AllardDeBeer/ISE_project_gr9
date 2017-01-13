@@ -110,14 +110,13 @@ body{
 
 .container{
 	/*border: 2px solid black;*/
-	margin: 5% 100px 0px 100px;
-	max-height: 650px;
+	margin: 5% 5% 0px 5%;
+	max-height: 90%;
 	min-height: 100px;
 	overflow-y: scroll;
 	box-shadow: 10px 10px 5px #888888;
     background-color: aliceblue;
 }
-
 .vertical.menu:last-child{
 	height: 200px;
 	background-color: aliceblue;
@@ -146,6 +145,29 @@ body{
 	border-right: 1px solid black;
 	padding: 0px;
 	height: 100%;
+    background-color: aliceblue;
+    box-shadow: 10px 10px 5px #888888;
+    margin-left: -300px;
+    animation: submenu 1.0s forwards;
+	-webkit-animation: submenu 1.0s forwards
+}
+
+@keyframes submenu {
+    0%   {margin-left: -300px;}
+    90% {margin-left: 5px;}
+    100% {margin-left: 0px;}
+}
+
+@keyframes getout {
+    0%   {margin-top: 0px;}
+    10% {margin-top: -10px;}
+    100% {margin-top: 1000px;}
+}
+
+@keyframes getin {
+    0%   {margin-top: -1000px;}
+    90% {margin-top: 7%;}
+    100% {margin-top: 5%;}
 }
 
 .sub-menu span{

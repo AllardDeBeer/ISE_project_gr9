@@ -20,7 +20,7 @@
   </head>
   <body onhashchange="updateContainer();" onload="updateContainer();">
     <div class="expanded row">
-      <div class="column large-3 left-menu">
+      <div class="column small-3 medium-3 large-3 left-menu">
         <div class="expanded row logo">
           <div class="column large-4">
             <img src="assets/bprc-logo.jpg" class="img" alt="BPRC">
@@ -95,8 +95,9 @@
             <li>
               <a href="#">Beheer apen</a>
               <ul class="vertical menu">
-                <li><a href="#apen_importeren">Apen toevoegen</a></li>
-                <li><a href="#verwijder_apen">Apen verwijderen</a></li>
+                <li><a href="#apen_importeren">Voeg apen toe</a></li>
+                <li><a href="#beheer_apen">Beheer apen</a></li>
+                <li><a href="#verwijder_apen">Verwijder apen</a></li>
               </ul>
             </li>
           </ul>
@@ -121,10 +122,10 @@
           </div>
         </div>
       </div>
-      <div class="column large-9 right-screen">
+      <div class="column small-9 medium-9 large-9 right-screen">
         <div class="large-12">
         <?php 
-		if (isset($_GET['m'])){
+		    if (isset($_GET['m'])){
           if($_GET['m'] == 1){
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                             <h5>Gelukt!</h5>
@@ -239,8 +240,8 @@
             echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
                             <h5>Pas op!</h5>
                             <p>De kolom(men): " . $waarden . " bevat(ten) nog waarden! Weet u zeker dat u deze waarden wilt verwijderen?</p>
-                            <a href='../handlers/proef_handler.php?value=opslaanBeheerProefDefinitief'>Ja</a>
-                            <a href='index.php#beheer_proef'>Nee</a>
+                            <button class=\"button\" type=\"button\" onclick=\"manageTest('opslaanBeheerProefDefinitief', document.getElementById('researchName').value)\">Ja</button>
+                            <button class=\"button right\" aria-label=\"Dismiss alert\" type=\"button\" data-close>Nee</>
                             <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                               <span aria-hidden=\"true\">&times;</span>
                             </button>
@@ -270,10 +271,6 @@
         </div>
       </div>
     </div>
-
-
-	
-	
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
