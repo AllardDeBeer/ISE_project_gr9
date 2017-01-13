@@ -37,57 +37,107 @@ function updateCallout(msg){
   });
 }
 
-function showResult(str, showIndex, id) {
-  // if (str.length==0) {
-  //   str.value = "#";
-  // }
-  console.log(str);
-  //console.log(showIndex);
-  if (window.XMLHttpRequest) {
+
 	
+function initXMLHTTP() {
+if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp=new XMLHttpRequest();
   } else {  // code for IE6, IE5
     xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
   }
-  //if(document.getElementById("searchInput").value.length > 0)
+  return xmlhttp;
+}
+
+function showResult(str, showIndex, id) {
+  xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState==4 && this.status==200) {   
     document.getElementById(id).innerHTML=this.responseText;
     }
   }
-if (showIndex >=0){
-  if (showIndex == 1) {
-    xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
-  } else if(showIndex == 0){
-    xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
-  } else if(showIndex == 2){
-    xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
-  }else if(showIndex == 3){
-    xmlhttp.open("GET","includes/addInputs.php?q="+str,true);
-  }else if(showIndex == 4){
-    xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
-  } else if (showIndex == 5) {
-    xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
-  }	else if (showIndex == 6) {
-    xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
-  }else if (showIndex == 7) {
-    xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
-  } else if (showIndex == 8) {
-    xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
-  } else if (showIndex == 9) {
-    xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
-  } else if (showIndex == 10) {
-    xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
-  }else if (showIndex == 11) {
-    xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
-	throwPins();
-  }else if (showIndex == 12) {
-    xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
+  if (showIndex >=0){
+    if (showIndex == 1) {
+      xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
+    } else if(showIndex == 0){
+      xmlhttp.open("GET","includes/addVariables.php?status=toevoegen&q="+str,true);
+    } else if(showIndex == 2){
+      xmlhttp.open("GET","includes/searchMokeys.php?q="+str+"&p="+window.pins,true);
+    }else if(showIndex == 3){
+      xmlhttp.open("GET","includes/addInputs.php?q="+str,true);
+    }else if(showIndex == 4){
+      xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
+    } else if (showIndex == 5) {
+      xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
+    }	else if (showIndex == 6) {
+      xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
+    }else if (showIndex == 7) {
+      xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
+    } else if (showIndex == 8) {
+      xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
+    } else if (showIndex == 9) {
+      xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
+    } else if (showIndex == 10) {
+      xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
+    }else if (showIndex == 11) {
+      xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
+  	  throwPins();
+    }else if (showIndex == 12) {
+      xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
+    }
+  xmlhttp.send();
   }
- xmlhttp.send();
+}
+
+function newTest(researchName, value){
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) {  
+      console.log(this.responseText); 
+      // Check if proef isValid
+      if (this.responseText == 'notValid') {
+        // Check if not already on page
+        if (window.location.href == "http://localhost/index.php?m=13#nieuw_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=13#nieuw_proef");
+        }
+      } else if (this.responseText == 'isValid') {
+        // Check if not already on page
+        if (window.location.href == "http://localhost/index.php?m=16#nieuw_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=16#nieuw_proef");
+        }
+      }
+    }
   }
-   
+  xmlhttp.open("GET", "handlers/proef_handler.php?value="+value+"&researchName="+researchName, true);
+  xmlhttp.send();
+}
+
+function manageTest(value, researchName) {
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState==4 && this.status==200) { 
+      console.log(this.responseText);
+      if (this.responseText == 'waarden') {
+        if (window.location.href == "http://localhost/index.php?m=14#beheer_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=14#beheer_proef")
+        }
+      } else if (this.responseText == 'gelukt') {
+        if (window.location.href == "http://localhost/index.php?m=15#beheer_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=15#beheer_proef")
+        }
+      } 
+    }
+  }
+  xmlhttp.open("GET", "handlers/proef_handler.php?value="+value+"&researchName="+researchName, true)
+  xmlhttp.send()
 }
 
 
