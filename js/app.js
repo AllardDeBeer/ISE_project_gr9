@@ -26,8 +26,14 @@ function updateContainer(){
           $('.container').replaceWith(data);
         }
       }
-      console.log("Container Reloaded");
-      console.log(bigScreen);
+  });
+}
+
+function updateCallout(msg){
+  var url = window.location.href;
+    url = url.split('#');
+    $.get('includes/callout.php?m=' + msg, function(data) {
+        $('#callout').replaceWith(data);
   });
 }
 
@@ -71,11 +77,13 @@ if (showIndex >=0){
     xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
   } else if (showIndex == 9) {
     xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
-  }if (showIndex == 10) {
+  } else if (showIndex == 10) {
     xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
-  }if (showIndex == 11) {
+  }else if (showIndex == 11) {
     xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
 	throwPins();
+  }else if (showIndex == 12) {
+    xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
   }
  xmlhttp.send();
   }
