@@ -38,7 +38,7 @@ if(isset($_POST)){
 		$id = db_fetchAssoc(db_query("SELECT onderzoek_id FROM onderzoek WHERE onderzoek_naam ='" . $_POST['researchName'] . "'"));
 		db_query("DELETE FROM GebruikerInOnderzoek WHERE onderzoek_id=". $id['onderzoek_id']);
 		foreach ($people as $person) {
-			db_query("INSERT INTO GebruikerInOnderzoek(gebruikersnaam, onderzoek_id) VALUES (" . $person . "," . $id['onderzoek_id'] . ")");
+			db_query("INSERT INTO GebruikerInOnderzoek(gebruikersnaam, onderzoek_id) VALUES ('" . $person . "'," . $id['onderzoek_id'] . ")");
 		}
 
 		db_close();
