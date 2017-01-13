@@ -17,7 +17,7 @@ include "../includes/database_functions.php";
         $result = db_fetchAssoc($stmt);
         $proef_naam = $result['PROEF_NAAM'];
         ?>
-        <input type="text" name="researchName" value="<?php echo $proef_naam?>" required>
+        <input type="text" name="researchName" value="<?php echo $proef_naam?>" id="researchName" required>
         <hr>
         <form action="#" name="newFieldForm" method="POST" enctype="multipart">
           <label for="newField">Wijzig velden</label>
@@ -81,7 +81,8 @@ include "../includes/database_functions.php";
               
           </tbody>
         </table>
-        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef">
+        <!-- <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaanBeheerProef"> -->
+        <input type="button" value="Opslaan" class="button" onclick="manageTest('opslaanBeheerProef', document.getElementById('researchName').value)">
         <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 9, 'livesearch')">
       </form>
     </div>

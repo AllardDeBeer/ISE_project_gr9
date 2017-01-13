@@ -8,9 +8,9 @@ include "../includes/database_functions.php"
       <h3>Nieuwe proef</h3>
     </div>
     <div class="column large-12">
-      <form action="#" name="newResearch" method="POST" enctype="multipart">
+      <form action="#" name="newResearch" method="POST" enctype="multipart"> 
         <label for="researchName">Naam</label>
-        <input type="text" name="researchName" required>
+        <input type="text" name="researchName" id="researchName" required>
         <hr>
         <label for="newField">Veld toevoegen</label>
         <table name="newField">
@@ -54,7 +54,8 @@ include "../includes/database_functions.php"
           </tbody>
         </table>
 
-        <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan">
+        <!-- <input type="submit" value="Opslaan" class="button" formaction="../handlers/proef_handler.php?value=opslaan"> -->
+        <input type="button" value="Opslaan" class="button" onclick="newTest(document.getElementById('researchName').value, 'opslaan')">
         <input type="button" value="Verwijderen" class="button right" onclick="showResult(getValues('select'), 5, 'livesearch')">
 
       </form>
