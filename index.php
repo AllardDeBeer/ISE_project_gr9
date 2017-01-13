@@ -239,7 +239,7 @@
             echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
                             <h5>Pas op!</h5>
                             <p>De kolom(men): " . $waarden . " bevat(ten) nog waarden! Weet u zeker dat u deze waarden wilt verwijderen?</p>
-                            <button class=\"button\" type=\"button\" onclick=\"manageTest('opslaanBeheerProefDefinitief')\">Ja</button>
+                            <button class=\"button\" type=\"button\" onclick=\"manageTest('opslaanBeheerProefDefinitief', document.getElementById('researchName').value)\">Ja</button>
                             <button class=\"button right\" aria-label=\"Dismiss alert\" type=\"button\" data-close>Nee</>
                             <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                               <span aria-hidden=\"true\">&times;</span>
