@@ -17,12 +17,8 @@ window.onload = showResult();
 	
 			
 
-<<<<<<< HEAD
-	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6)">
-=======
 	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6, 'resultsTable')">
 
->>>>>>> origin/Round-the-world
 
 	
 		<div class="table-scroll">

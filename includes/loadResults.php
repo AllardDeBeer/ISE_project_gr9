@@ -32,7 +32,7 @@ and AIO.aap_id = A.AAP_ID
                <td>'.$row[0].'</td>';
                 $aapCounter++;
                $stmt2 = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");	
-			$stmt3 = db_query("SELECT waarde FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
+			$stmt3 = db_query("SELECT waarde_id FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
 			while( $column = db_fetchNumeric($stmt2) )
 					{
 					$result = db_fetchNumeric($stmt3);					  
@@ -62,8 +62,8 @@ for ($x = 0; $x < count($array); $x++) {
 
 $response.='<select name="username" id="username" >';
 $stmt4 = db_query("select gebruikersnaam from gebruiker
-where gebruiker_id in(
-select GEBRUIKER_ID from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
+where gebruikersnaam in(
+select gebruikersnaam from gebruikerinonderzoek where onderzoek_id ='" . $currentResearch . "' )
 order by gebruikersnaam");		
 	while( $username =db_fetchNumeric($stmt4)  ) 
 	{
