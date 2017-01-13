@@ -36,7 +36,7 @@ function showResult(str, showIndex, id) {
   //   str.value = "#";
   // }
   console.log(str);
-  console.log(showIndex);
+  //console.log(showIndex);
   if (window.XMLHttpRequest) {
 	
     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -75,6 +75,7 @@ if (showIndex >=0){
     xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
   }if (showIndex == 11) {
     xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
+	throwPins();
   }
  xmlhttp.send();
   }
@@ -145,7 +146,9 @@ function preparePage(){
   prepareResults();
   prepareGraph();
 }
-
+function throwPins(){
+	window.pins = "";
+	}
 function addCurrentUsers(ids){
 	window.pins += ids;
 	showResult("");
