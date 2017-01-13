@@ -5,10 +5,11 @@ $q=$_GET["q"];
 $p=rtrim(substr($_GET['p'], 2), "]");
 $hint="";
 $pinned="";
+$currentResearch=$_session['onderzoek']
 db_open();
 
 $stmt = db_query("SELECT aap_id, geboortedatum, diersoort, geslacht, gewicht, datumgewichtmeting FROM aap
-where aap_id not in(select aap_id from aapinonderzoek where onderzoek_id =".$_session['onderzoek'] .")");
+where aap_id not in(select aap_id from aapinonderzoek where onderzoek_id =".$currentResearch .")");
 while($row = db_fetchAssoc($stmt)) {
   $y = array($row['aap_id'], $row['geboortedatum'], $row['diersoort'], $row['geslacht'], $row['gewicht'], $row['datumgewichtmeting']);
   $z = $y[0]." ".$y[1]->format('Y-m-d')." ".$y[2]." ".$y[3]." ".$y[4]." ".$y[5]->format('Y-m-d');

@@ -7,13 +7,13 @@ $monkeys = ltrim($monkeys, "[");
 $monkeys = rtrim($monkeys, "]");
 $array= array();
 $array= explode( '][', $monkeys );
-
+$currentResearch=$_session['onderzoek']
 
 db_open();
 
 foreach ($array as $monkey) {
 		
-	db_query("insert into aapInOnderzoek(aap_id, onderzoek_id) values(". $monkey . ",". $_session['onderzoek'] . ")");
+	db_query("insert into aapInOnderzoek(aap_id, onderzoek_id) values(". $monkey . ",". $currentResearch . ")");
 	
 }
 
