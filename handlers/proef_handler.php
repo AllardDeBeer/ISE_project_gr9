@@ -102,8 +102,11 @@
 			}
 
 			$researchName = $_GET['researchName'];
+			var_dump($researchName);
+
 			$sql = "UPDATE PROEF SET PROEF_NAAM = $researchName WHERE PROEF_ID = $proef_id";
 
+			var_dump($sql);
 			db_query($sql);
 			// Voeg kolommen toe die nieuw zijn 
 			foreach($_SESSION['arrayNewFields'] as $var) {
