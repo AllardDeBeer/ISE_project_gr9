@@ -1,6 +1,6 @@
 <?php 
-include '../includes/database_functions.php'; 
 session_start();
+include '../includes/database_functions.php'; 
 db_open();
 
 ?>
@@ -32,7 +32,8 @@ db_open();
         <tbody id="livesearch">
          <!-- Live reloaded content -->
       </tbody>
-	  <input type="button" value="opslaan" class="button right" onclick="showResult(getValues('select'), 11, 'livesearch')">
+	  
+	  <input type="button" value="opslaan" class="button right" onclick="showResult('nietNuttig', 11, 'livesearch')">
     </table>
 	
 		
