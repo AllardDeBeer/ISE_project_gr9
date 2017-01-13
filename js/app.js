@@ -49,7 +49,7 @@ function showResult(str, showIndex, id) {
     document.getElementById(id).innerHTML=this.responseText;
     }
   }
-  if (showIndex >=0){
+  if (showIndex >= 0){
     if (showIndex == 1) {
       xmlhttp.open("GET","includes/livesearch.php?q="+str+"&p="+window.pins,true);
     } else if(showIndex == 0){
@@ -75,6 +75,7 @@ function showResult(str, showIndex, id) {
     } else if (showIndex == 11) {
       xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
     }
+  }
 }
 
 function newTest(researchName, value){
