@@ -70,9 +70,11 @@ function showResult(str, showIndex, id) {
       xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
     } else if (showIndex == 9) {
       xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
+    } else if (showIndex == 10) {
+      xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
+    } else if (showIndex == 11) {
+      xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
     }
-    xmlhttp.send();
-  } 
 }
 
 function newTest(researchName, value){

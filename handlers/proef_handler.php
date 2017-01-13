@@ -43,11 +43,11 @@
 					$veld_naam = $vars[0];
 
 					$datatypenaam = $vars[1];
-					$stmt = db_query("SELECT DATATYPE_ID FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
+					$stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
 					sqlsrv_fetch($stmt);
-					$datatype_id = sqlsrv_get_field($stmt, 0);
+					$DATATYPE_NAAM = sqlsrv_get_field($stmt, 0);
 
-					$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
+					$sql = "INSERT INTO VELD ([DATATYPE_NAAM], [PROEF_ID], [VELD_NAAM]) VALUES ('{$DATATYPE_NAAM}', '{$proef_id}', '{$veld_naam}')";
 					db_query($sql);
 				}
 				$response = 'isValid';
@@ -58,7 +58,7 @@
 			db_open();
 
 			$bestaandeVelden = array();
-			$sql = "SELECT VELD_NAAM, DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_ID =  D.DATATYPE_ID WHERE PROEF_ID = $proef_id";
+			$sql = "SELECT V.VELD_NAAM, D.DATATYPE_NAAM FROM VELD V JOIN DATATYPES D ON V.DATATYPE_NAAM =  D.DATATYPE_NAAM WHERE PROEF_ID = $proef_id";
 			$stmt = db_query($sql);
 			while ($result = db_fetchAssoc($stmt)) {
 				array_push($bestaandeVelden, implode('||', $result));
@@ -77,10 +77,7 @@
 					$vars = explode('||', $var);
 					$veld_naam = $vars[0];
 					$datatypenaam = $vars[1];
-					$stmt = db_query("SELECT DATATYPE_ID FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
-					sqlsrv_fetch($stmt);
-					$datatype_id = sqlsrv_get_field($stmt, 0);
-					$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
+					$sql = "INSERT INTO VELD ([DATATYPE_NAAM], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatypenaam}', '{$proef_id}', '{$veld_naam}')";
 					db_query($sql);
 					
 					//header('Location: ../index.php?m=15#beheer_proef');
@@ -113,10 +110,7 @@
 				$vars = explode('||', $var);
 				$veld_naam = $vars[0];
 				$datatypenaam = $vars[1];
-				$stmt = db_query("SELECT DATATYPE_ID FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
-				sqlsrv_fetch($stmt);
-				$datatype_id = sqlsrv_get_field($stmt, 0);
-				$sql = "INSERT INTO VELD ([DATATYPE_ID], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatype_id}', '{$proef_id}', '{$veld_naam}')";
+				$sql = "INSERT INTO VELD ([DATATYPE_NAAM], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatypenaam}', '{$proef_id}', '{$veld_naam}')";
 				db_query($sql);
 			}
 			$response .= 'gelukt';

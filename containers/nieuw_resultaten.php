@@ -2,6 +2,9 @@
 session_start();
 db_open();
 ?>
+<script type ="text/javascript">
+window.onload = showResult();
+</script>
 <div class="container">
   <div class="row">
     <div class="column large-12">
@@ -14,7 +17,7 @@ db_open();
 	
 			
 
-	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6">
+	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6, 'resultsTable')">
 
 
 	
@@ -23,10 +26,10 @@ db_open();
 				<thead>
 					<tr>
               
-	<tbody id="livesearch">
+	
+	<tbody id="resultsTable">
             <!-- Live reloaded content -->
           </tbody>
-	
 			
           </table>
         </div>
