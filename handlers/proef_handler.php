@@ -43,11 +43,11 @@
 					$veld_naam = $vars[0];
 					$datatypenaam = $vars[1];
 					
-					$stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
+/*					$stmt = db_query("SELECT DATATYPE_NAAM FROM DATATYPES WHERE DATATYPE_NAAM = '$datatypenaam'");
 					sqlsrv_fetch($stmt);
 					$DATATYPE_NAAM = sqlsrv_get_field($stmt, 0);
-
-					$sql = "INSERT INTO VELD ([DATATYPE_NAAM], [PROEF_ID], [VELD_NAAM]) VALUES ('{$DATATYPE_NAAM}', '{$proef_id}', '{$veld_naam}')";
+*/
+					$sql = "INSERT INTO VELD ([DATATYPE_NAAM], [PROEF_ID], [VELD_NAAM]) VALUES ('{$datatypenaam}', '{$proef_id}', '{$veld_naam}')";
 					db_query($sql);
 				}
 				$response = 'isValid';

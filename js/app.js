@@ -76,6 +76,7 @@ function showResult(str, showIndex, id) {
       xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
     }
   }
+  xmlhttp.send();
 }
 
 function newTest(researchName, value){
