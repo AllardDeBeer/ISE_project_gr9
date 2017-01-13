@@ -92,8 +92,9 @@
             <li>
               <a href="#">Beheer apen</a>
               <ul class="vertical menu">
-                <li><a href="#apen_importeren">Apen toevoegen</a></li>
-                <li><a href="#verwijder_apen">Apen verwijderen</a></li>
+                <li><a href="#apen_importeren">Voeg apen toe</a></li>
+                <li><a href="#beheer_apen">Beheer apen</a></li>
+                <li><a href="#verwijder_apen">Verwijder apen</a></li>
               </ul>
             </li>
           </ul>

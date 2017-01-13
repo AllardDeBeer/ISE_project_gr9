@@ -77,6 +77,8 @@ if (showIndex >=0){
     xmlhttp.open("GET","includes/addVariables.php?status=proefbeheertoevoegen&q="+str,true);
   } else if (showIndex == 9) {
     xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
+  } else if (showIndex == 10) {
+    xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
   }
  xmlhttp.send();
   }
