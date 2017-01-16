@@ -262,6 +262,14 @@
                               <span aria-hidden=\"true\">&times;</span>
                             </button>
                           </div>";
+          } else if ($_GET['m'] == 17) {
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                            <h5>Oeps!</h5>
+                            <p>Er is geen geldige proefnaam ingevuld!</p>
+                            <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                              <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                          </div>";
           }
         }
         ?>

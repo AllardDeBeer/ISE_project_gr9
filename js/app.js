@@ -109,6 +109,12 @@ function newTest(researchName, value){
         } else {
           window.location.replace("../index.php?m=16#nieuw_proef");
         }
+      } else if (this.responseText == 'noResearchName') {
+        if (window.location.href == "http://localhost/index.php?m=17#nieuw_proef") {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=17#nieuw_proef");
+        }
       }
     }
   }
