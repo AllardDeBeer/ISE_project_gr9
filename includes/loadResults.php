@@ -32,9 +32,13 @@ and AIO.aap_id = A.AAP_ID
                <td>'.$row[0].'</td>';
                 $aapCounter++;
                $stmt2 = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");	
-			$stmt3 = db_query("SELECT waarde_id FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
-			while( $column = db_fetchNumeric($stmt2) )
-					{
+			$stmt3 = db_query("SELECT waarde_id FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");
+				$suptype_array = db_fetchAssociative($stmt3)
+				FOREACH ($subtype_array AS $subtypes)
+				$waarde_id = $subtype_array[waarde_id]
+				$subtypeWhere = "SELECT * FROM waarde WHERE waardetype = '$subtype_array'"
+					while( $column = db_fetchNumeric($stmt2) )
+					{s
 					$result = db_fetchNumeric($stmt3);					  
 					$response.='<td><input type="text" name="'.$column[0].'" value="'.$result[0].'"> </td>';
 					$counter++;
