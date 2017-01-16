@@ -52,7 +52,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						  if(isset($_GET['m'])){
 							  if($_GET['m'] == 1){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
+						  <h5>Oeps er ging iets mis!</h5>
 						  <p>Vul aub uw wachtwoord in.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
@@ -63,7 +63,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 2){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
+						  <h5>Oeps er ging iets mis!</h5>
 						  <p>De wachtwoorden komen niet overeen. Probeer het aub nog eens.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
@@ -74,8 +74,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 3){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
-						  <p>Uw wachtwoord is korter dan 5 tekens. Probeer het aub nog eens</p>
+						  <h5>Oeps er ging iets mis!</h5>
+						  <p>Uw wachtwoord is korter dan 5 tekens. Probeer het aub nog eens.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
 						  </button>
@@ -86,8 +86,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 4){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
-						  <p>Dit antwoord is niet correct</p>
+						  <h5>Oeps er ging iets mis!</h5>
+						  <p>Dit antwoord is niet correct.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
 						  </button>
@@ -98,8 +98,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 5){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
-						  <p>Geen gebruiker met deze naam</p>
+						  <h5>Oeps er ging iets mis!</h5>
+						  <p>Geen gebruiker met deze naam.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
 						  </button>
