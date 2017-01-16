@@ -5,8 +5,8 @@ $date=$_GET["q"];
 $response = "";
 db_open();
 
-$currentResearch = 1 ;//$_session['onderzoek'];
-$currentTest = 1 ;//$_session['proef'];
+$currentResearch = $_SESSION['onderzoek'];
+$currentTest = $_SESSION['proef'];
 
 		$response.="<th>aap</th>";
 				
@@ -29,13 +29,12 @@ and AIO.aap_id = A.AAP_ID
 	while( $row =db_fetchNumeric($stmt)  ) 
 	{
 	$response.= '<tr>
-    <td>'.$row[0].'</td>';
-    $aapCounter++;
-    $stmt2 = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");	
-	$stmt3 = db_query("SELECT waarde_id FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");
-	
-					while( $column = db_fetchNumeric($stmt2) )
-					{s
+               <td>'.$row[0].'</td>';
+                $aapCounter++;
+               $stmt2 = db_query("select VELD_NAAM from veld where PROEF_ID = '" . $currentResearch . "'");	
+			$stmt3 = db_query("SELECT waarde FROM WAARDEN2 INNER JOIN veld ON veld.VELD_ID=WAARDEN2.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");				
+			while( $column = db_fetchNumeric($stmt2) )
+					{
 					$result = db_fetchNumeric($stmt3);					  
 					$response.='<td><input type="text" name="'.$column[0].'" value="'.$result[0].'"> </td>';
 					$counter++;
