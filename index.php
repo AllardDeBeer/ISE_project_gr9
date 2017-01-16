@@ -20,7 +20,7 @@
   </head>
   <body onhashchange="updateContainer();" onload="updateContainer();">
     <div class="expanded row">
-      <div class="column large-3 left-menu">
+      <div class="column small-3 medium-3 large-3 left-menu">
         <div class="expanded row logo">
           <div class="column large-4">
             <img src="assets/bprc-logo.jpg" class="img" alt="BPRC">
@@ -122,7 +122,7 @@
           </div>
         </div>
       </div>
-      <div class="column large-9 right-screen">
+      <div class="column small-9 medium-9 large-9 right-screen">
         <div class="large-12">
         <?php 
 		    if (isset($_GET['m'])){

@@ -20,14 +20,35 @@ function updateContainer(){
       window.bigScreen = true;
       }else{
         if(window.bigScreen){
-          $('.right-screen').replaceWith("<div class=\"column large-9 right-screen\"><div class=\"large-12\">" + data + "</div></div>");
-          window.bigScreen = false;
+            $('.right-screen').replaceWith("<div class=\"column large-9 right-screen\"><div class=\"large-12\">" + data + "</div></div>");
+            window.bigScreen = false;
         }else{
-          $('.container').replaceWith(data);
+          $('.container').animate({marginTop: "1000px"}, "slow", function(){
+              $('.container').replaceWith(data);
+              $('.container').css('marginTop', '-1000px').animate({marginTop: "5%"}, "slow");
+          });
         }
       }
   });
 }
+
+// function updateContainer(){
+//   var url = window.location.href;
+//     url = url.split('#');
+//     $.get('containers/' + url[1] + '.php', function(data) {
+//       if(url[1] == "toon_resultaten"){
+//       $('.right-screen').replaceWith(data);
+//       window.bigScreen = true;
+//       }else{
+//         if(window.bigScreen){
+//           $('.right-screen').replaceWith("<div class=\"column large-9 right-screen\"><div class=\"large-12\">" + data + "</div></div>");
+//           window.bigScreen = false;
+//         }else{
+//           $('.container').replaceWith(data);
+//         }
+//       }
+//   });
+// }
 
 function updateCallout(msg){
   var url = window.location.href;
