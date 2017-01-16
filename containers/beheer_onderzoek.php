@@ -19,7 +19,7 @@
         db_open();
         //print_r($_SESSION);
         if(isset($_SESSION['onderzoek'])){
-          $stmt = db_query("SELECT onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum FROM onderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
+          $stmt = db_query("SELECT onderzoek_naam, onderzoek_startdatum, onderzoek_einddatum, PROJECTNUMMER FROM onderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
           $onderzoek = db_fetchAssoc($stmt);
 
           echo "<h3>Beheer " . $onderzoek['onderzoek_naam'] . "</h3>";
@@ -33,8 +33,17 @@
       <form action="handlers/research_handler.php?a=a&id=<?php echo $_SESSION['onderzoek'] ?>" name="newResearch" method="POST" enctype="multipart">
     <label for="researchName">Naam</label>
     <input type="text" name="researchName" value="<?php echo $onderzoek['onderzoek_naam'] ?>" required>
-    Start datum: <input type="text" name="researchStart" value="<?php echo date('d/m/Y', $onderzoek['onderzoek_startdatum']->getTimestamp()); ?>" id="datepickerB">
-    Eind datum: <input type="text" name="reasearchEnd" value="<?php echo date('d/m/Y', $onderzoek['onderzoek_einddatum']->getTimestamp()); ?>" id="datepickerE">
+    <div class="expanded row">
+      <div class="column large-4">
+          Start datum: <input type="text" name="researchStart" value="<?php echo date('d/m/Y', $onderzoek['onderzoek_startdatum']->getTimestamp()); ?>" id="datepickerB">
+      </div>
+      <div class="column large-4">
+          Eind datum: <input type="text" name="reasearchEnd" value="<?php echo date('d/m/Y', $onderzoek['onderzoek_einddatum']->getTimestamp()); ?>" id="datepickerE">
+      </div>
+      <div class="column large-4">
+          Project: <input type="text" name="project" value="<?php echo $onderzoek['PROJECTNUMMER'] ?>">
+      </div>
+    </div>
     <script>
       $( "#datepickerB" ).datepicker();
       $( "#datepickerE" ).datepicker();

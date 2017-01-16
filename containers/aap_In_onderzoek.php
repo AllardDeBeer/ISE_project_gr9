@@ -1,18 +1,11 @@
 <?php 
-include '../includes/database_functions.php'; 
 session_start();
+include '../includes/database_functions.php'; 
 db_open();
-//$currentResearch = $_session['onderzoek'];
-$currentResearch = 1;
+
 ?>
-			
-			
-			
-			
-			
-			
-			
-			<div class="container">
+				
+<div class="container">
 <div class="row">
 <div class="column large-12">
 <h3>apen toevoegen</h3>
@@ -22,7 +15,7 @@ $currentResearch = 1;
   <hr>
   <!-- <div class="column large-12"> -->
     <label for="addMonkey">apen toevoegen</label>
-    <input type="text" name="addMonkey" id="searchInput" onkeyup="showResult(this.value, 8, 'livesearch')" autocomplete='off'>
+    <input type="text" name="addMonkey" id="searchInput" onkeyup="showResult(this.value, 10, 'livesearch')" autocomplete='off'>
     <table>
       <thead>
           <tr>
@@ -39,7 +32,8 @@ $currentResearch = 1;
         <tbody id="livesearch">
          <!-- Live reloaded content -->
       </tbody>
-	  <input type="button" value="opslaan" class="button right" onclick="showResult(getValues('select'), 9, 'livesearch')">
+	  
+	  <input type="button" value="opslaan" class="button right" onclick="showResult('nietNuttig', 11, 'livesearch')">
     </table>
 	
 		
