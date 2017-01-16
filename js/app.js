@@ -118,20 +118,20 @@ function newTest(researchName, value){
       // Check if proef isValid
       if (this.responseText == 'notValid') {
         // Check if not already on page
-        if (window.location.href == "http://localhost/index.php?m=13#nieuw_proef") {
+        if (window.location.href == "http://localhost/index.php?m=13#nieuw_proef" || "http://localhost:8080/index.php?m=13#beheer_proef") {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=13#nieuw_proef");
         }
       } else if (this.responseText == 'isValid') {
         // Check if not already on page
-        if (window.location.href == "http://localhost/index.php?m=16#nieuw_proef") {
+        if (window.location.href == "http://localhost/index.php?m=16#nieuw_proef" || "http://localhost:8080/index.php?m=16#beheer_proef") {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=16#nieuw_proef");
         }
       } else if (this.responseText == 'noResearchName') {
-        if (window.location.href == "http://localhost/index.php?m=17#nieuw_proef") {
+        if (window.location.href == "http://localhost/index.php?m=17#nieuw_proef" || "http://localhost:8080/index.php?m=17#beheer_proef") {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=17#nieuw_proef");
@@ -149,13 +149,13 @@ function manageTest(value, researchName) {
     if (this.readyState==4 && this.status==200) { 
       console.log(this.responseText);
       if (this.responseText == 'waarden') {
-        if (window.location.href == "http://localhost/index.php?m=14#beheer_proef") {
+        if (window.location.href == "http://localhost/index.php?m=14#beheer_proef" || "http://localhost:8080/index.php?m=14#beheer_proef") {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=14#beheer_proef")
         }
       } else if (this.responseText == 'gelukt') {
-        if (window.location.href == "http://localhost/index.php?m=15#beheer_proef") {
+        if (window.location.href == "http://localhost/index.php?m=15#beheer_proef" || "http://localhost:8080/index.php?m=15#beheer_proef") {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=15#beheer_proef")
