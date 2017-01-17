@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1900eb2-1fa4-421e-a340-02f62e559162" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers/Instellingen.php" afterPath="$PROJECT_DIR$/containers/Instellingen.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers/beheer_proef.php" afterPath="$PROJECT_DIR$/containers/beheer_proef.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers/bestaande_proef.php" afterPath="$PROJECT_DIR$/containers/bestaande_proef.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers/nieuw_onderzoek.php" afterPath="$PROJECT_DIR$/containers/nieuw_onderzoek.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/containers/nieuw_proef.php" afterPath="$PROJECT_DIR$/containers/nieuw_proef.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wachtwoord_vergeten.php" afterPath="$PROJECT_DIR$/wachtwoord_vergeten.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wachtwoord_vergeten_pre.php" afterPath="$PROJECT_DIR$/wachtwoord_vergeten_pre.php" />
     </list>
@@ -30,16 +25,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="database_functions.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/includes/database_functions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.423077">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="beheer_onderzoek.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/containers/beheer_onderzoek.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,12 +54,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Instellingen.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Instellingen.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/containers/Instellingen.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35814607">
+            <state vertical-scroll-proportion="-9.807693">
               <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-10.461538">
+              <caret line="16" column="14" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="67" />
+              <folding>
+                <marker date="1484659103602" expanded="true" signature="1111:1684" placeholder="..." />
+                <marker date="1484659103602" expanded="true" signature="1193:1417" placeholder="..." />
+                <marker date="1484659103602" expanded="true" signature="1535:1649" placeholder="..." />
+                <marker date="1484659103602" expanded="true" signature="1814:2193" placeholder="..." />
+                <marker date="1484659103602" expanded="true" signature="2044:2158" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -136,44 +137,44 @@
       <file leaf-file-name="wachtwoord_vergeten_pre.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten_pre.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.5">
-              <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
+            <state vertical-scroll-proportion="-6.5384617">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
               <folding>
-                <marker date="1484685405583" expanded="true" signature="1020:1258" placeholder="..." />
-                <marker date="1484685405583" expanded="true" signature="1187:1247" placeholder="..." />
+                <marker date="1484685699512" expanded="true" signature="1014:1252" placeholder="..." />
+                <marker date="1484685699512" expanded="true" signature="1181:1241" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wachtwoord_vergeten.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wachtwoord_vergeten.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.076923">
-              <caret line="116" column="74" selection-start-line="116" selection-start-column="74" selection-end-line="116" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.66853935">
+              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
               <folding>
-                <marker date="1484685458487" expanded="true" signature="718:845" placeholder="SELECT vraag... GEBRUIKER" />
-                <marker date="1484685458487" expanded="true" signature="1027:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1072:1348" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1112:1340" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1151:1243" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1282:1325" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1396:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1427:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1461:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1494:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1646:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1689:1730" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="1850:2106" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="2026:2093" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="2245:2537" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="2457:2524" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="2676:2969" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="2889:2956" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="3116:3375" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="3295:3362" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="3521:3780" placeholder="..." />
-                <marker date="1484685458487" expanded="true" signature="3700:3767" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="718:845" placeholder="SELECT vraag... GEBRUIKER" />
+                <marker date="1484685714310" expanded="true" signature="1027:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1072:1342" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1112:1334" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1151:1237" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1276:1319" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1390:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1421:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1455:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1488:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1640:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1683:1724" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="1844:2100" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="2020:2087" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="2239:2531" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="2451:2518" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="2670:2963" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="2883:2950" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="3110:3369" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="3289:3356" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="3515:3774" placeholder="..." />
+                <marker date="1484685714310" expanded="true" signature="3694:3761" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -329,7 +330,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="7" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -742,48 +743,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.076923">
-          <caret line="116" column="74" selection-start-line="116" selection-start-column="74" selection-end-line="116" selection-end-column="74" />
-          <folding>
-            <marker date="1484685458487" expanded="true" signature="718:845" placeholder="SELECT vraag... GEBRUIKER" />
-            <marker date="1484685458487" expanded="true" signature="1027:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1072:1348" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1112:1340" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1151:1243" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1282:1325" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1396:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1427:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1461:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1494:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1646:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1689:1730" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="1850:2106" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="2026:2093" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="2245:2537" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="2457:2524" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="2676:2969" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="2889:2956" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="3116:3375" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="3295:3362" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="3521:3780" placeholder="..." />
-            <marker date="1484685458487" expanded="true" signature="3700:3767" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten_pre.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.5">
-          <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
-          <folding>
-            <marker date="1484685405583" expanded="true" signature="1020:1258" placeholder="..." />
-            <marker date="1484685405583" expanded="true" signature="1187:1247" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/containers/beheer_proef.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.384615">
@@ -832,9 +791,65 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers/Instellingen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35814607">
+        <state vertical-scroll-proportion="-9.807693">
           <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.461538">
+          <caret line="16" column="14" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="67" />
+          <folding>
+            <marker date="1484659103602" expanded="true" signature="1111:1684" placeholder="..." />
+            <marker date="1484659103602" expanded="true" signature="1193:1417" placeholder="..." />
+            <marker date="1484659103602" expanded="true" signature="1535:1649" placeholder="..." />
+            <marker date="1484659103602" expanded="true" signature="1814:2193" placeholder="..." />
+            <marker date="1484659103602" expanded="true" signature="2044:2158" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten_pre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.5384617">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1484685699512" expanded="true" signature="1014:1252" placeholder="..." />
+            <marker date="1484685699512" expanded="true" signature="1181:1241" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66853935">
+          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+          <folding>
+            <marker date="1484685714310" expanded="true" signature="718:845" placeholder="SELECT vraag... GEBRUIKER" />
+            <marker date="1484685714310" expanded="true" signature="1027:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1072:1342" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1112:1334" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1151:1237" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1276:1319" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1390:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1421:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1455:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1488:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1640:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1683:1724" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="1844:2100" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="2020:2087" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="2239:2531" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="2451:2518" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="2670:2963" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="2883:2950" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="3110:3369" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="3289:3356" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="3515:3774" placeholder="..." />
+            <marker date="1484685714310" expanded="true" signature="3694:3761" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
