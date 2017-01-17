@@ -61,6 +61,7 @@ body{
 .right-screen {
 	background-color: white;
 	height: 100%;
+	overflow-y: scroll;
 	position: absolute;
 	margin-left: 25%;
 	padding: 0px;
@@ -111,10 +112,10 @@ body{
 .container{
 	/*border: 2px solid black;*/
 	margin: 5% 5% 0px 5%;
-	overflow-y: scroll;
 	box-shadow: 10px 10px 5px #888888;
     background-color: aliceblue;
 }
+
 .vertical.menu:last-child{
 	height: 200px;
 	background-color: aliceblue;
@@ -220,5 +221,4 @@ input[data-toggle]:checked + label:active {
 .textcenter{
 	text-align: center;
 }
-
 
