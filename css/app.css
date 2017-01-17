@@ -111,8 +111,6 @@ body{
 .container{
 	/*border: 2px solid black;*/
 	margin: 5% 5% 0px 5%;
-	max-height: 90%;
-	min-height: 100px;
 	overflow-y: scroll;
 	box-shadow: 10px 10px 5px #888888;
     background-color: aliceblue;

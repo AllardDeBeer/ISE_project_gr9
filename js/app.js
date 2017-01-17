@@ -163,7 +163,7 @@ function manageTest(value, researchName) {
 
 
 function addInputs(value){
-  var output = value + "|" + 
+  // var output = value + "|" + 
   showResult(value, 3, 'varOptions');
 }
 function getValues(elementName) {
