@@ -9,7 +9,7 @@ include "../includes/database_functions.php"
     </div>
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart"> 
-        <label for="testName">Naam</label>
+        <label for="testName">Naam:</label>
         <select name="testName" id="testName" required>
           <?php 
             db_open();

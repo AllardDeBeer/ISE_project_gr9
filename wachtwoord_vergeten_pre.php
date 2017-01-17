@@ -43,7 +43,7 @@
 					<div class="large-7 large-offset-2">
 						Gebruikersnaam:
 						<input type="text" name="user"><br>						
-						<input type="submit" class="button" value="Submit">
+						<input type="submit" class="button" value="Verder">
 					</div>
 			  </form>
           </div>
