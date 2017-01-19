@@ -14,7 +14,7 @@
 		array_push($velden_array, $column[1]) ; 
 	}
 	$response.="</tr></thead>";
-	$array = array();
+	$waarden_idArray = array();
 	$testcounter = 0;
 	$counter=0;
 	$aapCounter=0;
@@ -35,35 +35,23 @@
 		{
 			$waarde = db_fetchNumeric($stmt3);
 			if(in_array($waarde[1], $velden_array, true))
-			{
+			{	
 				$response.='<td> <input type="text" value="'. $waarde[0].'" name="naam'. $counter .'"></td>';
+				$waarden_idArray[$counter] = $waarde[2];
 			}
 			else
 			{
 				$response.='<td> <input type="text" value="NULL" name="naam'. $counter .'"></td>';
+				$waarden_idArray[$counter] = 'NULL';
 			}
 			$counter++;
-			$array[] = $waarde[0];
 			}
 			$response.='</tr>';
 		}	
-
-
-	$value="";
-	//$value.= '‽';
-	$value.= $date;
-	$value.= '‽';
-	$value.= $counter;
-	$value.= '‽';
-	$value.= $aapCounter;
-	for ($x = 0; $x < count($array); $x++) {
-		$value.= '‽';
-		$value.= $array[$x];
-		
-	}  
-
-
-
+	$waarden_idArrayString = serialize($waarden_idArray);	
+	$response.= '<input type ="hidden" value="'. $waarden_idArrayString . '" name="waarden_id_String" >' ;
+	$response.= '<input type ="hidden" value="' . $counter . '" name="boop">' ;
+	$response.=	'<input type="submit" value="opslaan" class="button">';
 	$response.='<select name="username" id="username" >';
 	$stmt4 = db_query("select gebruikersnaam from gebruiker
 	where gebruikersnaam in(
@@ -74,12 +62,8 @@
 			$response.='<option value="' . $username[0] . '">' . $username[0] . '</option>';
 			
 		}
-				
+		
 	$response.= '</select>';
-
-
-	$response.='<input type="hidden" name="insertArray" id="insertArray" value="'.$value.'">';
-	$response.=	'<input type="Submit" value="opslaan">';
 	$response.=	'</form>';
 	echo "$response";
 ?>
