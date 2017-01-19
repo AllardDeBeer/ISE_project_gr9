@@ -47,7 +47,7 @@
             ?>
           </tbody>
         </table>
-        <input type="button" name="submit" value="Opslaan" class="button" onclick="showResult(getMonkeyValues('aapData'), 12, 'livesearch')">
+        <input type="button" name="submit" value="Opslaan" class="button" onclick="updateMonkeys(getMonkeyValues('aapData'))">
       </form>
       <script>
           $( ".wdate" ).datepicker();

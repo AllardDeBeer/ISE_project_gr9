@@ -33,7 +33,7 @@
 	}
 
 
-	db_open();
+/*	db_open();
 	$stmt = db_query("SELECT aap_id, DIERSOORT,geslacht, geboortedatum, gewicht, DATUMGEWICHTMETING, BEHANDELGROEP, DOMINANT  FROM aap");
 	$i = 0;
 	while($row = db_fetchAssoc($stmt)) {
@@ -49,7 +49,7 @@
 	        </tr>";
 	    $i = $i + 1;
 	}
-	db_close();
-
+	db_close();*/
+	$response = 'gelukt';
 	echo $response;
 ?>

@@ -103,8 +103,6 @@ function showResult(str, showIndex, id) {
     }else if (showIndex == 11) {
       xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
   	  throwPins();
-    }else if (showIndex == 12) {
-      xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
     }
   xmlhttp.send();
   }
@@ -166,6 +164,24 @@ function manageTest(value, researchName) {
   }
   xmlhttp.open("GET", "handlers/proef_handler.php?value="+value+"&researchName="+researchName, true)
   xmlhttp.send()
+}
+
+function updateMonkeys(str) {
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      if (this.responseText == 'gelukt') {
+        if (window.location.href == ("http://localhost/index.php?m=19#beheer_apen" || "http://localhost:8080/index.php?m=19#beheer_apen")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=19#beheer_apen")
+        }
+      }
+    }
+  }
+  xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
+  xmlhttp.send();
 }
 
 function addExistingTest(testName, status, id) {
