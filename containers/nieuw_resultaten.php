@@ -22,6 +22,7 @@ window.onload = showResult();
 
 	
 		<div class="table-scroll">
+		<form action="insertResults.php" method="POST">
 			<table>
 				<thead>
 					<tr>
