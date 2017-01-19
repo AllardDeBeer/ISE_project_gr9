@@ -9,7 +9,7 @@ include "../includes/database_functions.php";
     </div>
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart">
-        <label for="researchName">Wijzig naam</label>
+        <label for="researchName">Wijzig naam:</label>
         <?php 
         $proef_id = $_SESSION['proef'];
         db_open();
@@ -20,7 +20,7 @@ include "../includes/database_functions.php";
         <input type="text" name="researchName" value="<?php echo $proef_naam?>" id="researchName" required>
         <hr>
         <form action="#" name="newFieldForm" method="POST" enctype="multipart">
-          <label for="newField">Wijzig velden</label>
+          <label for="newField">Wijzig velden:</label>
           <table name="newField">
             <thead>
               <tr>

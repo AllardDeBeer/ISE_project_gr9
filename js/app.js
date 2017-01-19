@@ -168,6 +168,26 @@ function manageTest(value, researchName) {
   xmlhttp.send()
 }
 
+function addExistingTest(testName, status, id) {
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if (this.responseText == 'gelukt') {
+        if (window.location.href == ("http://localhost/index.php?m=18#bestaande_proef" || "http://localhost:8080/index.php?m=18#bestaande_proef")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=18#bestaande_proef");
+        }
+      } else {
+        document.getElementById(id).innerHTML=this.responseText
+      }
+    }
+  }
+
+  xmlhttp.open("GET","includes/addExistingTest.php?q="+testName+"&status="+status,true);
+  xmlhttp.send();
+}
+
 
 function addInputs(value){
   // var output = value + "|" + 

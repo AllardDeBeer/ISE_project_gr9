@@ -14,12 +14,12 @@
         <table>
           <thead>
             <tr>
-              <th width="5%">Naam</th>
+              <th width="11%">Naam</th>
               <th width="15%">Diersoort</th>
               <th width="5%">Geslacht</th>
-              <th width="18%">Geboortedatum</th>
+              <th width="15%">Geboortedatum</th>
               <th width="17%">Gewicht(kg)</th>
-              <th width="18%">Datum gewicht</th>
+              <th width="15%">Datum gewicht</th>
               <th width="17%">Behandelgroep</th>
               <th width="5%">Dominantie</th>
             </tr>

@@ -9,14 +9,14 @@
 </div>
 <div class="column large-12">
   <form action="handlers/research_handler.php?a=n" name="newResearch" method="POST" enctype="multipart">
-    <label for="researchName">Naam</label>
+    <label for="researchName">Naam:</label>
     <input type="text" name="researchName" required>
     <div class="expanded row">
       <div class="column large-4">
-          Start datum: <input type="text" name="researchStart" id="datepickerB">
+          Startdatum: <input type="text" name="researchStart" id="datepickerB">
       </div>
       <div class="column large-4">
-          Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
+          Einddatum: <input type="text" name="reasearchEnd" id="datepickerE">
       </div>
       <div class="column large-4">
           Project: <input type="number" name="project">
@@ -29,12 +29,12 @@
   <!-- </div> -->
   <hr>
   <!-- <div class="column large-12"> -->
-    <label for="share">Onderzoekers toevoegen</label>
+    <label for="share">Onderzoekers toevoegen:</label>
     <input type="text" name="share" id="searchInput" onkeyup="showResult(this.value, 1, 'livesearch')" autocomplete='off'>
     <table>
       <thead>
           <tr>
-            <th>Naam</th>
+            <th>Voornaam</th>
             <th>Tussenvoegsel</th>
             <th>Achternaam</th>
             <th>Selecteer</th>
