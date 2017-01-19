@@ -13,21 +13,13 @@ window.onload = showResult();
     </div>
 <div class="column large-12">
 	proefdatum <input type="text" name="datepicker" id="datepicker" value="<?php echo @date('Y-m-d') ?>" >
-	
-	
-			
-
 	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6, 'resultsTable')">
-
-
-	
-		<div class="table-scroll">
+	<div class="table-scroll">
+		<form action="includes/insertResults.php" method="POST" enctype="multipart/form-data">
 			<table>
 				<thead>
 					<tr>
-              
-	
-	<tbody id="resultsTable">
+				<tbody id="resultsTable">
             <!-- Live reloaded content -->
           </tbody>
 			

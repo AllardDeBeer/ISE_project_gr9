@@ -1,54 +1,39 @@
 <?php 
 session_start();
 include '/database_functions.php';
-$q=$_GET["q"];
-//$q="peter‽2017-01-08‽8‽2‽0‽1‽2‽3‽4‽5‽6‽7";
 db_open();
-$array= array();
-$array= explode( '‽', $q );
-$insertValues = array();
-$username = $array[0]
-$date=$array[1];
-$insertAmount=$array[2];
-$monkeyAmount=$array[3];
-for ($x = 4; $x < count($array); $x++) {
-   $insertValues[$x-4] = $array[$x];
-}  
+$tellerMax;
+$tellerMax = $_POST['boop'];
+echo 'teller is';
+echo $tellerMax;
+$teller = 0;
+$waardeteller = 0;
+$waardes = array();
+while($teller < $tellerMax){
+	$waardes[$teller] = $_POST['naam'. $teller . ''];
+	$teller++;
+}
+$ingevulde_waarde_id = array();
+$ingevulde_waarde_id = unserialize($_POST['waarden_id_String"']);
+$gebruiker = $_SESSION['username'];
+
+
+while($waardeteller < $tellerMax){
+	if($ingevulde_waarde_id[$waardeteller] != 'NULL')
+	{
+		db_query("exec waarde_update @waarde_id = "'$ingevulde_waarde_id[$waardeteller]'", @waarde = " . $waardes[$waardeteller] . ", @waarde_type = 'tekst' ");
+	}
+	else{
+		echo 'test';
+	}
+	$waardeteller++;
+}
+	
+
   
-$currentResearch = $_session['onderzoek'];
-$currentTest = $_session['proef'];
-//$currentResearch = 1; //moet uit session gehaald worden
-//$currentTest = $currentResearch;
-
+$currentResearch = $_SESSION['onderzoek'];
+$currentTest = $_SESSION['proef'];
 				
-			
-$stmt = db_query("select aap_id from aap A where exists(select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'and AIO.aap_id = A.AAP_ID)");		
 
-		
-	while( $row =db_fetchNumeric($stmt)  ) 
-	{
-		$stmt2 = db_query("select VELD_ID from veld where PROEF_ID = '" . $currentResearch . "'");
-		$stmt3 = db_query("SELECT waarde.WAARDE_ID FROM WAARDE INNER JOIN veld ON veld.VELD_ID=WAARDE.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."'");		
-	 	while( $column = db_fetchNumeric($stmt2) )
-					{
-						
-					$result = db_fetchNumeric($stmt3);					  
-					db_query("DELETE FROM Waarde WHERE waarde_id='".$result[0]."'");
-					}
-	}
-$counter = 0;
-$stmt = db_query("select aap_id from aap A where exists(select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'and AIO.aap_id = A.AAP_ID)");		
-	while( $aapId =db_fetchNumeric($stmt)  ) 
-	{
-		$stmt2 = db_query("select VELD_ID from veld where PROEF_ID = '" . $currentResearch . "'");
-	 	while( $veldId = db_fetchNumeric($stmt2) )
-					{			
-			
-					db_query("INSERT INTO waarde VALUES (".$veldId[0].",". $aapId[0].",".$username.",".$insertValues[$counter].",'".$date."');");
-					$counter++;		
-					} 
-	}
 	db_close();
-	$response="succes";
-	echo "$response";
 ?>

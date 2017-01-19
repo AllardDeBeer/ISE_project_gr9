@@ -7,8 +7,7 @@
     <title>Donkey Kong Research</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+     <link rel="stylesheet" href="css/jquery-ui.min.css">
   </head>
   <body>
   <?php
@@ -52,7 +51,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						  if(isset($_GET['m'])){
 							  if($_GET['m'] == 1){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
+						  <h5>Oeps er ging iets mis!</h5>
 						  <p>Vul aub uw wachtwoord in.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
@@ -63,7 +62,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 2){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
+						  <h5>Oeps er ging iets mis!</h5>
 						  <p>De wachtwoorden komen niet overeen. Probeer het aub nog eens.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
@@ -74,8 +73,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 3){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
-						  <p>Uw wachtwoord is korter dan 5 tekens. Probeer het aub nog eens</p>
+						  <h5>Oeps er ging iets mis!</h5>
+						  <p>Uw wachtwoord is korter dan 5 tekens. Probeer het aub nog eens.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
 						  </button>
@@ -86,8 +85,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 4){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
-						  <p>Dit antwoord is niet correct</p>
+						  <h5>Oeps er ging iets mis!</h5>
+						  <p>Dit antwoord is niet correct.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
 						  </button>
@@ -98,8 +97,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						if(isset($_GET['m'])){
 							  if($_GET['m'] == 5){
 							echo "<div class=\"alert callout\" data-closable>
-						  <h5>Oeps er ging iets mis</h5>
-						  <p>Geen gebruiker met deze naam</p>
+						  <h5>Oeps er ging iets mis!</h5>
+						  <p>Geen gebruiker met deze naam.</p>
 						  <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
 							<span aria-hidden=\"true\">&times;</span>
 						  </button>
@@ -126,8 +125,8 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
     <script src="js/vendor/jquery.js"></script>
     <script src="js/vendor/what-input.js"></script>
     <script src="js/vendor/foundation.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/vendor/chart.js"></script>
+    <script src="js/vendor/jquery-ui.min.js"></script>
     <script src="js/app.js"></script>
 
   </body>
