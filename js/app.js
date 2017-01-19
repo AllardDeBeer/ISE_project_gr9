@@ -204,6 +204,15 @@ function getValues(elementName) {
   return vals;
 }
 
+function getMonkeyValues(elementName) {
+  var inputs = document.getElementsByName( 'aapData' ),
+    names  = [].map.call(inputs, function( input ) {
+        return input.value;
+    }).join( '|' );
+  return names;
+
+}
+
 function managePin(pin){
   var target = "["+pin+"]";
   var n = window.pins.indexOf(target);
