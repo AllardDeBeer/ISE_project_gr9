@@ -13,7 +13,6 @@
 			$result = db_query($sql);
 			$isValid = True;
 			if (!(empty($_GET['researchName']))) {
-				echo 'jawel';
 				while ($row = db_fetchAssoc($result)) {
 					if ($row['PROEF_NAAM'] == $_GET['researchName']) {
 						$isValid = False;

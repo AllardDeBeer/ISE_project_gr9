@@ -9,10 +9,10 @@ include "../includes/database_functions.php"
     </div>
     <div class="column large-12">
       <form action="#" name="newResearch" method="POST" enctype="multipart"> 
-        <label for="researchName">Naam</label>
+        <label for="researchName">Naam:</label>
         <input type="text" name="researchName" id="researchName" required>
         <hr>
-        <label for="newField">Veld toevoegen</label>
+        <label for="newField">Veld toevoegen:</label>
         <table name="newField">
           <thead>
             <tr>
