@@ -1,5 +1,5 @@
-$(document).foundation()
 
+$(document).foundation();
 $( document ).ready(function() {
   console.log( "ready!" );
 
@@ -103,6 +103,7 @@ function showResult(str, showIndex, id) {
     }else if (showIndex == 11) {
       xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
   	  throwPins();
+      updateCallout(2);
     }else if (showIndex == 12) {
       xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
     }
@@ -346,4 +347,23 @@ function getRandomColor() {
 function setVarOptionsMaxHeight(){
   var maxHeight = window.innerHeight - $("#subMenuTitle").height() - $("#subMenuAmount").height() - $("#subMenuPresentation").height() - $("#subMenuSubmit").height() - $("#subMenuMonkey").height();
   $("#varOptions").css('max-height', maxHeight);
+}
+
+function openTab(evt, tabName) {
+    var i;
+    var tabcontent;
+    var tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }
