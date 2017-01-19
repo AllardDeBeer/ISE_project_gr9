@@ -64,6 +64,7 @@ Function Wachtwoordvergeten($user,$pass,$passC,$answer)
 
 function nieuwWachtwoord($currentPass,$pass,$user)
 {
+	$currentPass=sha1($currentPass);
 	$sql = "SELECT gebruikersnaam FROM gebruiker WHERE GEBRUIKERSNAAM = '$user' AND wachtwoord = '$currentPass' ";
 	if(strlen($pass) <5)
 	{
