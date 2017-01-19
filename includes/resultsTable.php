@@ -40,7 +40,6 @@ if($ids[0] == ""){
 			while($row = db_fetchAssoc($stmt2)){
 				array_push($table_data[$i], $row['waarde']);
 			}
-			
 		}
 		$i = $i + 1;
 		$header = false;
@@ -68,6 +67,7 @@ if($ids[0] == ""){
 	}
 
 	$_SESSION['table_data'] = $table_data;
+	$_SESSION['table_dates'] = $table_dates;
 
 	//$table_head .= "</tr></thead>"
 	//$table_body .= "</tbody>";

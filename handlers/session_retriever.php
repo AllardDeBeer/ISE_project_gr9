@@ -21,6 +21,11 @@ for ($i=0; $i < $cols; $i++) {
 
 
 $response = rtrim($response, '|');
+$response .= "~";
+foreach ($_SESSION['table_dates'] as $date) {
+	$response .= $date . ",";
+}
+$response = rtrim($response, ',');
 echo $response;
 
 

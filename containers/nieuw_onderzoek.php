@@ -19,7 +19,7 @@
           Eind datum: <input type="text" name="reasearchEnd" id="datepickerE">
       </div>
       <div class="column large-4">
-          Project: <input type="text" name="project">
+          Project: <input type="number" name="project">
       </div>
     </div>
     <script>

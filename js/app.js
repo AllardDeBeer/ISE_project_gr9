@@ -220,7 +220,11 @@ function prepareGraph() {
           console.log("[ "+response.responseText+" ]");
           var type = $('input[name=r-group]:checked', '#showResultsForm').val()
           var currentX = $('input[name=testGroup]:checked', '#showResultsForm').val();
-          drawGraph(type, currentX, response.responseText);
+          if(currentX == null){
+            drawGraph(type, 0, response.responseText);
+          }else{
+            drawGraph(type, currentX, response.responseText);
+          }
       },
       error: function () {
           console.log("Session variable could not be retrieved");
@@ -251,17 +255,29 @@ function prepareResults(){
 
 function drawGraph(type, currentX, input){
   // getSessionVariable('table_data', 1);
+  input = input.split("~");
+  var dates = input[1];
+  input = input[0];
+  console.log("drawGraph: input:" + input);
   input = input.split("|");
-  labels = input[currentX].split(",");
 
+  var labels = input[currentX].split(",");
   var datasets =  [];
 
   for (var i = 0; i < input.length; i++) {
-    if(i != currentX){
+    if(i != currentX || input.length == 1){
       var label = $("#choice" + (i+1) + " option:selected").text();
       var color = getRandomColor();
       backgroundColor = [];
-      data = input[i].split(",");
+      if(input.length == 1){
+        var data = labels;
+        labels = dates.split(",");
+      }else{
+        var data = input[i].split(",");
+      }
+      console.log("drawGraph: dates:" + dates);
+      console.log("drawGraph: data:" + data);
+      console.log("drawGraph: labels:" + labels);
       for (var j = 0; j <= data.length; j++) {
         backgroundColor.push(color);
       };

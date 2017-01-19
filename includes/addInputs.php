@@ -14,20 +14,21 @@ if($q <= 0){
 	for ($i=0; $i < $q; $i++) { 
 		$stmt = db_query("SELECT veld_id, veld_naam FROM Veld WHERE proef_id = " . $_SESSION['proef']);
 		$response .= "<div class=\"column large-12\"><select id=\"choice" . ($i+1) . "\" onchange=\"prepareResults()\">";
-		$response .= "<option disabled selected value=\"date\"> -- Kies een veld -- </option>
-					  <option value> Datum </option>";
+		$response .= "<option disabled selected> -- Kies een veld -- </option>";
 		while($row = db_fetchAssoc($stmt)){
 			$response .= "<option value=\"" . $row['veld_id'] . "\">" . $row['veld_naam'] . "</option>";
 		}
 		$response .= "</select>";
-		$response .= "<div class=\"switch\">
-						  <input class=\"switch-input\" value=" . $i . " id=\"xSwitch" . $i . "\" type=\"radio\" checked=\"\" name=\"testGroup\">
-						  <label class=\"switch-paddle\" for=\"xSwitch" . $i . "\">
-						    <span class=\"show-for-sr\">Axis</span>
-						    <span class=\"switch-active\" aria-hidden=\"true\">X</span>
-    						<span class=\"switch-inactive\" aria-hidden=\"true\">Y</span>
-						  </label>
-						</div></div>";
+		if($q > 1){
+			$response .= "<div class=\"switch\">
+							  <input class=\"switch-input\" value=" . $i . " id=\"xSwitch" . $i . "\" type=\"radio\" checked=\"\" name=\"testGroup\">
+							  <label class=\"switch-paddle\" for=\"xSwitch" . $i . "\">
+							    <span class=\"show-for-sr\">Axis</span>
+							    <span class=\"switch-active\" aria-hidden=\"true\">X</span>
+	    						<span class=\"switch-inactive\" aria-hidden=\"true\">Y</span>
+							  </label>
+							</div></div>";
+		}
 	}
 	db_close();
 }
