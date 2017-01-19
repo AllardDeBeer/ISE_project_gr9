@@ -49,7 +49,10 @@
                             <a href=\"#\" onclick=\"setSessionVariable('onderzoek',". $o_row['onderzoek_id'] .")\">" . $o_row['onderzoek_naam'] . "</a>
                             <ul class=\"vertical menu\">
                               <li>
-                                <a href=\"#nieuw_proef\">Nieuwe proef</a>
+                                <a href=\"#nieuw_proef\">Nieuwe proef aanmaken</a>
+                              </li>
+                              <li>
+                                <a href=\"#bestaande_proef\">Bestaande proef toevoegen</a>
                               </li>
 							  <li>
                                 <a href=\"#aap_In_onderzoek\">Nieuwe aap toevoegen</a>
@@ -258,6 +261,22 @@
             echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
                             <h5>Gelukt!</h5>
                             <p>De proef is aangemaakt!</p>
+                            <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                              <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                          </div>";
+          } else if ($_GET['m'] == 17) {
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                            <h5>Oeps!</h5>
+                            <p>Er is geen geldige proefnaam ingevuld!</p>
+                            <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                              <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                          </div>";
+          } else if ($_GET['m'] == 18) {
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                            <h5>Gelukt!</h5>
+                            <p>De bestaande proef is toegevoegd aan het onderzoek!</p>
                             <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
                               <span aria-hidden=\"true\">&times;</span>
                             </button>

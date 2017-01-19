@@ -29,7 +29,7 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
       <div class="column large-3 left-menu">
         <div class="expanded row logo">
           <div class="column large-4">
-            <img src="http://placehold.it/300x200" class="img" alt="BPRC">
+            <img src="assets/bprc-logo.jpg"  class="img" alt="BPRC">
           </div>
           <div class="column large-8">
             <h1>BPRC</h1>
@@ -112,9 +112,9 @@ WHERE GEBRUIKERSNAAM = '$gebruiker' ");
 						
 						<input type="text" name="Answer"><br>
 						Nieuw wachtwoord:<input type="password" name="Password"><br>
-						Herhaal nieuw wachtwoord<input type="password" name="PasswordC"><br>
+						Herhaal nieuw wachtwoord:<input type="password" name="PasswordC"><br>
 						<input type ="hidden" name="user" Value="'; echo htmlspecialchars($gebruiker); echo '">
-						<input type="submit" class="button" value="Submit">
+						<input type="submit" class="button" value="Opslaan">
 					</div>
 			  </form>
           </div>

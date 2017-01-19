@@ -1,5 +1,5 @@
-$(document).foundation()
 
+$(document).foundation();
 $( document ).ready(function() {
   console.log( "ready!" );
 
@@ -103,6 +103,7 @@ function showResult(str, showIndex, id) {
     }else if (showIndex == 11) {
       xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
   	  throwPins();
+      updateCallout(2);
     }else if (showIndex == 12) {
       xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
     }
@@ -118,17 +119,24 @@ function newTest(researchName, value){
       // Check if proef isValid
       if (this.responseText == 'notValid') {
         // Check if not already on page
-        if (window.location.href == "http://localhost/index.php?m=13#nieuw_proef") {
+        if (window.location.href == ("http://localhost/index.php?m=13#nieuw_proef" || "http://localhost:8080/index.php?m=13#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=13#nieuw_proef");
         }
       } else if (this.responseText == 'isValid') {
         // Check if not already on page
-        if (window.location.href == "http://localhost/index.php?m=16#nieuw_proef") {
+        if (window.location.href == ("http://localhost/index.php?m=16#nieuw_proef" || "http://localhost:8080/index.php?m=16#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=16#nieuw_proef");
+        }
+      } else if (this.responseText == 'noResearchName') {
+        console.log('test'); 
+        if (window.location.href == ("http://localhost/index.php?m=17#nieuw_proef" || "http://localhost:8080/index.php?m=17#beheer_proef")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=17#nieuw_proef");
         }
       }
     }
@@ -143,13 +151,13 @@ function manageTest(value, researchName) {
     if (this.readyState==4 && this.status==200) { 
       console.log(this.responseText);
       if (this.responseText == 'waarden') {
-        if (window.location.href == "http://localhost/index.php?m=14#beheer_proef") {
+        if (window.location.href == ("http://localhost/index.php?m=14#beheer_proef" || "http://localhost:8080/index.php?m=14#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=14#beheer_proef")
         }
       } else if (this.responseText == 'gelukt') {
-        if (window.location.href == "http://localhost/index.php?m=15#beheer_proef") {
+        if (window.location.href == ("http://localhost/index.php?m=15#beheer_proef" || "http://localhost:8080/index.php?m=15#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=15#beheer_proef")
@@ -161,9 +169,29 @@ function manageTest(value, researchName) {
   xmlhttp.send()
 }
 
+function addExistingTest(testName, status, id) {
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if (this.responseText == 'gelukt') {
+        if (window.location.href == ("http://localhost/index.php?m=18#bestaande_proef" || "http://localhost:8080/index.php?m=18#bestaande_proef")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=18#bestaande_proef");
+        }
+      } else {
+        document.getElementById(id).innerHTML=this.responseText
+      }
+    }
+  }
+
+  xmlhttp.open("GET","includes/addExistingTest.php?q="+testName+"&status="+status,true);
+  xmlhttp.send();
+}
+
 
 function addInputs(value){
-  var output = value + "|" + 
+  // var output = value + "|" + 
   showResult(value, 3, 'varOptions');
 }
 function getValues(elementName) {
@@ -213,7 +241,11 @@ function prepareGraph() {
           console.log("[ "+response.responseText+" ]");
           var type = $('input[name=r-group]:checked', '#showResultsForm').val()
           var currentX = $('input[name=testGroup]:checked', '#showResultsForm').val();
-          drawGraph(type, currentX, response.responseText);
+          if(currentX == null){
+            drawGraph(type, 0, response.responseText);
+          }else{
+            drawGraph(type, currentX, response.responseText);
+          }
       },
       error: function () {
           console.log("Session variable could not be retrieved");
@@ -244,17 +276,29 @@ function prepareResults(){
 
 function drawGraph(type, currentX, input){
   // getSessionVariable('table_data', 1);
+  input = input.split("~");
+  var dates = input[1];
+  input = input[0];
+  console.log("drawGraph: input:" + input);
   input = input.split("|");
-  labels = input[currentX].split(",");
 
+  var labels = input[currentX].split(",");
   var datasets =  [];
 
   for (var i = 0; i < input.length; i++) {
-    if(i != currentX){
+    if(i != currentX || input.length == 1){
       var label = $("#choice" + (i+1) + " option:selected").text();
       var color = getRandomColor();
       backgroundColor = [];
-      data = input[i].split(",");
+      if(input.length == 1){
+        var data = labels;
+        labels = dates.split(",");
+      }else{
+        var data = input[i].split(",");
+      }
+      console.log("drawGraph: dates:" + dates);
+      console.log("drawGraph: data:" + data);
+      console.log("drawGraph: labels:" + labels);
       for (var j = 0; j <= data.length; j++) {
         backgroundColor.push(color);
       };
@@ -303,4 +347,23 @@ function getRandomColor() {
 function setVarOptionsMaxHeight(){
   var maxHeight = window.innerHeight - $("#subMenuTitle").height() - $("#subMenuAmount").height() - $("#subMenuPresentation").height() - $("#subMenuSubmit").height() - $("#subMenuMonkey").height();
   $("#varOptions").css('max-height', maxHeight);
+}
+
+function openTab(evt, tabName) {
+    var i;
+    var tabcontent;
+    var tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }

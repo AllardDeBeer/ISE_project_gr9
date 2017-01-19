@@ -12,12 +12,17 @@
 			$sql = "SELECT PROEF_NAAM FROM PROEF";
 			$result = db_query($sql);
 			$isValid = True;
-			while ($row = db_fetchAssoc($result)) {
-				if ($row['PROEF_NAAM'] == $_GET['researchName']) {
-					$isValid = False;
-					$response .= "notValid";
-					unset($_SESSION['vars']);
-				} 
+			if (!(empty($_GET['researchName']))) {
+				while ($row = db_fetchAssoc($result)) {
+					if ($row['PROEF_NAAM'] == $_GET['researchName']) {
+						$isValid = False;
+						$response .= "notValid";
+						unset($_SESSION['vars']);
+					} 
+				}
+			} else {
+				$isValid = False;
+				$response = 'noResearchName';
 			}
 			/* if researchName is valid */
 			if ($isValid) {
@@ -53,7 +58,6 @@
 				$response = 'isValid';
 				unset($_SESSION['vars']);
 			}
-
 		} else if ($_GET['value'] == 'opslaanBeheerProef') {
 			db_open();
 
