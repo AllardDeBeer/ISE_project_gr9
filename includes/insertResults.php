@@ -2,10 +2,13 @@
 session_start();
 include '/database_functions.php';
 $q=$_GET["q"];
-//$q="peter‽2017-01-08‽8‽2‽0‽1‽2‽3‽4‽5‽6‽7";
+//$q="peter‽2017-01-08‽12‽3‽ 0‽1‽2‽3‽#4‽5‽6‽7#‽5‽6‽7";
 db_open();
+$array2d =array[2d???]();
 $array= array();
-$array= explode( '‽', $q );
+$array= explode( '#', $q );
+
+$array2d[$counter]= explode( '‽', array2d[$counter] );
 $insertValues = array();
 $username = $array[0]
 $date=$array[1];
@@ -15,13 +18,22 @@ for ($x = 4; $x < count($array); $x++) {
    $insertValues[$x-4] = $array[$x];
 }  
   
-$currentResearch = $_session['onderzoek'];
-$currentTest = $_session['proef'];
+$currentResearch = $_SESSION['onderzoek'];
+$currentTest = $_SESSION['proef'];
 //$currentResearch = 1; //moet uit session gehaald worden
 //$currentTest = $currentResearch;
 
 				
-			
+//$insert = db_query("exec ProcSubtypeKeuze @veld_id = 4,@gebruikersnaam	= '$_SESSION['username']',@aap_id = $aap_id',@waarde = $waarde,@datum = '2017-01-17',@waarde_type ='getal'");
+//$update = db_query("exec waarde_update @waarde_id = '$waarde_id', @waarde = $waarde, @waarde_type = $waarde_type");
+
+
+
+
+
+
+
+				
 $stmt = db_query("select aap_id from aap A where exists(select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '" . $currentTest . "'and AIO.aap_id = A.AAP_ID)");		
 
 		

@@ -7,7 +7,7 @@
     <title>Donkey Kong Research</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     <link rel="stylesheet" href="css/jquery-ui.min.css">
   </head>
   <body>
     <div class="expanded row">
