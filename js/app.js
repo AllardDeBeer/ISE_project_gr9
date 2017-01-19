@@ -104,8 +104,6 @@ function showResult(str, showIndex, id) {
       xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
   	  throwPins();
       updateCallout(2);
-    }else if (showIndex == 12) {
-      xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
     }
   xmlhttp.send();
   }
@@ -169,6 +167,24 @@ function manageTest(value, researchName) {
   xmlhttp.send()
 }
 
+function updateMonkeys(str) {
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      if (this.responseText == 'gelukt') {
+        if (window.location.href == ("http://localhost/index.php?m=19#beheer_apen" || "http://localhost:8080/index.php?m=19#beheer_apen")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=19#beheer_apen")
+        }
+      }
+    }
+  }
+  xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
+  xmlhttp.send();
+}
+
 function addExistingTest(testName, status, id) {
   xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
@@ -203,6 +219,15 @@ function getValues(elementName) {
     }
   }
   return vals;
+}
+
+function getMonkeyValues(elementName) {
+  var inputs = document.getElementsByName( 'aapData' ),
+    names  = [].map.call(inputs, function( input ) {
+        return input.value;
+    }).join( '|' );
+  return names;
+
 }
 
 function managePin(pin){

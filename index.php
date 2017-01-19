@@ -281,6 +281,14 @@
                               <span aria-hidden=\"true\">&times;</span>
                             </button>
                           </div>";
+          } else if ($_GET['m'] == 19) {
+            echo "<div class=\"success callout\" data-closable=\"slide-out-right\">
+                            <h5>Gelukt!</h5>
+                            <p>De wijzingen zijn opgeslagen!</p>
+                            <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                              <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                          </div>";
           }
         }
         ?>

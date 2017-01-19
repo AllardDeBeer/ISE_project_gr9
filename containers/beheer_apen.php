@@ -36,10 +36,10 @@
                       <td><input type=\"text\" name=\"aapData\" value=\"" . $row['DIERSOORT'] . "\" required readonly></td>
                       <td><input type=\"text\" name=\"aapData\" value=\"" . $row['geslacht'] . "\" required readonly></td>
                       <td><input type=\"text\" name=\"aapData\" value=\"" . date('d/m/Y', $row["geboortedatum"]->getTimestamp()) . "\" required readonly></td>
-                      <td><input type=\"text\" name=\"aapData\" value=\"" . $row['gewicht'] . "\" required></td>
-                      <td><input type=\"text\" class=\"wdate\" name=\"aapData\" value=\"" . date('d/m/Y', $row["DATUMGEWICHTMETING"]->getTimestamp()) . "\" required></td>
-                      <td><input type=\"text\" name=\"aapData\" value=\"" . $row['BEHANDELGROEP'] . "\" required></td>
-                      <td><input type=\"text\" name=\"aapData\" value=\"" . $row['DOMINANT'] . "\" required></td>
+                      <td><input type=\"text\" name=\"aapData\" id=\"aapGewicht\" value=\"" . $row['gewicht'] . "\" required></td>
+                      <td><input type=\"text\" class=\"wdate\" id=\"aapGewichtDatum\" name=\"aapData\" value=\"" . date('d/m/Y', $row["DATUMGEWICHTMETING"]->getTimestamp()) . "\" required></td>
+                      <td><input type=\"text\" name=\"aapData\" id=\"aapBehandelGroep\" value=\"" . $row['BEHANDELGROEP'] . "\" required></td>
+                      <td><input type=\"text\" name=\"aapData\" id=\"aapDominantie\" value=\"" . $row['DOMINANT'] . "\" required></td>
                     </tr>";
                 $i = $i + 1;
               }
@@ -47,7 +47,7 @@
             ?>
           </tbody>
         </table>
-        <input type="button" name="submit" value="Wijzig" class="button" onclick="showResult(">
+        <input type="button" name="submit" value="Opslaan" class="button" onclick="updateMonkeys(getMonkeyValues('aapData'))">
       </form>
       <script>
           $( ".wdate" ).datepicker();
