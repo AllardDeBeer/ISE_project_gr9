@@ -2,7 +2,7 @@
 session_start();
 include '../includes/database_functions.php'; 
 db_open();
-
+$currentResearch=$_SESSION['onderzoek'];
 ?>
 				
 <div class="container">
@@ -76,6 +76,43 @@ function changeBox(ID) {
 		
 		
         <tbody  id="livesearch">
+		<?php
+		db_open();
+$stmt = db_query("SELECT aap_id, behandelgroep, diersoort, geslacht, gewicht, dominant FROM aap
+where aap_id not in(select aap_id from aapinonderzoek where onderzoek_id ='$currentResearch ')
+");
+
+
+$i=0;
+while($row = db_fetchAssoc($stmt)) {
+	
+	
+	
+	
+  $y = array($row['aap_id'], $row['behandelgroep'], $row['diersoort'], $row['geslacht'], $row['gewicht'], $row['dominant']);
+
+
+
+    echo"<tr>
+					<td>" . $y[0] . "</td>
+					<td>" . $y[1] . "</td>
+					<td>" . $y[2] . "</td>
+					<td>" . $y[3]  . "</td>
+					<td>" . $y[4]  . "</td>
+					<td>" . $y[5]  . "</td>
+					<td><input type=\"checkbox\" id=\"select" . $y[0] . "\" value=" . $y[0] . " onchange=\"changeBox(this.value )\"
+				
+			
+				></td>
+					</tr>";
+$i+=1;
+}
+db_close();
+
+
+     ?>
+		
+		
          <!-- Live reloaded content -->
       </tbody>
 	  
