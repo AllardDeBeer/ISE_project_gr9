@@ -119,21 +119,21 @@ function newTest(researchName, value){
       // Check if proef isValid
       if (this.responseText == 'notValid') {
         // Check if not already on page
-        if (window.location.href == ("http://localhost/index.php?m=13#nieuw_proef" || "http://localhost:8080/index.php?m=13#beheer_proef")) {
+        if (window.location.href == ("../index.php?m=13#nieuw_proef" || "../index.php?m=13#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=13#nieuw_proef");
         }
       } else if (this.responseText == 'isValid') {
         // Check if not already on page
-        if (window.location.href == ("http://localhost/index.php?m=16#nieuw_proef" || "http://localhost:8080/index.php?m=16#beheer_proef")) {
+        if (window.location.href == ("../index.php?m=16#nieuw_proef" || "../index.php?m=16#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=16#nieuw_proef");
         }
       } else if (this.responseText == 'noResearchName') {
         console.log('test'); 
-        if (window.location.href == ("http://localhost/index.php?m=17#nieuw_proef" || "http://localhost:8080/index.php?m=17#beheer_proef")) {
+        if (window.location.href == ("../index.php?m=17#nieuw_proef" || "../index.php?m=17#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=17#nieuw_proef");
@@ -151,13 +151,13 @@ function manageTest(value, researchName) {
     if (this.readyState==4 && this.status==200) { 
       console.log(this.responseText);
       if (this.responseText == 'waarden') {
-        if (window.location.href == ("http://localhost/index.php?m=14#beheer_proef" || "http://localhost:8080/index.php?m=14#beheer_proef")) {
+        if (window.location.href == ("../index.php?m=14#beheer_proef" || "../index.php?m=14#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=14#beheer_proef")
         }
       } else if (this.responseText == 'gelukt') {
-        if (window.location.href == ("http://localhost/index.php?m=15#beheer_proef" || "http://localhost:8080/index.php?m=15#beheer_proef")) {
+        if (window.location.href == ("../index.php?m=15#beheer_proef" || "../index.php?m=15#beheer_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=15#beheer_proef")
@@ -167,6 +167,30 @@ function manageTest(value, researchName) {
   }
   xmlhttp.open("GET", "handlers/proef_handler.php?value="+value+"&researchName="+researchName, true)
   xmlhttp.send()
+}
+
+function updateMonkeys(str) {
+  xmlhttp = initXMLHTTP();
+  xmlhttp.onreadystatechange=function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.responseText);
+      if (this.responseText == 'gelukt') {
+        if (window.location.href == ("../index.php?m=19#beheer_apen")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=19#beheer_apen")
+        }
+      } else if (this.responseText == 'mislukt') {
+        if (window.location.href == ("../index.php?m=20#beheer_apen")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=20#beheer_apen")
+        }
+      }
+    }
+  }
+  xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
+  xmlhttp.send();
 }
 
 function addExistingTest(testName, status, id) {
