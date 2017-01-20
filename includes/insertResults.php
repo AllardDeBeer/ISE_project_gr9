@@ -23,17 +23,6 @@ $ingevulde_waarde_id = array();
 $ingevulde_waarde_id = $_SESSION['waardeID'];
 $gebruiker = $_SESSION['username'];
 
-$runner = 0;
-while($runner < count($Types))
-{    
-	echo " ";
-	echo $runner;
-	echo 'type is:'; 
-	echo $velden[$runner];
-	$runner++;
-	echo " ";
-}
-
 
 while($waardeteller < $tellerMax){
 $waarde_id = $ingevulde_waarde_id[$waardeteller];
