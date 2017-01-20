@@ -38,7 +38,7 @@ $currentResearch=$_SESSION['onderzoek'];
     <input id= "searchValues" type="hidden" value="">
 	<input id= "insertValues" type="hidden" value="">
 	
-<?php //+document.getElementById('insertValues')?>
+
 
 
 
@@ -55,6 +55,10 @@ function setValue() {
 function changeBox(ID) {
 	
 	document.getElementById("insertValues").value += ID+"‽";
+}
+function setZero() {
+//document.getElementById("searchValues").value ="";
+document.getElementById("insertValues").value ="";
 }
 </script>
 
@@ -118,7 +122,7 @@ db_close();
 	  
 	  
     </table>
-	<input type="button" value="opslaan" class="button right" onclick="showResult(document.getElementById('insertValues').value, 11, 'livesearch')">
+	<input type="button" value="opslaan" class="button right" onclick="showResult(document.getElementById('insertValues').value, 11, 'livesearch'),setZero(),showResult(document.getElementById('searchValues').value+'||'+document.getElementById('insertValues').value, 10, 'livesearch')">
 	
     </form>
 </div>
