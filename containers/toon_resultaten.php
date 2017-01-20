@@ -84,7 +84,7 @@ session_start();
             <h4 class="text-center">Huidige aap</h4>
           </div>
           <div class="column large-12">
-            <select name="monkeySelect" id="monkeySelect" onchange="setSessionVariable('aap1', this.value); prepareResults()" required>
+            <select name="monkeySelect1" id="monkeySelect1" onchange="setSessionVariable('aap1', this.value); prepareResults()" required>
             <option disabled selected value> -- Kies een aap -- </option>
               <?php
                 db_open();

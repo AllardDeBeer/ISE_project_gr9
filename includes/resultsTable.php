@@ -28,6 +28,7 @@ if($ids[0] == ""){
 	$header_set = true;
 	$push_monkeys = true;
 	$push_ids = true;
+	$ids_pushed = true;
 	$stmt = db_query("SELECT DISTINCT Datum FROM Waarden2 WHERE aap_id ='" . $_SESSION['aap'] . "' ORDER BY Datum");
 	while($date = db_fetchAssoc($stmt)){
 		$d = date('m/d/Y', $date['Datum']->getTimestamp());
@@ -36,32 +37,29 @@ if($ids[0] == ""){
 			if($push_monkeys){
 				array_push($table_data, array());				
 			}
-			foreach ($ids as $id) {
-				// if($push_ids){
-					array_push($table_data[$a], array());
-				// }
-			 	$stmt2 = db_query("SELECT (SELECT waarde FROM Waarden2 WHERE veld_id =" . $id . " AND aap_id ='" . $_SESSION['aap' . ($a-1)] . "' AND Datum = '" . $d . "') AS waarde");
+			for ($i=0; $i < sizeof($ids); $i++) { 
+			 	array_push($table_data[$a], array());
+			 	$stmt2 = db_query("SELECT (SELECT waarde FROM Waarden2 WHERE veld_id =" . $ids[$i] . " AND aap_id ='" . $_SESSION['aap' . ($a+1)] . "' AND Datum = '" . $d . "') AS waarde");
 			 	if($header){
-			 		$veld = db_fetchAssoc(db_query("SELECT veld_naam FROM Veld WHERE veld_id =" . $id))['veld_naam'];
-					$table_head .= "<th>" . $_SESSION['aap' . $a] . ':' . $veld . "</th>";
+			 		
+			 		$veld = db_fetchAssoc(db_query("SELECT veld_naam FROM Veld WHERE veld_id =" . $ids[$i]))['veld_naam'];
+					$table_head .= "<th>" . $_SESSION['aap' . ($a+1)] . ':' . $veld . "</th>";
+					var_dump($table_data[0]);
 			 	}
-				
 				while($row = db_fetchAssoc($stmt2)){
-					array_push($table_data[$a][$i], $row['waarde']);
+					echo $a . ":" . $i . "@" . $row['waarde'] . "<br>";
+					array_push($table_data[$a][$i], 4);
 				}
 				$i = $i + 1;
 				$header = false;
 			}
 			if($header_set){
 				$header = true;				
-			}
-			
-			$i = 0;
+			}	
 		}
 		$header_set = false;
 		$header = false;
 		$push_monkeys = false;
-		$push_ids = false;
 	}
 	db_close();
 	print_r($table_data);
