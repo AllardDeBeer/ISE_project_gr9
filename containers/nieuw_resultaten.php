@@ -12,8 +12,8 @@ window.onload = showResult();
       <h3>Voeg resultaten toe</h3>
     </div>
 <div class="column large-12">
-	proefdatum <input type="text" name="datepicker" id="datepicker" value="<?php echo @date('Y-m-d') ?>"> 
-	<input type="button" value="select datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6, 'resultsTable')">
+	Proefdatum: <input type="text" name="datepicker" id="datepicker" value="<?php echo @date('Y-m-d') ?>" >
+	<input type="button" value="Selecteer datum" class="button" onclick="showResult(document.getElementById('datepicker').value , 6, 'resultsTable')">
 	<div class="table-scroll">
 		<form action="includes/insertResults.php" method="POST" enctype="multipart/form-data">
 			<table>
