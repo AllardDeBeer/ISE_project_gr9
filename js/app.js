@@ -59,7 +59,7 @@ function updateCallout(msg){
 }
 
 
-	
+  
 function initXMLHTTP() {
 if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -90,7 +90,7 @@ function showResult(str, showIndex, id) {
       xmlhttp.open("GET","includes/resultsTable.php?q="+str,true);
     } else if (showIndex == 5) {
       xmlhttp.open("GET","includes/addVariables.php?status=verwijderen&q="+str,true);
-    }	else if (showIndex == 6) {
+    } else if (showIndex == 6) {
       xmlhttp.open("GET","includes/loadResults.php?q="+str,true);
     }else if (showIndex == 7) {
       xmlhttp.open("GET","includes/insertResults.php?q="+str,true);
@@ -99,11 +99,13 @@ function showResult(str, showIndex, id) {
     } else if (showIndex == 9) {
       xmlhttp.open("GET","includes/addVariables.php?status=proefbeheerverwijderen&q="+str,true);
     } else if (showIndex == 10) {
-      xmlhttp.open("GET","includes/aapSearch.php?q="+str,true);
+      xmlhttp.open("GET","includes/aapSearch.php?q="+str+"&p="+window.pins,true);
     }else if (showIndex == 11) {
-      xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+str,true);
-  	  throwPins();
+      xmlhttp.open("GET","handlers/aapInOnderzoek_handler.php?q="+window.pins,true);
+      throwPins();
       updateCallout(2);
+    }else if (showIndex == 12) {
+      xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
     }
   xmlhttp.send();
   }
@@ -167,36 +169,12 @@ function manageTest(value, researchName) {
   xmlhttp.send()
 }
 
-function updateMonkeys(str) {
-  xmlhttp = initXMLHTTP();
-  xmlhttp.onreadystatechange=function() {
-    if (this.readyState == 4 && this.status == 200) {
-      console.log(this.responseText);
-      if (this.responseText == 'gelukt') {
-        if (window.location.href == ("http://localhost/index.php?m=19#beheer_apen" || "http://localhost:8080/index.php?m=19#beheer_apen")) {
-          window.location.reload();
-        } else {
-          window.location.replace("../index.php?m=19#beheer_apen")
-        }
-      } else if (this.responseText == 'mislukt') {
-        if (window.location.href == ("http://localhost/index.php?m=20#beheer_apen" || "http://localhost:8080/index.php?m=20#beheer_apen")) {
-          window.location.reload();
-        } else {
-          window.location.replace("../index.php?m=20#beheer_apen")
-        }
-      }
-    }
-  }
-  xmlhttp.open("GET","includes/manageMonkeys.php?q="+str,true);
-  xmlhttp.send();
-}
-
 function addExistingTest(testName, status, id) {
   xmlhttp = initXMLHTTP();
   xmlhttp.onreadystatechange=function() {
     if (this.readyState == 4 && this.status == 200) {
       if (this.responseText == 'gelukt') {
-        if (window.location.href == ("http://localhost/index.php?m=18#bestaande_proef" || "http://localhost:8080/index.php?m=18#bestaande_proef")) {
+        if (window.location.href == ("../index.php?m=18#bestaande_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=18#bestaande_proef");
@@ -225,15 +203,6 @@ function getValues(elementName) {
     }
   }
   return vals;
-}
-
-function getMonkeyValues(elementName) {
-  var inputs = document.getElementsByName( 'aapData' ),
-    names  = [].map.call(inputs, function( input ) {
-        return input.value;
-    }).join( '|' );
-  return names;
-
 }
 
 function managePin(pin){
@@ -284,16 +253,17 @@ function prepareGraph() {
   });
 }
 
-function preparePage(){
+function preparePage(hl){
   prepareResults();
   prepareGraph();
+  setSessionVariable("hl", hl);
 }
 function throwPins(){
-	window.pins = "";
-	}
+  window.pins = "";
+  }
 function addCurrentUsers(ids){
-	window.pins += ids;
-	showResult("");
+  window.pins += ids;
+  showResult("");
 }
 
 function prepareResults(){
@@ -378,23 +348,4 @@ function getRandomColor() {
 function setVarOptionsMaxHeight(){
   var maxHeight = window.innerHeight - $("#subMenuTitle").height() - $("#subMenuAmount").height() - $("#subMenuPresentation").height() - $("#subMenuSubmit").height() - $("#subMenuMonkey").height();
   $("#varOptions").css('max-height', maxHeight);
-}
-
-function openTab(evt, tabName) {
-    var i;
-    var tabcontent;
-    var tablinks;
-
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
 }
