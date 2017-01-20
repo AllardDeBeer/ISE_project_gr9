@@ -1,7 +1,9 @@
 <?php
 session_start();
 include '../includes/database_functions.php';
+
 $monkeyIDs =$_GET["q"];
+
 $monkeyIDs=rtrim($monkeyIDs, "‽");
 
 
@@ -32,16 +34,17 @@ db_open();
 
 
 
-
-
+if (empty($insertIdArray[0])){
+	
+}
+else{
 foreach ($insertIdArray as $monkey) {
 		
 	db_query("insert into aapInOnderzoek(aap_id, onderzoek_id) values('". $monkey . "','$currentResearch ') ");
 	
+
 }
-
+}
 db_close();
-
-
 
 ?>

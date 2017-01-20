@@ -17,8 +17,6 @@ $response="";
 
 $currentResearch=$_SESSION['onderzoek'];
 
-
-
 db_open();
 $stmt = db_query("SELECT aap_id, behandelgroep, diersoort, geslacht, gewicht, dominant FROM aap
 where aap_id not in(select aap_id from aapinonderzoek where onderzoek_id ='$currentResearch ')
@@ -28,7 +26,6 @@ and ('".$quarray[2]."' = '' or diersoort like 		'%".$quarray[2]."%')
 and ('".$quarray[3]."' = '' or geslacht like 		'%".$quarray[3]."%')
 and ('".$quarray[4]."' = '' or gewicht like 		'%".$quarray[4]."%')
 and ('".$quarray[5]."' = '' or dominant like 		'%".$quarray[5]."%')
-
 ");
 
 

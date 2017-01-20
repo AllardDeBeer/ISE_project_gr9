@@ -24,10 +24,11 @@ $ingevulde_waarde_id = $_SESSION['waardeID'];
 $gebruiker = $_SESSION['username'];
 
 $runner = 0;
-while($runner < 12)
+while($runner < count($Types))
 {    
 	echo " ";
 	echo $runner;
+	echo 'type is:'; 
 	echo $velden[$runner];
 	$runner++;
 	echo " ";
