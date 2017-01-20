@@ -58,6 +58,7 @@
 									Wachtwoord: <input type="password" name="password"><br>
 									<div class="wwvergeten">
 										<a href="wachtwoord_vergeten_pre.php"> Wachtwoord vergeten?</a> 
+                    <a href="gebruiker.php"> Registreer</a> 
 									</div>
 									<div class ="row">
 										<input type="submit" class="button" value="Inloggen">
