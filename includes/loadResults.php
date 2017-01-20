@@ -24,7 +24,7 @@
 	$aapCounter=0;
 	$waardecount = 0;		
 	$stmt = db_query("select aap_id from aap A where exists(
-	select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '$currentTest'
+	select * from AAPINONDERZOEK AIO where AIO.ONDERZOEK_ID = '$currentResearch'
 	and AIO.aap_id = A.AAP_ID
 	)");		
 	while( $row =db_fetchNumeric($stmt)  ) 
@@ -34,11 +34,11 @@
 		$aapCounter++;
 		$stmt2 = db_query("select VELD_NAAM,veld_id from veld where PROEF_ID = '$currentTest'");
 		$testcounter = 0;	
-		$stmt3 = db_query("SELECT waarde,waarden2.veld_id,waarden2.waarde_id,waarden2.waarde_type FROM WAARDEN2 INNER JOIN veld ON veld.VELD_ID=WAARDEN2.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]." 'order by waarden2.VELD_ID");		
-	
+		
 		while( $column = db_fetchNumeric($stmt2) )
 		{
-			$stmt4 = db_query("SELECT waarde_type FROM waarde WHERE veld_id = " . $column[1] . "");
+			$stmt3 = db_query("SELECT waarde,waarden2.veld_id,waarden2.waarde_id,waarden2.waarde_type FROM WAARDEN2 RIGHT OUTER JOIN veld ON veld.VELD_ID=WAARDEN2.VELD_ID where DATUM='".$date."' and AAP_ID = '".$row[0]."' and veld.veld_id ='" .$column[1]."'");		
+			$stmt4 = db_query("SELECT datatype_naam FROM veld WHERE veld_id = " . $column[1] . "");
 			$waarde = db_fetchNumeric($stmt3);
 			$huidige_type=db_fetchNumeric($stmt4);
 			if(in_array($waarde[1], $velden_array, true))
