@@ -289,6 +289,15 @@
                               <span aria-hidden=\"true\">&times;</span>
                             </button>
                           </div>";
+          } else if ($_GET['m'] == 20) {
+            echo "<div class=\"warning callout\" data-closable=\"slide-out-right\">
+                            <h5>Oeps!</h5>
+                            <p>Er is een fout opgetreden. Kijk of er nergens twee apen in een kooi zitten die beide dominant zijn. 
+                               Kijk of er nergens meer dan twee apen in een kooi zitten.</p>
+                            <button class=\"close-button\" aria-label=\"Dismiss alert\" type=\"button\" data-close>
+                              <span aria-hidden=\"true\">&times;</span>
+                            </button>
+                          </div>";
           }
         }
         ?>
