@@ -46,7 +46,6 @@ if($ids[0] == ""){
 	}
 	db_close();
 
-	echo $_SESSION['hl'];
 	if($_SESSION['hl'] == "true"){
 		array_pop($table_data);
 		array_shift($table_data);
