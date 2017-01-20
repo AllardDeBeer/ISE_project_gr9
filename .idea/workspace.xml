@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1900eb2-1fa4-421e-a340-02f62e559162" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wachtwoord_vergeten.php" afterPath="$PROJECT_DIR$/wachtwoord_vergeten.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wachtwoord_vergeten_pre.php" afterPath="$PROJECT_DIR$/wachtwoord_vergeten_pre.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ISE_project_gr9.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,163 +23,74 @@
     <favorites_list name="ISE_project_gr9" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="beheer_onderzoek.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/beheer_onderzoek.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-46.423077">
-              <caret line="83" column="96" selection-start-line="83" selection-start-column="94" selection-end-line="83" selection-end-column="96" />
-              <folding>
-                <marker date="1484317303620" expanded="true" signature="112:180" placeholder="SELECT gebru... GebruikerInOnderzoek" />
-                <marker date="1484317303620" expanded="true" signature="635:699" placeholder="SELECT onder... onderzoek" />
-                <marker date="1484317303620" expanded="true" signature="2663:2843" placeholder="SELECT G.voo... gebruiker" />
-                <marker date="1484317303620" expanded="true" signature="3012:3417" placeholder="..." />
-                <marker date="1484317303620" expanded="true" signature="3471:3862" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="beheer_apen.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/beheer_apen.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.2692308">
-              <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding>
-                <marker date="1484680720802" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
-                <marker date="1484680720802" expanded="true" signature="1342:2412" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Instellingen.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/Instellingen.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.807693">
-              <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="67" />
-              <folding>
-                <marker date="1484659103602" expanded="true" signature="1111:1684" placeholder="..." />
-                <marker date="1484659103602" expanded="true" signature="1193:1417" placeholder="..." />
-                <marker date="1484659103602" expanded="true" signature="1535:1649" placeholder="..." />
-                <marker date="1484659103602" expanded="true" signature="1814:2193" placeholder="..." />
-                <marker date="1484659103602" expanded="true" signature="2044:2158" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nieuw_onderzoek.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/nieuw_onderzoek.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-              <folding>
-                <marker date="1484685126852" expanded="true" signature="1504:1616" placeholder="SELECT voorn... gebruiker" />
-                <marker date="1484685126852" expanded="true" signature="1682:2205" placeholder="..." />
-                <marker date="1484685126852" expanded="true" signature="1868:2183" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nieuw_proef.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/nieuw_proef.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.153846">
-              <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-              <folding>
-                <marker date="1484685268438" expanded="true" signature="915:950" placeholder="SELECT DATAT... DATATYPES" />
-                <marker date="1484685268438" expanded="true" signature="1933:2195" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bestaande_proef.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/bestaande_proef.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.1923075">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-              <folding>
-                <marker date="1484685292494" expanded="true" signature="473:501" placeholder="SELECT PROEF... PROEF" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="beheer_proef.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/containers/beheer_proef.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.384615">
-              <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-              <folding>
-                <marker date="1484685357160" expanded="true" signature="456:513" placeholder="SELECT PROEF... PROEF" />
-                <marker date="1484685357160" expanded="true" signature="1322:1357" placeholder="SELECT DATAT... DATATYPES" />
-                <marker date="1484685357160" expanded="true" signature="2198:2319" placeholder="SELECT V.VEL... VELD" />
-                <marker date="1484685357160" expanded="true" signature="2699:2923" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wachtwoord_vergeten_pre.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten_pre.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.5384617">
-              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-              <folding>
-                <marker date="1484685699512" expanded="true" signature="1014:1252" placeholder="..." />
-                <marker date="1484685699512" expanded="true" signature="1181:1241" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wachtwoord_vergeten.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66853935">
-              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-              <folding>
-                <marker date="1484685714310" expanded="true" signature="718:845" placeholder="SELECT vraag... GEBRUIKER" />
-                <marker date="1484685714310" expanded="true" signature="1027:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1072:1342" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1112:1334" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1151:1237" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1276:1319" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1390:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1421:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1455:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1488:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1640:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1683:1724" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="1844:2100" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="2020:2087" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="2239:2531" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="2451:2518" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="2670:2963" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="2883:2950" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="3110:3369" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="3289:3356" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="3515:3774" placeholder="..." />
-                <marker date="1484685714310" expanded="true" signature="3694:3761" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.59375">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="beheer_apen.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/containers/beheer_apen.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.6773723">
+                  <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
+                  <folding>
+                    <marker date="1484822040368" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
+                    <marker date="1484822040368" expanded="true" signature="1342:2412" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="addVariables.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/includes/addVariables.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-4.576923">
+                  <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+                  <folding>
+                    <marker date="1484055441510" expanded="true" signature="363:573" placeholder="..." />
+                    <marker date="1484055441510" expanded="true" signature="925:1135" placeholder="..." />
+                    <marker date="1484055441510" expanded="true" signature="1471:1681" placeholder="..." />
+                    <marker date="1484055441510" expanded="true" signature="2068:2278" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="beheer_proef.php" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/containers/beheer_proef.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-17.26923">
+                  <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+                  <folding>
+                    <marker date="1484685357160" expanded="true" signature="456:513" placeholder="SELECT PROEF... PROEF" />
+                    <marker date="1484685357160" expanded="true" signature="1322:1357" placeholder="SELECT DATAT... DATATYPES" />
+                    <marker date="1484685357160" expanded="true" signature="2198:2319" placeholder="SELECT V.VEL... VELD" />
+                    <marker date="1484685357160" expanded="true" signature="2699:2923" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file leaf-file-name="beheer_proef.php" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/containers/beheer_proef.php">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.98876405">
+                  <caret line="75" column="30" selection-start-line="75" selection-start-column="30" selection-end-line="75" selection-end-column="30" />
+                  <folding>
+                    <marker date="1484685357160" expanded="true" signature="456:513" placeholder="SELECT PROEF... PROEF" />
+                    <marker date="1484685357160" expanded="true" signature="1322:1357" placeholder="SELECT DATAT... DATATYPES" />
+                    <marker date="1484685357160" expanded="true" signature="2198:2319" placeholder="SELECT V.VEL... VELD" />
+                    <marker date="1484685357160" expanded="true" signature="2699:2923" placeholder="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -193,7 +103,6 @@
         <option value="$PROJECT_DIR$/handlers/login_handler.php" />
         <option value="$PROJECT_DIR$/containers/aap_In_onderzoek.php" />
         <option value="$PROJECT_DIR$/handlers/aapInOnderzoek_handler.php" />
-        <option value="$PROJECT_DIR$/containers/beheer_apen.php" />
         <option value="$PROJECT_DIR$/containers/Instellingen.php" />
         <option value="$PROJECT_DIR$/containers/nieuw_onderzoek.php" />
         <option value="$PROJECT_DIR$/containers/nieuw_proef.php" />
@@ -201,6 +110,7 @@
         <option value="$PROJECT_DIR$/containers/beheer_proef.php" />
         <option value="$PROJECT_DIR$/wachtwoord_vergeten_pre.php" />
         <option value="$PROJECT_DIR$/wachtwoord_vergeten.php" />
+        <option value="$PROJECT_DIR$/containers/beheer_apen.php" />
       </list>
     </option>
   </component>
@@ -230,7 +140,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -243,44 +153,7 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISE_project_gr9" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISE_project_gr9" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISE_project_gr9" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISE_project_gr9" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ISE_project_gr9" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -387,6 +260,17 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten_pre.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <marker date="1484685699512" expanded="true" signature="1014:1252" placeholder="..." />
+            <marker date="1484685699512" expanded="true" signature="1181:1241" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/includes/database_functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -413,7 +297,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -421,9 +304,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1484312977699" expanded="true" signature="352:443" placeholder="insert into aapInOnderzoek... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -432,8 +312,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1484680720802" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
-            <marker date="1484680720802" expanded="true" signature="1342:2412" placeholder="..." />
+            <marker date="1484822040368" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
+            <marker date="1484822040368" expanded="true" signature="1342:2412" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -472,7 +352,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -480,9 +359,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1484312977699" expanded="true" signature="352:443" placeholder="insert into aapInOnderzoek... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -491,8 +367,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1484680720802" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
-            <marker date="1484680720802" expanded="true" signature="1342:2412" placeholder="..." />
+            <marker date="1484822040368" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
+            <marker date="1484822040368" expanded="true" signature="1342:2412" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -523,7 +399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -531,9 +406,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1484312977699" expanded="true" signature="352:443" placeholder="insert into aapInOnderzoek... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -563,7 +435,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -673,7 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -681,9 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1484312977699" expanded="true" signature="352:443" placeholder="insert into aapInOnderzoek... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -695,29 +562,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers/beheer_apen.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2692308">
-          <caret line="5" column="19" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding>
-            <marker date="1484680720802" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
-            <marker date="1484680720802" expanded="true" signature="1342:2412" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/includes/FunctionsJ.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.125">
           <caret line="24" column="15" selection-start-line="24" selection-start-column="15" selection-end-line="24" selection-end-column="15" />
-          <folding>
-            <marker date="1484055978071" expanded="true" signature="591:692" placeholder="SELECT gebru... gebruiker" />
-            <marker date="1484055978071" expanded="true" signature="1179:1251" placeholder="UPDATE gebru... " />
-            <marker date="1484055978071" expanded="true" signature="1409:1508" placeholder="SELECT gebru... gebruiker" />
-            <marker date="1484055978071" expanded="true" signature="2060:2139" placeholder="UPDATE gebru... " />
-            <marker date="1484055978071" expanded="true" signature="2151:2218" placeholder="SELECT gebru... gebruiker" />
-            <marker date="1484055978071" expanded="true" signature="2621:2693" placeholder="UPDATE gebru... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -725,13 +573,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26264045">
           <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/containers/beheer_onderzoek.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-46.423077">
+        <state vertical-scroll-proportion="0.0">
           <caret line="83" column="96" selection-start-line="83" selection-start-column="94" selection-end-line="83" selection-end-column="96" />
           <folding>
             <marker date="1484317303620" expanded="true" signature="112:180" placeholder="SELECT gebru... GebruikerInOnderzoek" />
@@ -743,22 +590,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/containers/beheer_proef.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-          <folding>
-            <marker date="1484685357160" expanded="true" signature="456:513" placeholder="SELECT PROEF... PROEF" />
-            <marker date="1484685357160" expanded="true" signature="1322:1357" placeholder="SELECT DATAT... DATATYPES" />
-            <marker date="1484685357160" expanded="true" signature="2198:2319" placeholder="SELECT V.VEL... VELD" />
-            <marker date="1484685357160" expanded="true" signature="2699:2923" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/containers/bestaande_proef.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
           <folding>
             <marker date="1484685292494" expanded="true" signature="473:501" placeholder="SELECT PROEF... PROEF" />
@@ -768,7 +602,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers/nieuw_proef.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.153846">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
           <folding>
             <marker date="1484685268438" expanded="true" signature="915:950" placeholder="SELECT DATAT... DATATYPES" />
@@ -779,7 +613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers/nieuw_onderzoek.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.1923075">
+        <state vertical-scroll-proportion="0.0">
           <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
           <folding>
             <marker date="1484685126852" expanded="true" signature="1504:1616" placeholder="SELECT voorn... gebruiker" />
@@ -791,7 +625,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/containers/Instellingen.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
+        <state vertical-scroll-proportion="0.0">
           <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
           <folding />
         </state>
@@ -799,7 +633,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.461538">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="14" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="67" />
           <folding>
             <marker date="1484659103602" expanded="true" signature="1111:1684" placeholder="..." />
@@ -813,7 +647,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten_pre.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.5384617">
+        <state vertical-scroll-proportion="0.0">
           <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
           <folding>
             <marker date="1484685699512" expanded="true" signature="1014:1252" placeholder="..." />
@@ -824,7 +658,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wachtwoord_vergeten.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66853935">
+        <state vertical-scroll-proportion="0.0">
           <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding>
             <marker date="1484685714310" expanded="true" signature="718:845" placeholder="SELECT vraag... GEBRUIKER" />
@@ -849,6 +683,81 @@
             <marker date="1484685714310" expanded="true" signature="3289:3356" placeholder="..." />
             <marker date="1484685714310" expanded="true" signature="3515:3774" placeholder="..." />
             <marker date="1484685714310" expanded="true" signature="3694:3761" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/addInputs.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.76404494">
+          <caret line="32" column="1" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding>
+            <marker date="1484667446017" expanded="true" signature="117:172" placeholder="..." />
+            <marker date="1484667446017" expanded="true" signature="234:304" placeholder="..." />
+            <marker date="1484667446017" expanded="true" signature="377:430" placeholder="SELECT veld_... Veld" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/addVariables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <marker date="1484055441510" expanded="true" signature="363:573" placeholder="..." />
+            <marker date="1484055441510" expanded="true" signature="925:1135" placeholder="..." />
+            <marker date="1484055441510" expanded="true" signature="1471:1681" placeholder="..." />
+            <marker date="1484055441510" expanded="true" signature="2068:2278" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/containers/beheer_proef.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.26923">
+          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding>
+            <marker date="1484685357160" expanded="true" signature="456:513" placeholder="SELECT PROEF... PROEF" />
+            <marker date="1484685357160" expanded="true" signature="1322:1357" placeholder="SELECT DATAT... DATATYPES" />
+            <marker date="1484685357160" expanded="true" signature="2198:2319" placeholder="SELECT V.VEL... VELD" />
+            <marker date="1484685357160" expanded="true" signature="2699:2923" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/insertResults.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.28932583">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+          <folding>
+            <marker date="1483968125302" expanded="true" signature="573:717" placeholder="select aap_i... aap" />
+            <marker date="1483968125302" expanded="true" signature="611:716" placeholder="select * fro... AAPINONDERZOEK" />
+            <marker date="1483968125302" expanded="true" signature="792:860" placeholder="select VELD_... veld" />
+            <marker date="1483968125302" expanded="true" signature="885:1018" placeholder="SELECT waard... WAARDE" />
+            <marker date="1483968125302" expanded="true" signature="1146:1197" placeholder="DELETE FROM " />
+            <marker date="1483968125302" expanded="true" signature="1243:1387" placeholder="select aap_i... aap" />
+            <marker date="1483968125302" expanded="true" signature="1281:1386" placeholder="select * fro... AAPINONDERZOEK" />
+            <marker date="1483968125302" expanded="true" signature="1460:1528" placeholder="select VELD_... veld" />
+            <marker date="1483968125302" expanded="true" signature="1607:1718" placeholder="INSERT INTO waarde... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32249323">
+          <caret line="83" column="47" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/containers/beheer_apen.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6773723">
+          <caret line="49" column="93" selection-start-line="49" selection-start-column="93" selection-end-line="49" selection-end-column="93" />
+          <folding>
+            <marker date="1484822040368" expanded="true" signature="1128:1240" placeholder="SELECT aap_i... aap" />
+            <marker date="1484822040368" expanded="true" signature="1342:2412" placeholder="..." />
           </folding>
         </state>
       </provider>

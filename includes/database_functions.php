@@ -26,6 +26,11 @@ $db;
           }
      }
 
+     function db_query_only($sql) {
+          $stmt = sqlsrv_query($GLOBALS['$db'], $sql);
+          return $stmt;
+     }
+
      function db_insert($sql){
           $stmt = sqlsrv_query($GLOBALS['$db'], $sql);
      }

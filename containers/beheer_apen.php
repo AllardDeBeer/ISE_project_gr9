@@ -22,13 +22,14 @@
               <th width="15%">Datum gewicht</th>
               <th width="17%">Behandelgroep</th>
               <th width="5%">Dominantie</th>
+              <th width="3%">Kooinummer</th>
             </tr>
           </thead>
           <tbody id="livesearch">
             <!-- Live reloading content -->
             <?php
               db_open();
-              $stmt = db_query("SELECT aap_id, DIERSOORT,geslacht, geboortedatum, gewicht, DATUMGEWICHTMETING, BEHANDELGROEP, DOMINANT  FROM aap");
+              $stmt = db_query("SELECT aap_id, DIERSOORT,geslacht, geboortedatum, gewicht, DATUMGEWICHTMETING, BEHANDELGROEP, DOMINANT, KOOINUMMER FROM aap");
               $i = 0;
               while($row = db_fetchAssoc($stmt)) {
                 echo "<tr>
@@ -40,6 +41,7 @@
                       <td><input type=\"text\" class=\"wdate\" id=\"aapGewichtDatum\" name=\"aapData\" value=\"" . date('d/m/Y', $row["DATUMGEWICHTMETING"]->getTimestamp()) . "\" required></td>
                       <td><input type=\"text\" name=\"aapData\" id=\"aapBehandelGroep\" value=\"" . $row['BEHANDELGROEP'] . "\" required></td>
                       <td><input type=\"text\" name=\"aapData\" id=\"aapDominantie\" value=\"" . $row['DOMINANT'] . "\" required></td>
+                      <td><input type=\"text\" name=\"aapData\" id=\"aapKooiNummer\" value=\"" . $row['KOOINUMMER'] . "\" required></td>
                     </tr>";
                 $i = $i + 1;
               }

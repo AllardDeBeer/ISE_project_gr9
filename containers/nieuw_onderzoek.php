@@ -13,13 +13,13 @@
     <input type="text" name="researchName" required>
     <div class="expanded row">
       <div class="column large-4">
-          Startdatum: <input type="text" name="researchStart" id="datepickerB">
+          Startdatum: <input type="text" name="researchStart" id="datepickerB" required>
       </div>
       <div class="column large-4">
-          Einddatum: <input type="text" name="reasearchEnd" id="datepickerE">
+          Einddatum: <input type="text" name="reasearchEnd" id="datepickerE" required>
       </div>
       <div class="column large-4">
-          Project: <input type="number" name="project">
+          Project: <input type="number" name="project" required>
       </div>
     </div>
     <script>

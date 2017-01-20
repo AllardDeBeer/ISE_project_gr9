@@ -6,7 +6,7 @@
 	$data = explode('|', $q);
 	$response = "";
 
-	for ($i = 0; $i < sizeof($data); $i += 8) {
+	for ($i = 0; $i < sizeof($data); $i += 9) {
 
 		$aapid					= $data[$i];
 		$geboortedatum 			= $data[$i+3];
@@ -19,17 +19,24 @@
 		}
 		$behandelgroep 			= $data[$i+6];
 		$datumgewichtmeting 	= $data[$i+5];
+		$kooinummer				= $data[$i+8];
+		if (empty($kooinummer) && !($kooinummer == "0")) {
+			$kooinummer = 'NULL';
+		}
 
 		$sql = "
 				UPDATE AAP 
-				SET GEBOORTEDATUM = '$geboortedatum', DIERSOORT = '$diersoort', GESLACHT = '$geslacht', GEWICHT = $gewicht, DOMINANT = $dominant, BEHANDELGROEP = '$behandelgroep', DATUMGEWICHTMETING = '$datumgewichtmeting'
+				SET GEBOORTEDATUM = '$geboortedatum', DIERSOORT = '$diersoort', GESLACHT = '$geslacht', GEWICHT = $gewicht, DOMINANT = $dominant, BEHANDELGROEP = '$behandelgroep', DATUMGEWICHTMETING = '$datumgewichtmeting', KOOINUMMER = $kooinummer
 				WHERE AAP_ID = '$aapid';";
 		db_open();
 		db_query("SET LANGUAGE british");
-		db_query($sql);
-
+		$stmt = db_query_only($sql);
+		if ($stmt == false ) {
+			$response = 'mislukt';
+		} 
 		db_query("SET LANGUAGE us_english");
 		db_close();
+
 	}
 
 
@@ -50,6 +57,8 @@
 	    $i = $i + 1;
 	}
 	db_close();*/
-	$response = 'gelukt';
+	if ($response != "mislukt") {
+		$response = "gelukt";
+	}
 	echo $response;
 ?>

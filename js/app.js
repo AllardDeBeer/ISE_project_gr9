@@ -178,6 +178,12 @@ function updateMonkeys(str) {
         } else {
           window.location.replace("../index.php?m=19#beheer_apen")
         }
+      } else if (this.responseText == 'mislukt') {
+        if (window.location.href == ("http://localhost/index.php?m=20#beheer_apen" || "http://localhost:8080/index.php?m=20#beheer_apen")) {
+          window.location.reload();
+        } else {
+          window.location.replace("../index.php?m=20#beheer_apen")
+        }
       }
     }
   }
