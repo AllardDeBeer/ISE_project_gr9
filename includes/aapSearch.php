@@ -15,12 +15,6 @@ $quarray= explode( '‽', $q );
 $response="";
 
 
-	
-
-
-
-$p=rtrim(substr($_GET['p'], 2), "]");
-
 $currentResearch=$_SESSION['onderzoek'];
 
 
@@ -65,11 +59,6 @@ while($row = db_fetchAssoc($stmt)) {
 					}	
 }
 				
-				
-
-				
-				
-			
 				
 					$response .= "></td>
 					</tr>";
