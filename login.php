@@ -60,7 +60,7 @@
 										<a href="wachtwoord_vergeten_pre.php"> Wachtwoord vergeten?</a> 
 									</div>
 									<div class ="row">
-										<input type="submit" class="button" value="Submit">
+										<input type="submit" class="button" value="Inloggen">
 									</div>
 								</form>
 						 	</div>
