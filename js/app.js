@@ -174,7 +174,7 @@ function addExistingTest(testName, status, id) {
   xmlhttp.onreadystatechange=function() {
     if (this.readyState == 4 && this.status == 200) {
       if (this.responseText == 'gelukt') {
-        if (window.location.href == ("../index.php?m=18#bestaande_proef")) {
+        if (window.location.href == ("http://localhost/index.php?m=18#bestaande_proef" || "http://localhost:8080/index.php?m=18#bestaande_proef")) {
           window.location.reload();
         } else {
           window.location.replace("../index.php?m=18#bestaande_proef");
@@ -253,10 +253,9 @@ function prepareGraph() {
   });
 }
 
-function preparePage(hl){
+function preparePage(){
   prepareResults();
   prepareGraph();
-  setSessionVariable("hl", hl);
 }
 function throwPins(){
 	window.pins = "";
@@ -348,4 +347,23 @@ function getRandomColor() {
 function setVarOptionsMaxHeight(){
   var maxHeight = window.innerHeight - $("#subMenuTitle").height() - $("#subMenuAmount").height() - $("#subMenuPresentation").height() - $("#subMenuSubmit").height() - $("#subMenuMonkey").height();
   $("#varOptions").css('max-height', maxHeight);
+}
+
+function openTab(evt, tabName) {
+    var i;
+    var tabcontent;
+    var tablinks;
+
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
 }

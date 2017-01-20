@@ -24,9 +24,6 @@ session_start();
           <div class="column large-12">
             <span>2. Presentatie</span>
           </div>
-          <div class="column large-12">
-            <span>Grafieksoort</span>
-          </div>
           <ul class="button-group toggle" data-toggle="buttons-radio">
             <li>
               <input type="radio" id="r1" value="line" name="r-group" data-toggle="button" checked="">
@@ -53,15 +50,6 @@ session_start();
               <label class="button" for="r6"><i class="material-icons">bubble_chart</i></label>
             </li>
           </ul>
-          <div class="column large-12">
-            <span>Toon hoogste & laagste waarden niet</span>
-            <div class="switch">
-              <input class="switch-input" id="HL" type="checkbox" name="HL">
-              <label class="switch-paddle" for="HL">
-                <span class="show-for-sr">Toon hoogste/laagste</span>
-              </label>
-            </div>
-          </div>
         </div>
         <div class="expanded row border_bottom" id="varOptions">
           <div class="column large-12">
@@ -76,7 +64,7 @@ session_start();
             <span>4. Start</span>
           </div>
           <div class="column large-12">
-            <input type="button" value="Teken" class="button" onclick="preparePage($('#HL').is(':checked'))">
+            <input type="button" value="Teken" class="button" onclick="preparePage()">
           </div>
         </div>
         <div class="expanded row currentMonkey align-self-bottom" id="subMenuMonkey">
@@ -84,22 +72,7 @@ session_start();
             <h4 class="text-center">Huidige aap</h4>
           </div>
           <div class="column large-12">
-            <select name="monkeySelect" id="monkeySelect" onchange="setSessionVariable('aap1', this.value); prepareResults()" required>
-            <option disabled selected value> -- Kies een aap -- </option>
-              <?php
-                db_open();
-
-                $stmt = db_query("SELECT aap_id FROM AapInOnderzoek WHERE onderzoek_id =" . $_SESSION['onderzoek']);
-                while($row = db_fetchAssoc($stmt)){
-                  echo "<option value=\"" . $row['aap_id'] . "\">" . $row['aap_id'] . "</option>";
-                }
-
-                db_close();
-              ?>
-            </select>
-          </div>
-          <div class="column large-12">
-            <select name="monkeySelect2" id="monkeySelect2" onchange="setSessionVariable('aap2', this.value); prepareResults()" required>
+            <select name="monkeySelect" id="monkeySelect" onchange="setSessionVariable('aap', this.value); prepareResults()" required>
             <option disabled selected value> -- Kies een aap -- </option>
               <?php
                 db_open();

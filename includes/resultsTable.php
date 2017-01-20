@@ -8,7 +8,7 @@ $ids = explode("][", $q);
 $table_head = "<thead><tr><th>Datum</th>";
 $table_body = "<tbody>";
 
-//$table_data = array();
+$table_data = array();
 $table_dates = array();
 $i = 0;
 
@@ -25,50 +25,26 @@ if($ids[0] == ""){
 	db_open();
 	//echo "before!";
 	$header = true;
-	$header_set = true;
-	$push_monkeys = true;
-	$push_ids = true;
 	$stmt = db_query("SELECT DISTINCT Datum FROM Waarden2 WHERE aap_id ='" . $_SESSION['aap'] . "' ORDER BY Datum");
 	while($date = db_fetchAssoc($stmt)){
 		$d = date('m/d/Y', $date['Datum']->getTimestamp());
 		array_push($table_dates, $d);
-		for ($a=0; $a < 2; $a++) { 
-			if($push_monkeys){
-				array_push($table_data, array());				
-			}
-			foreach ($ids as $id) {
-				// if($push_ids){
-					array_push($table_data[$a], array());
-				// }
-			 	$stmt2 = db_query("SELECT (SELECT waarde FROM Waarden2 WHERE veld_id =" . $id . " AND aap_id ='" . $_SESSION['aap' . ($a-1)] . "' AND Datum = '" . $d . "') AS waarde");
-			 	if($header){
-			 		$veld = db_fetchAssoc(db_query("SELECT veld_naam FROM Veld WHERE veld_id =" . $id))['veld_naam'];
-					$table_head .= "<th>" . $_SESSION['aap' . $a] . ':' . $veld . "</th>";
-			 	}
-				
-				while($row = db_fetchAssoc($stmt2)){
-					array_push($table_data[$a][$i], $row['waarde']);
-				}
-				$i = $i + 1;
-				$header = false;
-			}
-			if($header_set){
-				$header = true;				
-			}
+		array_push($table_data, array());
+		foreach ($ids as $id) {
+		 	$stmt2 = db_query("SELECT (SELECT waarde FROM Waarden2 WHERE veld_id =" . $id . " AND aap_id ='" . $_SESSION['aap'] . "' AND Datum = '" . $d . "') AS waarde");
+		 	if($header){
+		 		$veld = db_fetchAssoc(db_query("SELECT veld_naam FROM Veld WHERE veld_id =" . $id))['veld_naam'];
+				$table_head .= "<th>" . $veld . "</th>";
+		 	}
 			
-			$i = 0;
+			while($row = db_fetchAssoc($stmt2)){
+				array_push($table_data[$i], $row['waarde']);
+			}
 		}
-		$header_set = false;
+		$i = $i + 1;
 		$header = false;
-		$push_monkeys = false;
-		$push_ids = false;
 	}
 	db_close();
-	print_r($table_data);
-	if($_SESSION['hl'] == "true"){
-		array_pop($table_data);
-		array_shift($table_data);
-	}
 	//print_r($table_data);
 	//echo "after";
 	// $table_dates = "<tr>";
@@ -82,25 +58,10 @@ if($ids[0] == ""){
 		// 	$table_body .= "</tr>";
 		// }
 	//}
-	// for ($z=0; $z < sizeof($table_data); $z++) { 
-	// 	$table_body .= "<tr>";
-	// 	for ($x=0; $x < sizeof($table_dates[0]); $x++) { 
-	// 		$table_body .= "<tr><td>" . $table_dates[$x] . "</td>";
-	// 		for ($y=0; $y < sizeof($table_data[0][0]); $y++) { 
-	// 			$table_body .= "<td>" . $table_data[$x][$y] . "</td>";
-	// 		}
-	// 		$table_body .= "</tr>";
-	// 	}
-	// }
-	$table_body .= "<tr><td>"  . sizeof($table_data) . "</td><td>"  . sizeof($table_data[0]) . "</td><td>"  . sizeof($table_data[0][0]) . "</td></tr>";
-	for ($x=0; $x < sizeof($table_data[0][0]); $x++) { 
-		$table_body .= "<tr><td>1</td>";
+	for ($x=0; $x < sizeof($table_dates); $x++) { 
+		$table_body .= "<tr><td>" . $table_dates[$x] . "</td>";
 		for ($y=0; $y < sizeof($table_data[0]); $y++) { 
-			$table_body .= "<td>";
-			for ($z=0; $z < sizeof($table_data); $z++) { 
-				$table_body .= $table_data[$z][$y][$x];
-			}
-			$table_body .= "</td>";
+			$table_body .= "<td>" . $table_data[$x][$y] . "</td>";
 		}
 		$table_body .= "</tr>";
 	}
