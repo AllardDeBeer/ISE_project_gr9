@@ -7,7 +7,7 @@
 	$currentResearch = $_SESSION['onderzoek'];
 	$currentTest = $_SESSION['proef'];
 	$velden_array = array();
-	$response.="<th>aap</th>";
+	$response.="<th>Aap</th>";
 	$aap_ids = array();
 	$stmt = db_query("select VELD_NAAM,veld_id from veld where PROEF_ID = '$currentTest'");		
 	while( $column = db_fetchNumeric($stmt) ) {
@@ -68,7 +68,7 @@
 	$_SESSION['insertDate'] = $date; 
 	$_SESSION['waardeID'] = $waarden_idArray;
 	$response.= '<input type ="hidden" value="' . $counter . '" name="boop">';
-	$response.=	'<input type="submit" value="opslaan" class="button">';
+	$response.=	'<input type="submit" value="Opslaan" class="button">';
 	$response.='<select name="username" id="username" >';
 	$stmt4 = db_query("select gebruikersnaam from gebruiker
 	where gebruikersnaam in(
