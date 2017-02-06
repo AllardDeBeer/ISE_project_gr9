@@ -57,6 +57,6 @@ echo $waarde_type;
 	$waardeteller++;
 }
 	
-	header('location: http://localhost:8080/index.php#nieuw_resultaten');
+	header('location: ../index.php#nieuw_resultaten');
 	db_close();
 ?>
